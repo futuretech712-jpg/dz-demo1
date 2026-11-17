@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detailerz Zagreb</title>
+<meta name="description" content="Car detailing Zagreb i okolica: dubinsko čišćenje interijera, poliranje, keramička zaštita i PPF folija. Fiksna cijena prije početka, preuzimanje vozila. Velika Gorica, Zaprešić, Samobor, Sesvete.">
+<meta name="keywords" content="car detailing Zagreb, poliranje auta Zagreb, keramička zaštita Zagreb, kemijsko čišćenje auta, PPF folija Zagreb, detailing Velika Gorica, detailing Zaprešić, detailing Samobor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Detailerz · Car detailing Zagreb">
+<meta property="og:description" content="Opet kao iz salona. Car detailing u Zagrebu: fiksna cijena prije početka i primopredaja pod LED svjetlom.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#0c0d10">
+<!-- DEMO: stranica se ne prikazuje na Googleu. Za pravu objavu obriši sljedeći red i robots.txt. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutoWash","name":"Detailerz","description":"Car detailing studio u Zagrebu: pranje, dubinsko čišćenje, poliranje, keramička zaštita, PPF.","image":"img/hero.jpg","telephone":"+385910000000","email":"info@detailerz.hr","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"[ADRESA]","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"areaServed":["Zagreb","Novi Zagreb","Sesvete","Velika Gorica","Zaprešić","Samobor","Sveta Nedelja","Dugo Selo","Zagrebačka županija"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"15:00"}]}
+</script>
+<style>
+:root{
+  /* Detailerz: grafitna noć + narančasta kočiona čeljust. Jedan akcent, sve ostalo tiho.
+     Layout: široki naslovi u Archivo Expanded, sadržaj u stupcima, "mjerač laka" kao motiv. */
+  --ink:#0c0d10; --ink-2:#13151a; --panel:#1a1d24; --line:#2a2e38;
+  --text:#eceef2; --muted:#9097a4; --accent:#ff6a1a; --accent-ink:#1a0c03;
+  --ok:#3ecf8e;
+  --display:'Archivo','Arial Narrow',system-ui,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:14px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--ink);color:var(--text);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(1.9rem,4.4vw,3.3rem);font-weight:800;text-transform:uppercase;max-width:20ch}
+h3{font-size:1.06rem;font-weight:700;font-stretch:112%}
+.kicker{display:flex;align-items:center;gap:.6rem;font:600 .74rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.kicker::before{content:"";width:22px;height:2px;background:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:.84rem}
+.sec{padding:clamp(4rem,9vw,7rem) 0}
+.sec.alt{background:var(--ink-2)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.sec-head p{max-width:46ch;color:var(--muted)}
+.placeholder-tag{position:absolute;z-index:3;left:10px;bottom:10px;background:rgba(0,0,0,.72);border:1px dashed #6b7280;color:#cbd0d8;font:600 .66rem/1 var(--body);letter-spacing:.06em;padding:.4rem .55rem;border-radius:6px;text-transform:uppercase}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:0 1.4rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{background:#ff8240}
+.btn-line{border-color:#3a3f4b;background:rgba(255,255,255,.02)}
+.btn-line:hover{border-color:var(--accent)}
+.btn-sm{min-height:38px;padding:0 1rem;font-size:.85rem}
+
+/* top */
+.promo{background:linear-gradient(90deg,#ff6a1a,#ff8a3d 50%,#ff6a1a);color:var(--accent-ink);font-size:.82rem;font-weight:600}
+.promo[hidden]{display:none}
+.promo-in{display:flex;align-items:center;justify-content:center;gap:.8rem;min-height:38px;position:relative;padding-right:40px}
+.promo p{margin:0;text-align:center}
+.promo a{color:inherit;font-weight:800;text-underline-offset:3px;white-space:nowrap}
+.promo-tag{background:var(--accent-ink);color:#ffb98f;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem;border-radius:5px;flex:none}
+.promo .ps{display:none}
+.promo-x{position:absolute;right:0;top:50%;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:8px;background:rgba(0,0,0,.08);color:var(--accent-ink);cursor:pointer;font-size:.8rem}
+.promo-x:hover{background:rgba(0,0,0,.18)}
+header.nav{position:sticky;top:0;z-index:40;background:rgba(12,13,16,.72);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:background .3s,border-color .3s,box-shadow .3s}
+header.nav.scrolled{background:rgba(12,13,16,.94);border-bottom-color:var(--line);box-shadow:0 10px 30px -18px #000}
+.nav-in{display:flex;align-items:center;gap:2rem;height:72px;transition:height .3s}
+header.nav.scrolled .nav-in{height:60px}
+.logo{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1.4rem;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;flex:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:.3rem;margin:0 auto;padding:4px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:600;padding:.45rem .85rem;border-radius:9px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-links a.active{color:var(--text);background:rgba(255,106,26,.14)}
+.nav-links a::after{display:none}
+.nav-right{display:flex;align-items:center;gap:.8rem;flex:none}
+.nav-tel{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;font-size:.88rem;white-space:nowrap;color:var(--text);padding:.4rem .2rem}
+.nav-tel svg{width:18px;height:18px;color:var(--accent)}
+.nav-tel:hover span{color:var(--accent)}
+.burger{display:none;position:relative;z-index:46;background:var(--panel);border:1px solid var(--line);border-radius:10px;width:46px;height:46px;cursor:pointer;padding:0}
+.burger i{position:absolute;left:13px;width:20px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .2s,top .3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:28px}
+.burger[aria-expanded="true"] i:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){top:22px;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:45;background:rgba(10,11,14,.98);backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:space-between;padding:96px 20px calc(24px + env(safe-area-inset-bottom));transform:translateX(100%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility .45s;overflow-y:auto}
+.mnav.open{transform:none;visibility:visible}
+.mnav-links{display:grid}
+.mnav-links a{display:flex;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line);text-decoration:none;font-family:var(--display);font-stretch:118%;font-weight:800;font-size:1.45rem;text-transform:uppercase;transform:translateX(24px);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s,color .2s}
+.mnav-links a small{font:700 .72rem var(--body);color:var(--accent);letter-spacing:.1em}
+.mnav-links a:hover{color:var(--accent)}
+.mnav.open .mnav-links a{transform:none;opacity:1}
+.mnav-foot{display:grid;gap:.6rem;margin-top:2rem}
+.mnav-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.mnav-foot svg{width:18px;height:18px}
+body.menu-open{overflow:hidden}
+body.menu-open header.nav{z-index:60;background:rgba(10,11,14,.98)}
+body.menu-open .fabs,body.menu-open .mbar-cta,body.menu-open .cookie{display:none}
+body.menu-open .nav-tel{visibility:hidden}
+.mnav.open .mnav-links a:nth-child(1){transition-delay:0.09s}.mnav.open .mnav-links a:nth-child(2){transition-delay:0.13s}.mnav.open .mnav-links a:nth-child(3){transition-delay:0.17s}.mnav.open .mnav-links a:nth-child(4){transition-delay:0.21s}.mnav.open .mnav-links a:nth-child(5){transition-delay:0.25s}.mnav.open .mnav-links a:nth-child(6){transition-delay:0.29s}.mnav.open .mnav-links a:nth-child(7){transition-delay:0.33s}.mnav.open .mnav-links a:nth-child(8){transition-delay:0.37s}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,920px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero picture img{width:100%;height:100%;object-fit:cover;object-position:70% 35%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,13,16,.2),rgba(12,13,16,.1) 40%,rgba(12,13,16,.92) 82%),linear-gradient(90deg,rgba(12,13,16,.85),transparent 60%)}
+.hero-in{padding:7rem 0 3rem}
+.hero h1{font-size:clamp(2.8rem,9vw,7.6rem);font-weight:900;text-transform:uppercase;max-width:11ch;
+  background:linear-gradient(100deg,var(--text) 0%,var(--text) 42%,#fff 48%,var(--accent) 50%,#fff 52%,var(--text) 58%,var(--text) 100%);
+  background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:inspect 2.6s .4s cubic-bezier(.6,.1,.3,1) both}
+@keyframes inspect{from{background-position:100% 0}to{background-position:0 0}}
+.hero .hero-sub{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c9ced8;max-width:48ch;margin:1.4rem 0 2rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-credit .m{display:none}
+.gauge{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.6rem;padding:.5rem .9rem .5rem .6rem;border:1px solid var(--line);border-radius:999px;background:rgba(12,13,16,.6);font-size:.8rem;color:var(--muted)}
+.gauge b{font-family:var(--display);font-stretch:100%;color:var(--text);font-variant-numeric:tabular-nums;font-size:.95rem}
+.gauge .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(62,207,142,.18)}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.2rem;border-top:1px solid var(--line)}
+.trust div{padding:1.1rem 1rem 0 0}
+.trust b{display:block;font-family:var(--display);font-stretch:125%;font-size:1.25rem}
+.trust span{font-size:.82rem;color:var(--muted)}
+
+/* size switch */
+.sizes{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.sizes button{border:0;background:none;padding:.55rem .95rem;border-radius:9px;font-weight:600;font-size:.85rem;color:var(--muted);cursor:pointer;min-height:40px}
+.sizes button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svc{background:var(--ink-2);padding:1.6rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;position:relative;transition:background .25s}
+.svc:hover{background:#181b21}
+.svc::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent);transition:width .35s}
+.svc:hover::after{width:100%}
+.svc svg{width:30px;height:30px;color:var(--accent)}
+.svc p{font-size:.88rem;color:var(--muted);flex:1}
+.svc-meta{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:.9rem;margin-top:.4rem}
+.svc-meta b{font-family:var(--display);font-stretch:110%;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.svc-meta b small{font-size:.7rem;color:var(--muted);font-weight:600;margin-right:.25rem}
+.svc-meta span{font-size:.78rem;color:var(--muted)}
+.svc a{font-size:.85rem;font-weight:700;color:var(--accent);text-decoration:none}
+
+/* packages comparison */
+.cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table.cmp{width:100%;border-collapse:collapse;min-width:720px}
+.cmp th,.cmp td{padding:1rem 1.1rem;border-bottom:1px solid var(--line);text-align:center;font-size:.92rem}
+.cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--muted);font-weight:500;width:34%}
+.cmp thead th{vertical-align:bottom;padding-top:1.6rem;background:var(--panel)}
+.cmp .pk-name{font-family:var(--display);font-stretch:125%;font-size:1.3rem;font-weight:800;text-transform:uppercase}
+.cmp .pk-lvl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cmp .pk-price{font-family:var(--display);font-stretch:100%;font-weight:800;font-size:2rem;font-variant-numeric:tabular-nums;margin-top:.3rem}
+.cmp .hot{background:rgba(255,106,26,.07);position:relative}
+.cmp thead .hot{background:linear-gradient(180deg,rgba(255,106,26,.18),rgba(255,106,26,.06))}
+.cmp .tag{display:inline-block;background:var(--accent);color:var(--accent-ink);font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .55rem;border-radius:6px;margin-bottom:.6rem}
+.yes{color:var(--accent);font-weight:800}
+.no{color:#4a505c}
+.cmp tfoot td{border-bottom:0;padding:1.2rem 1rem}
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.4rem}
+.sub{border:1px dashed #3a3f4b;border-radius:var(--r);padding:1.1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.sub b{font-family:var(--display);font-stretch:112%}
+.sub .p{font-family:var(--display);font-stretch:100%;font-weight:800;color:var(--accent);white-space:nowrap;font-size:1.2rem}
+
+
+/* cjenik */
+table.plist{width:100%;border-collapse:collapse;min-width:760px;font-size:.92rem}
+.plist th,.plist td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top}
+.plist th:first-child,.plist td:first-child{text-align:left}
+.plist thead th{background:var(--panel);font-family:var(--display);font-stretch:112%;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;position:sticky;top:0}
+.plist td.t{color:var(--muted);font-size:.82rem;text-align:left;white-space:nowrap}
+.plist tr.grp td{background:var(--ink-2);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding-top:1.1rem}
+.plist .on{background:rgba(255,106,26,.08)}
+.plist thead .on{background:rgba(255,106,26,.2);color:#fff}
+.plist small{display:block;color:var(--muted);font-size:.7rem;font-weight:500}
+.plist tbody tr:not(.grp):hover td{background:rgba(255,255,255,.025)}
+.calc-grp{grid-column:1/-1;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:.6rem}
+/* calculator */
+.calc{display:grid;grid-template-columns:1.45fr 1fr;gap:2.4rem;align-items:start}
+.lbl{display:block;font-weight:700;font-size:.85rem;margin:1.4rem 0 .6rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--panel);cursor:pointer;font-size:.88rem;min-height:48px}
+.opt:has(input:checked){border-color:var(--accent);background:rgba(255,106,26,.07)}
+.opt input{accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt .l{display:flex;gap:.65rem;align-items:center}
+.opt .pr{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.receipt{position:sticky;top:96px;background:#f2f0ea;color:#16171a;border-radius:6px;padding:1.6rem 1.5rem 1.4rem;font-family:var(--body);box-shadow:0 30px 60px -25px #000;
+  -webkit-mask:radial-gradient(circle 7px at 50% 100%,transparent 6.5px,#000 7px) 0 0/18px 100% repeat-x;mask:radial-gradient(circle 7px at bottom,transparent 6.5px,#000 7px) 0 0/18px 100% repeat-x}
+.receipt .rh{display:flex;justify-content:space-between;font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;border-bottom:2px dashed #b9b6ad;padding-bottom:.8rem;margin-bottom:.8rem}
+.receipt ul{list-style:none;font-size:.86rem;min-height:3rem}
+.receipt li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;font-variant-numeric:tabular-nums}
+.receipt .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed #b9b6ad;margin-top:.8rem;padding-top:.8rem}
+.receipt .tot b{font-family:var(--display);font-stretch:100%;font-size:2.2rem;font-weight:900;font-variant-numeric:tabular-nums}
+.receipt .note{font-size:.74rem;color:#5d5f66;margin:.6rem 0 1rem}
+.receipt .tip{background:#ffe2cf;border-radius:6px;padding:.5rem .7rem;font-size:.78rem;margin-top:.6rem}
+.receipt .btn{width:100%}
+
+/* before after */
+.ba{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .before{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}
+.ba .bar{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--accent);pointer-events:none;z-index:2}
+.ba .knob{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink);font-weight:900;box-shadow:0 0 0 7px rgba(255,106,26,.25)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}
+.ba .lab{position:absolute;top:12px;z-index:3;font:700 .72rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;background:rgba(0,0,0,.65);padding:.45rem .7rem;border-radius:6px}
+.ba .lab.l{left:12px}.ba .lab.r{right:12px}
+.ba-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;font-size:.85rem;color:var(--muted)}
+.ba-meta b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.why div{border-top:2px solid var(--accent);padding-top:1.2rem}
+.why svg{width:34px;height:34px;color:var(--accent);margin-bottom:.9rem}
+.why p{color:var(--muted);font-size:.9rem;margin-top:.5rem}
+
+/* process */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.steps li{counter-increment:s;padding:1.6rem 1.4rem;border-right:1px solid var(--line);position:relative;background:var(--ink-2)}
+.steps li:last-child{border-right:0}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:2.4rem;color:transparent;-webkit-text-stroke:1px var(--accent);margin-bottom:.8rem}
+.steps p{font-size:.88rem;color:var(--muted);margin-top:.3rem}
+
+/* honest ceramic */
+.honest{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.honest p{color:#c3c8d1;margin-bottom:1rem;max-width:58ch}
+.meter{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;padding:.8rem 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.mrow:last-child{border-bottom:0}
+.mrow span{color:var(--muted)}
+.mrow b{font-variant-numeric:tabular-nums}
+.mbar{grid-column:1/-1;height:6px;border-radius:6px;background:#262a33;overflow:hidden}
+.mbar i{display:block;height:100%;background:linear-gradient(90deg,#ff9a5f,var(--accent))}
+.mbar i.prom{background:#4a505c}
+
+/* reviews */
+.rv-top{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.g-badge{display:flex;align-items:center;gap:.8rem;border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem;background:var(--panel)}
+.g-badge b{font-family:var(--display);font-stretch:100%;font-size:1.6rem}
+.stars{color:#ffb020;letter-spacing:.1em}
+.carousel{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2rem)/3);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.3rem}
+.carousel::-webkit-scrollbar{display:none}
+.rv{scroll-snap-align:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.rv .pic{position:relative;aspect-ratio:3/2;background:#111}
+.rv .pic img{width:100%;height:100%;object-fit:cover}
+.rv .pic.empty{display:grid;place-items:center;text-align:center;padding:1rem;color:var(--muted);font-weight:700;font-size:.88rem;border-bottom:1px dashed #3a3f4b;background:repeating-linear-gradient(135deg,#15171c 0 12px,#181a20 12px 24px)}
+.rv .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.rv blockquote{font-size:.95rem;color:#d5d9e0;flex:1}
+.rv footer{font-size:.82rem;color:var(--muted)}
+.rv footer b{color:var(--text)}
+.car-nav{display:flex;gap:.5rem;margin-left:auto}
+.car-nav button{width:46px;height:46px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:1.1rem}
+.car-nav button:hover{border-color:var(--accent)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:.8rem;margin-top:1.6rem;grid-auto-flow:dense}
+.gal figure{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.gal .wide{grid-column:span 2;grid-row:span 2}
+.gal .tall{grid-row:span 2}
+.gal .add{display:grid;place-items:center;text-align:center;border:1px dashed #3a3f4b;color:var(--muted);font-weight:700;background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.015) 10px 20px)}
+.gal .add small{font-weight:500}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;right:10px;bottom:10px;font-size:.75rem;background:rgba(0,0,0,.65);padding:.35rem .6rem;border-radius:6px}
+
+/* shop */
+.shop{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.prod{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.prod .ph{position:relative;aspect-ratio:1;border-radius:10px;background:radial-gradient(circle at 50% 35%,#2a2e38,#121419);display:grid;place-items:center;overflow:hidden}
+.prod .ph svg{width:48%;height:auto}
+.prod .soon{position:absolute;top:8px;left:8px;background:#2a2e38;color:#ffb98f;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .5rem;border-radius:6px}
+.prod .now{background:var(--accent);color:var(--accent-ink)}
+.prod h3{font-size:.95rem}
+.prod p{font-size:.8rem;color:var(--muted);flex:1}
+.prod .row{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.prod .row b{font-variant-numeric:tabular-nums}
+.cart{position:sticky;top:96px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.cart ul{list-style:none;margin:.8rem 0;font-size:.88rem}
+.cart li{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.45rem 0;border-bottom:1px solid var(--line)}
+.qty{display:inline-flex;align-items:center;gap:.4rem}
+.qty button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:none;cursor:pointer}
+.cart .sum{display:flex;justify-content:space-between;font-weight:800;margin:.8rem 0 1rem;font-variant-numeric:tabular-nums}
+
+/* b2b + referral */
+.duo{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem}
+.box{border:1px solid var(--line);border-radius:var(--r);padding:2rem;background:var(--panel)}
+.box.warm{background:linear-gradient(135deg,rgba(255,106,26,.16),var(--panel) 60%)}
+.box p{color:var(--muted);margin:.8rem 0 1.4rem;max-width:52ch}
+.box ul{margin:0 0 1.4rem 1.1rem;color:#c3c8d1;font-size:.92rem}
+
+/* areas */
+.areas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.areas span{border:1px solid var(--line);border-radius:999px;padding:.4rem .85rem;font-size:.85rem;color:#c3c8d1}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:1.15rem 0;font-weight:700;display:flex;justify-content:space-between;gap:1rem;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.5rem;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 1.2rem;max-width:62ch}
+
+/* form */
+.book{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.contact-cards{display:grid;gap:.6rem;margin-top:1.6rem}
+.contact-cards a{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:var(--panel)}
+.contact-cards a:hover{border-color:var(--accent)}
+.contact-cards svg{width:22px;height:22px;color:var(--accent);flex:none}
+.contact-cards small{display:block;color:var(--muted);font-size:.72rem}
+form.f{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem;display:grid;gap:1rem}
+.f .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f label{display:grid;gap:.35rem;font-size:.8rem;font-weight:600;color:var(--muted)}
+.f input,.f select,.f textarea{width:100%;background:var(--ink);border:1px solid #333845;border-radius:10px;padding:.8rem .9rem;color:var(--text);font:inherit;font-size:1rem;min-height:48px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--accent)}
+.f .bad{border-color:#ef4444}
+.f .chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:500}
+.f .opt{display:flex;flex:1 1 120px;color:var(--text);font-size:.92rem}
+.f input[type=radio],.f input[type=checkbox]{width:20px;height:20px;min-height:0;padding:0;margin:0;flex:none;accent-color:var(--accent);border-radius:50%}
+.f .chk input{width:20px;min-height:20px;height:20px;accent-color:var(--accent);margin-top:2px}
+.f .file{border:1px dashed #3a3f4b;border-radius:10px;padding:.9rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.f .file input{border:0;padding:0;min-height:auto;background:none;font-size:.85rem}
+.thumbs{display:flex;gap:.4rem;flex-wrap:wrap}
+.thumbs img{width:54px;height:54px;object-fit:cover;border-radius:6px}
+.err{color:#f87171;font-size:.85rem;min-height:1.2em}
+.done{display:none;border:1px solid var(--ok);background:rgba(62,207,142,.07);border-radius:var(--r);padding:1.4rem}
+.done.show{display:block}
+.done pre{white-space:pre-wrap;font:500 .85rem/1.5 var(--body);background:var(--ink);border-radius:8px;padding:.9rem;margin:.8rem 0;color:#c3c8d1}
+.done .acts{display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#08090b}
+.fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.4fr;gap:2rem}
+.fgrid h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+.fgrid a,.fgrid p{display:block;color:#c3c8d1;text-decoration:none;font-size:.9rem;padding:.15rem 0}
+.fgrid a:hover{color:var(--accent)}
+.hours{display:grid;grid-template-columns:auto auto;gap:.2rem 1rem;font-size:.9rem;color:#c3c8d1;font-variant-numeric:tabular-nums}
+.map{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:
+  linear-gradient(#1a1d24 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,#1a1d24 1px,#111318 1px) 0 0/28px 28px}
+.map::before{content:"";position:absolute;left:-10%;right:-10%;top:58%;height:10px;background:#262a33;transform:rotate(-8deg)}
+.map::after{content:"";position:absolute;left:38%;top:-10%;bottom:-10%;width:8px;background:#262a33;transform:rotate(12deg)}
+.pin{position:absolute;left:46%;top:44%;z-index:2;width:22px;height:22px;border-radius:50% 50% 50% 0;background:var(--accent);transform:rotate(-45deg);box-shadow:0 0 0 8px rgba(255,106,26,.2)}
+.map a{position:absolute;z-index:3;right:10px;bottom:10px;background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:.45rem .7rem;font-size:.8rem}
+.social{display:flex;gap:.5rem;margin-top:1rem}
+.social a{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;padding:0}
+.social svg{width:18px;height:18px}
+.legal{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.legal a{color:var(--muted)}
+
+/* legal */
+#legal{max-width:760px;width:calc(100% - 24px);max-height:86vh;margin:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden}
+#legal[open]{display:flex;flex-direction:column}
+#legal::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+.lg-head,.lg-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.4rem;border-bottom:1px solid var(--line)}
+.lg-foot{border-bottom:0;border-top:1px solid var(--line)}
+.lg-head h3{font-size:1.2rem;text-transform:uppercase}
+.lg-x{background:none;border:1px solid var(--line);border-radius:8px;width:40px;height:40px;cursor:pointer}
+.lg-body{overflow:auto;padding:1.2rem 1.4rem 1.6rem;font-size:.92rem;color:#c9ced8}
+.lg-body h4{font-family:var(--display);font-stretch:112%;font-size:1rem;color:var(--text);margin:1.4rem 0 .5rem}
+.lg-body p,.lg-body ul{margin-bottom:.7rem;max-width:68ch}
+.lg-body ul{padding-left:1.2rem}
+.lg-body li{margin-bottom:.3rem}
+.lg-body a{color:var(--accent)}
+.lg-body table{border-collapse:collapse;width:100%;font-size:.84rem;margin:.6rem 0 1rem}
+.lg-body th,.lg-body td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+.lg-body th{background:var(--ink-2);color:var(--text)}
+.lg-body .ph{color:#ffb98f}
+/* floating */
+.fabs{position:fixed;right:16px;bottom:16px;z-index:50;display:grid;gap:.6rem}
+.fab{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 28px -8px rgba(0,0,0,.7);transition:transform .2s}
+.fab:hover{transform:scale(1.07)}
+.fab.wa{background:#25d366;color:#fff}
+.fab.call{background:var(--text);color:var(--ink)}
+.fab svg{width:26px;height:26px}
+.mbar-cta{display:none}
+.cookie{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:60;width:min(620px,calc(100% - 32px));background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:0 24px 50px -12px #000;font-size:.86rem}
+.cookie h3{font-size:1.05rem;margin-bottom:.5rem}
+.cookie p{color:#c3c8d1;margin-bottom:1rem}
+.cookie a{color:var(--accent)}
+.ck-set{display:grid;gap:.5rem;margin-bottom:1rem}
+.ck-set[hidden]{display:none}
+.ck-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--ink-2);cursor:pointer}
+.ck-row small{display:block;color:var(--muted);font-size:.78rem}
+.ck-row input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.cookie .acts .btn{flex:1 1 140px}
+.cookie .acts{display:flex;gap:.5rem;flex-wrap:wrap}
+.cookie[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;z-index:70;background:var(--text);color:var(--ink);font-weight:700;font-size:.88rem;padding:.7rem 1.1rem;border-radius:10px;transition:.3s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.shop>*,.calc>*,.book>*{min-width:0}
+.prods{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.prods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.prod .row{flex-wrap:wrap}
+/* scroll motion: starts visible, only lifts */
+.lift{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.lift.pre{transform:translateY(22px)}
+
+
+/* ===== gumbi ===== */
+.btn{position:relative;overflow:hidden;isolation:isolate;letter-spacing:.01em;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .25s,border-color .25s,color .25s}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn-accent{background:linear-gradient(180deg,#ff8340 0%,#ff6a1a 55%,#f25a0a 100%);box-shadow:0 10px 28px -12px rgba(255,106,26,.9),inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.18)}
+.btn-accent::after{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-130%);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.btn-accent:hover{background:linear-gradient(180deg,#ff8f52 0%,#ff7426 55%,#ff640f 100%);box-shadow:0 16px 36px -12px rgba(255,106,26,1),0 0 0 4px rgba(255,106,26,.16),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-accent:hover::after{transform:translateX(130%)}
+.btn-line{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));border-color:#3a3f4b;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.btn-line:hover{border-color:var(--accent);color:#fff;background:linear-gradient(180deg,rgba(255,106,26,.16),rgba(255,106,26,.04));box-shadow:0 10px 26px -14px rgba(255,106,26,.8)}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.btn .arr{display:inline-block;transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.svc a{display:inline-flex;gap:.3rem;transition:gap .25s,color .2s}
+.svc a:hover{gap:.6rem;color:#ff8a4c}
+.sizes button{transition:background .25s,color .25s,transform .2s}
+.sizes button:hover{color:var(--text)}
+.sizes button[aria-pressed="true"]{box-shadow:0 6px 18px -8px rgba(255,106,26,.9)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--accent);transition:right .3s}
+.nav-links a:hover::after{right:0}
+.car-nav button,.qty button{transition:border-color .2s,background .2s,transform .2s}
+.car-nav button:hover{background:rgba(255,106,26,.12);transform:translateY(-2px)}
+.car-nav button:active{transform:scale(.94)}
+
+/* ===== animacije ===== */
+@keyframes rise{from{transform:translateY(18px);opacity:.25}to{transform:none;opacity:1}}
+.hero .gauge{animation:rise .8s .2s cubic-bezier(.2,.8,.2,1) both}
+.hero .hero-sub{animation:rise .8s 1.1s cubic-bezier(.2,.8,.2,1) both}
+.hero .hero-cta{animation:rise .8s 1.3s cubic-bezier(.2,.8,.2,1) both}
+.hero .trust div{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero .trust div:nth-child(1){animation-delay:1.5s}.hero .trust div:nth-child(2){animation-delay:1.6s}.hero .trust div:nth-child(3){animation-delay:1.7s}.hero .trust div:nth-child(4){animation-delay:1.8s}
+.hero picture img{animation:heroZoom 14s ease-out both}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.gauge .dot{animation:blink 2.4s infinite}
+@keyframes blink{50%{box-shadow:0 0 0 8px rgba(62,207,142,0)}}
+.svc{transition:background .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.svc svg{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.svc:hover svg{transform:translateY(-3px) rotate(-8deg) scale(1.08)}
+.why div svg{transition:transform .4s}
+.why div:hover svg{transform:scale(1.12) rotate(-6deg)}
+.rv,.prod,.box,.sub{transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .25s,box-shadow .35s}
+.rv:hover,.prod:hover{transform:translateY(-5px);border-color:#3d4352;box-shadow:0 24px 40px -24px #000}
+.sub:hover{border-color:var(--accent)}
+.tick{animation:tick .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes tick{0%{transform:translateY(-8px);opacity:.2;color:var(--accent)}100%{transform:none;opacity:1}}
+.svc-meta b,.pk-price,#rTotal{display:inline-block}
+.ba .knob{animation:knob 2.6s infinite}
+@keyframes knob{50%{box-shadow:0 0 0 14px rgba(255,106,26,0)}}
+.fab.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:ring 2.8s infinite}
+.fab{position:relative}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.kicker::before{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.lift.pre .kicker::before{width:0}
+.toast{transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1{background:none;color:var(--text)}
+  .lift.pre{transform:none}
+}
+@media (max-width:1160px){
+  .nav-tel span{display:none}
+  .nav-tel{width:42px;height:42px;justify-content:center;border:1px solid var(--line);border-radius:10px}
+}
+@media (max-width:1060px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr);gap:2rem 1rem}
+  .calc,.honest,.shop,.book,.faq,.duo{grid-template-columns:1fr}
+  .receipt,.cart{position:static}
+  .carousel{grid-auto-columns:calc((100% - 1rem)/2)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .nav-links{gap:1rem}
+}
+@media (max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .nav-in{gap:1rem;justify-content:space-between}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li:nth-child(2){border-right:0}
+  .steps li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .subs{grid-template-columns:1fr}
+  .prods{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .promo .pl{display:none}
+  .promo .ps{display:inline}
+  .promo-tag{display:none}
+  .nav-in{height:62px}
+  .logo{font-size:1.2rem}
+  .mnav{padding-top:84px}
+
+  .svc-grid,.why,.opts,.f .two,.gal,.fgrid{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li{border-right:0;border-bottom:1px solid var(--line)}
+  .carousel{grid-auto-columns:88%}
+  .hero{min-height:auto}
+  .hero-in{padding-top:11rem}
+  .hero picture img{object-position:75% 50%}
+  .hero::before{background:linear-gradient(180deg,rgba(12,13,16,.45),rgba(12,13,16,.72) 40%,rgba(12,13,16,.95) 75%)}
+  .hero-credit .d,.g-more{display:none}
+  .hero-credit .m{display:inline}
+  .mbar-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(12,13,16,.95);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+  .mbar-cta .btn{flex:1;min-height:50px}
+  .mbar-cta .btn-line{flex:0 0 auto}
+  .fabs{bottom:84px}
+  .cookie{bottom:84px;max-height:calc(100svh - 120px);overflow:auto}
+  .toast{bottom:150px}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .gal .wide{grid-column:span 2;grid-row:span 1}
+}
+</style>
+</head>
+<body>
+
+<div class="promo" id="promo">
+  <div class="wrap promo-in">
+    <span class="promo-tag">Novo</span>
+    <p><span class="pl">Preporučite nas prijatelju i oboje dobivate 15 € popusta.</span><span class="ps">−15 € za vas i prijatelja</span> <a href="#preporuka">Saznajte kako →</a></p>
+    <button class="promo-x" id="promoX" type="button" aria-label="Zatvori obavijest">✕</button>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Detailerz, početna">Detailer<span>z</span></a>
+    <nav class="nav-links" aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a>
+      <a href="#cjenik">Cjenik</a>
+      <a href="#paketi">Paketi</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#shop">Shop</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:+385910000000" aria-label="Nazovi +385 91 000 0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>+385 91 000 0000</span></a>
+      <a href="#rezervacija" class="btn btn-accent btn-sm nav-cta">Rezerviraj termin</a>
+      <button class="burger" id="burger" type="button" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" aria-hidden="true">
+  <nav class="mnav-links" aria-label="Izbornik za mobitel">
+    <a href="#usluge"><small>01</small>Usluge</a>
+    <a href="#cjenik"><small>02</small>Cjenik</a>
+    <a href="#paketi"><small>03</small>Paketi</a>
+    <a href="#kalkulator"><small>04</small>Kalkulator</a>
+    <a href="#galerija"><small>05</small>Prije / poslije</a>
+    <a href="#shop"><small>06</small>Shop i poklon bonovi</a>
+    <a href="#faq"><small>07</small>Česta pitanja</a>
+    <a href="#kontakt"><small>08</small>Kontakt</a>
+  </nav>
+  <div class="mnav-foot">
+    <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
+    <div class="mnav-row">
+      <a href="tel:+385910000000" class="btn btn-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Nazovi</a>
+      <a href="https://wa.me/385910000000" target="_blank" rel="noopener" class="btn btn-line">WhatsApp</a>
+    </div>
+    <p class="muted small">Pon–Pet 08–18 · Sub 08–15 · [ADRESA], Zagreb</p>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- 1. HERO -->
+<section class="hero" aria-label="Uvod">
+  <picture>
+    <source media="(max-width: 640px)" srcset="img/hero-m.jpg">
+    <img src="img/hero.jpg" alt="Detailer polira lak automobila strojem Rupes" fetchpriority="high" width="1920" height="1280">
+  </picture>
+  <span class="placeholder-tag hero-credit" style="left:auto;right:12px;bottom:auto;top:12px"><span class="d">Foto: Fine Automotive Detailing / Unsplash</span><span class="m">Foto: Severin Demchuk / Unsplash</span></span>
+  <div class="wrap hero-in">
+    <div class="gauge"><span class="dot" aria-hidden="true"></span>Debljina laka <b>118 µm</b><span class="g-more"> · mjerimo je prije svakog poliranja</span></div>
+    <h1>Opet kao iz salona.</h1>
+    <p class="hero-sub">Sjećate se kako je mirisao i blistao prvi dan? Vraćamo mu to. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i preuzimanje pod LED svjetlom.</p>
+    <div class="hero-cta">
+      <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
+      <a href="#usluge" class="btn btn-line">Pogledaj usluge</a>
+    </div>
+    <div class="trust">
+      <div><b>Fiksna</b><span>cijena, pisano prije početka</span></div>
+      <div><b>LED</b><span>primopredaja i pregled laka</span></div>
+      <div><b>Foto</b><span>izvještaj prije i poslije</span></div>
+      <div><b>Dolazak</b><span>po auto u Zagrebu i okolici</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. USLUGE -->
+<section class="sec" id="usluge">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Usluge</p><h2>Od pranja do PPF folije</h2></div>
+      <div>
+        <p style="margin-bottom:.8rem">Cijene „od” mijenjaju se prema veličini vozila. Odaberite svoj auto:</p>
+        <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+      </div>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+    <p class="muted small" style="margin-top:1rem">Sve su cijene konačne, s uključenim PDV-om. Cijeli cjenik sa sidrenim cijenama nalazi se <a href="#cjenik">niže na stranici</a>.</p>
+  </div>
+</section>
+
+<!-- 3. PAKETI -->
+<section class="sec alt" id="paketi">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Paketi</p><h2>Tri paketa, bez sitnih slova</h2></div>
+      <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+    </div>
+    <div class="cmp-wrap"><table class="cmp" id="cmp"></table></div>
+    <div class="subs" id="subs"></div>
+  </div>
+</section>
+
+<!-- CJENIK -->
+<section class="sec" id="cjenik">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Cjenik</p><h2>Sve cijene na jednom mjestu</h2></div>
+      <div>
+        <p style="margin-bottom:.8rem">Konačne cijene s PDV-om, po veličini vozila. Vaša je veličina istaknuta.</p>
+        <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+      </div>
+    </div>
+    <div class="cmp-wrap"><table class="plist" id="plist"></table></div>
+    <p class="muted small" style="margin-top:1rem" id="plistNote"></p>
+  </div>
+</section>
+
+<!-- KALKULATOR (iz istraživanja) -->
+<section class="sec alt" id="kalkulator">
+  <div class="wrap calc">
+    <div>
+      <p class="kicker">Kalkulator i cjenik</p>
+      <h2>Izračunajte cijenu u 20 sekundi</h2>
+      <p class="muted" style="max-width:52ch;margin-top:1rem">Okvirna cijena odmah. Fiksnu cijenu potvrđujemo pisano nakon fotografija i ne mijenjamo je pri preuzimanju.</p>
+      <span class="lbl">Veličina vozila <span class="muted" id="sizeHint" style="font-weight:500"></span></span>
+      <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+      <span class="lbl">Usluge</span>
+      <div class="opts" id="calcSvc"></div>
+      <span class="lbl">Dodaci i dolazak</span>
+      <div class="opts" id="calcExt"></div>
+      <p class="muted small" style="margin-top:1rem" id="anchorNote"></p>
+    </div>
+    <aside class="receipt" aria-live="polite">
+      <div class="rh"><span>Detailerz</span><span id="rSize">Srednja</span></div>
+      <ul id="rLines"></ul>
+      <div class="tot"><span>Ukupno</span><b id="rTotal">0 €</b></div>
+      <p class="note">Okvirni izračun s uključenim PDV-om. Fiksnu ponudu šaljemo u roku od 2 h radnim danom.</p>
+      <div id="rTip"></div>
+      <a href="#rezervacija" class="btn btn-accent" id="rBook" style="margin-top:.8rem">Zatraži ponudu za ovaj izračun</a>
+    </aside>
+  </div>
+</section>
+
+<!-- 4. PRIJE / POSLIJE -->
+<section class="sec alt" id="galerija">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Prije / poslije</p><h2>Povucite klizač</h2></div>
+      <p>Korekcija laka u 2 koraka na haubi. Kružne ogrebotine i mrlje od pranja nestaju, a boji se vraća dubina.</p>
+    </div>
+    <div class="ba" id="ba">
+      <img src="img/after.jpg" alt="Lak nakon korekcije u dva koraka" loading="lazy" width="1200" height="750">
+      <div class="before" id="baBefore"><img src="img/before.jpg" alt="Lak prije korekcije, s kružnim ogrebotinama i mrljama" loading="lazy" width="1200" height="750"></div>
+      <span class="lab l">Prije</span><span class="lab r">Poslije</span>
+      <div class="bar" id="baBar"><div class="knob" aria-hidden="true">↔</div></div>
+      <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Pomakni usporedbu prije i poslije">
+      <span class="placeholder-tag">Placeholder · zamijeni stvarnim fotografijama</span>
+    </div>
+    <div class="ba-meta"><span>Postupak: <b>korekcija u 2 koraka</b></span><span>Uklonjeno: <b>~85 % ogrebotina</b></span><span>Lak prije / poslije: <b>121 → 114 µm</b></span><span>Trajanje: <b>1,5 dana</b></span></div>
+  </div>
+</section>
+
+<!-- 5. ZAŠTO MI -->
+<section class="sec" id="zasto">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Zašto Detailerz</p><h2>Četiri stvari koje jamčimo</h2></div></div>
+    <div class="why" id="why"></div>
+  </div>
+</section>
+
+<!-- 6. PROCES -->
+<section class="sec alt" id="proces">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Proces</p><h2>Upit, procjena, detailing, preuzimanje</h2></div>
+      <a href="#rezervacija" class="btn btn-accent">Pošalji upit <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <ol class="steps">
+      <li><h3>Upit</h3><p>Pošaljite 3–4 fotografije auta preko forme ili WhatsAppa.</p></li>
+      <li><h3>Procjena</h3><p>U roku od 2 h dobivate fiksnu pisanu ponudu i termin.</p></li>
+      <li><h3>Detailing</h3><p>Radimo uz foto-dokumentaciju i mjerenje debljine laka.</p></li>
+      <li><h3>Preuzimanje</h3><p>Zajednički pregled pod LED svjetlom, upute i podsjetnik za održavanje.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ISKRENO O KERAMICI (iz istraživanja) -->
+<section class="sec" id="keramika">
+  <div class="wrap honest">
+    <div>
+      <p class="kicker">Iskreno o keramici</p>
+      <h2>Koliko keramika stvarno traje?</h2>
+      <p style="margin-top:1.2rem">Najčešća pritužba na forumima: obećane su dvije godine, a premaz je izdržao jedno ljeto. Ili je jamstvo vrijedilo samo uz skupo održavanje u istoj radionici.</p>
+      <p>Mi dajemo realne brojke. Jamstvo ne ovisi o tome gdje perete auto. Preporučujemo godišnju kontrolu, ali ona nije uvjet jamstva.</p>
+      <a href="#rezervacija" class="btn btn-line" data-service="Keramička zaštita">Zatraži ponudu za keramiku</a>
+    </div>
+    <div class="meter">
+      <div class="mrow"><span>Vosak</span><b>4–8 tjedana</b><div class="mbar"><i style="width:7%"></i></div></div>
+      <div class="mrow"><span>Sealant</span><b>~6 mjeseci</b><div class="mbar"><i style="width:12%"></i></div></div>
+      <div class="mrow"><span>Keramika „2 godine” · realno</span><b>18–24 mj.</b><div class="mbar"><i style="width:40%"></i></div></div>
+      <div class="mrow"><span>Keramika „5 godina” · realno</span><b>3–5 god.</b><div class="mbar"><i style="width:90%"></i></div></div>
+      <div class="mrow"><span>Obavezno održavanje kod nas</span><b style="color:var(--ok)">Ne</b></div>
+      <div class="mrow"><span>Pisani certifikat</span><b style="color:var(--ok)">Da</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. RECENZIJE + 14. auti klijenata -->
+<section class="sec alt" id="recenzije">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Recenzije</p><h2>Zadovoljni vlasnici</h2></div>
+      <div class="rv-top">
+        <div class="g-badge"><b>5,0</b><div><div class="stars" aria-label="5 od 5">★★★★★</div><span class="muted small">Google recenzije · placeholder</span></div></div>
+        <div class="car-nav"><button id="rvPrev" aria-label="Prethodna recenzija">←</button><button id="rvNext" aria-label="Sljedeća recenzija">→</button></div>
+      </div>
+    </div>
+    <div class="carousel" id="carousel" tabindex="0" aria-label="Recenzije klijenata"></div>
+    <p class="muted small" style="margin-top:1rem">Recenzije su primjeri (mockup). Prije objave zamijenite ih Google recenzijama (npr. widgetom Trustindex ili Elfsight) i dodajte fotografije auta klijenata.</p>
+
+    <h3 style="margin-top:3.4rem;font-size:1.3rem;text-transform:uppercase">Iz studija</h3>
+    <p class="muted small" style="margin-top:.4rem">Privremene fotografije s Unsplasha. Zamijenite ih fotografijama svog rada.</p>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<!-- 13. SHOP + MERCH USKORO -->
+<section class="sec" id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Shop</p><h2>Poklon bonovi i Detailerz smjese</h2></div>
+      <p>Bonove možete naručiti odmah. Naše smjese i merch stižu uskoro, a prijavom na listu dobivate 10 % popusta na prvu narudžbu.</p>
+    </div>
+    <div class="shop">
+      <div class="prods" id="prods"></div>
+      <aside class="cart" aria-live="polite">
+        <h3>Košarica</h3>
+        <ul id="cartList"></ul>
+        <div class="sum"><span>Ukupno</span><span id="cartSum">0 €</span></div>
+        <a href="#rezervacija" class="btn btn-accent" style="width:100%" id="cartOrder">Naruči</a>
+        <p class="muted small" style="margin-top:.8rem">Bon stiže kao PDF na e-mail i vrijedi 12 mjeseci. U demo verziji narudžba se šalje kroz formu za upit.</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0">
+        <h3 style="font-size:.95rem">Merch uskoro</h3>
+        <form id="notify" style="display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap" novalidate>
+          <label for="notifyEmail" class="muted small" style="width:100%">Javit ćemo vam kad krene prodaja.</label>
+          <input id="notifyEmail" type="email" placeholder="vas@email.hr" required style="flex:1;min-width:0;background:var(--ink);border:1px solid #333845;border-radius:10px;padding:.7rem;color:var(--text);font:inherit;min-height:44px">
+          <button class="btn btn-line btn-sm" style="min-height:44px">Prijavi me</button>
+        </form>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- B2B + PREPORUKA + PRETPLATE (iz istraživanja) -->
+<section class="sec alt" id="tvrtke">
+  <div class="wrap duo">
+    <div class="box">
+      <p class="kicker">Za tvrtke</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Flote, rent-a-car i autokuće</h2>
+      <p>Paušal za održavanje službenih vozila, priprema rabljenih vozila za prodaju i čišćenje rent-a-car vozila između najmova. Izvještaj po vozilu i eRačun.</p>
+      <ul><li>Flota: 2 kompletna pranja mjesečno od 79 € po vozilu</li><li>Priprema za prodaju od 350 €</li><li>Preuzimanje vozila na vašoj lokaciji</li></ul>
+      <a href="#rezervacija" class="btn btn-accent" data-service="Ponuda za flotu (B2B)">Zatraži ponudu za flotu</a>
+    </div>
+    <div class="box warm" id="preporuka">
+      <p class="kicker">Preporuči prijatelja</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">15 € za vas, 15 € za prijatelja</h2>
+      <p>Prijatelj u napomeni upita navede vaše ime. Nakon njegovog prvog detailinga oboje dobivate 15 € popusta ili besplatan ozon tretman.</p>
+      <a href="#rezervacija" class="btn btn-line" data-note="Preporuka od: ">Imam preporuku</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:3rem">
+    <p class="kicker">Gdje dolazimo</p>
+    <p class="muted" style="max-width:62ch">Studio je u Zagrebu. Pranje, interijer i dubinsko čišćenje radimo i na vašoj adresi, a za veće poslove preuzimamo i vraćamo auto.</p>
+    <div class="areas" id="areas"></div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div>
+      <p class="kicker">FAQ</p>
+      <h2>Česta pitanja</h2>
+      <p class="muted" style="margin:1.2rem 0 1.6rem">Niste našli odgovor? Pošaljite fotografije i pitanje, odgovaramo isti dan.</p>
+      <a href="#rezervacija" class="btn btn-accent">Pošalji upit <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- 9. REZERVACIJA -->
+<section class="sec alt" id="rezervacija">
+  <div class="wrap book">
+    <div>
+      <p class="kicker">Rezervacija</p>
+      <h2>Rezerviraj termin ili zatraži ponudu</h2>
+      <p class="muted" style="margin-top:1.2rem;max-width:44ch">Javljamo se s fiksnom ponudom u roku od 2 sata radnim danom. Najbrže je s fotografijama.</p>
+      <div class="contact-cards">
+        <a href="https://wa.me/385910000000" target="_blank" rel="noopener" data-wa><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.6 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span><small>WhatsApp · najbrže</small>+385 91 000 0000</span></a>
+        <a href="tel:+385910000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><small>Telefon</small>+385 91 000 0000</span></a>
+        <a href="mailto:info@detailerz.hr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>E-mail</small>info@detailerz.hr</span></a>
+      </div>
+    </div>
+    <div>
+      <form class="f" id="bookForm" novalidate>
+        <div class="two">
+          <label for="fName">Ime i prezime *<input id="fName" name="ime" autocomplete="name" required></label>
+          <label for="fTel">Telefon *<input id="fTel" name="tel" type="tel" autocomplete="tel" required></label>
+        </div>
+        <label for="fMail">E-mail<input id="fMail" name="email" type="email" autocomplete="email"></label>
+        <div class="two">
+          <label for="fCar">Marka i model vozila *<input id="fCar" name="auto" list="makes" placeholder="npr. Škoda Octavia" required></label>
+          <datalist id="makes"></datalist>
+          <label for="fSize">Veličina vozila<select id="fSize" name="velicina"></select></label>
+        </div>
+        <div class="two">
+          <label for="fSvc">Usluga *<select id="fSvc" name="usluga" required></select></label>
+          <label for="fDate">Željeni datum<input id="fDate" name="datum" type="date"></label>
+        </div>
+        <fieldset style="border:0;display:grid;gap:.4rem"><legend class="muted" style="font-size:.8rem;font-weight:600;margin-bottom:.4rem">Kako da vam se javimo?</legend>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+            <label class="opt" for="cWa" style="min-height:44px"><span class="l"><input type="radio" id="cWa" name="kontakt" value="WhatsApp" checked>WhatsApp</span></label>
+            <label class="opt" for="cTel" style="min-height:44px"><span class="l"><input type="radio" id="cTel" name="kontakt" value="Poziv">Poziv</span></label>
+            <label class="opt" for="cMail" style="min-height:44px"><span class="l"><input type="radio" id="cMail" name="kontakt" value="E-mail">E-mail</span></label>
+          </div></fieldset>
+        <label for="fNote">Napomena<textarea id="fNote" name="napomena" rows="3" placeholder="Stanje auta, posebne želje, preporuka..."></textarea></label>
+        <div class="file">
+          <label for="fPhotos" style="font-weight:700;color:var(--text)">Fotografije auta (neobavezno)</label>
+          <input id="fPhotos" type="file" accept="image/*" multiple>
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+        <label class="chk" for="fGdpr"><input id="fGdpr" type="checkbox" required> Dajem privolu da Detailerz obradi moje podatke radi odgovora na upit, u skladu s <a href="#pravila-privatnosti" style="color:var(--accent)">Pravilima privatnosti</a>.</label>
+        <p class="muted small">Termin je potvrđen kada prihvatite našu pisanu ponudu. Otkazivanje do 24 sata prije termina je besplatno.</p>
+        <p class="err" id="fErr" role="alert"></p>
+        <button class="btn btn-accent" type="submit">Pošalji upit <span class="arr" aria-hidden="true">→</span></button>
+      </form>
+      <div class="done" id="done" role="status">
+        <h3>Upit je spreman</h3>
+        <p class="muted small">Demo stranica nema poslužitelj, pa upit nije automatski poslan. Na pravoj stranici ovdje se spaja Formspree ili e-mail. Pošaljite upit na WhatsApp ili ga kopirajte:</p>
+        <pre id="doneText"></pre>
+        <div class="acts">
+          <a class="btn btn-accent btn-sm" id="doneWa" href="#" target="_blank" rel="noopener">Pošalji na WhatsApp</a>
+          <button class="btn btn-line btn-sm" id="doneCopy" type="button">Kopiraj upit</button>
+          <button class="btn btn-line btn-sm" id="doneNew" type="button">Novi upit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 10. FOOTER -->
+<footer class="site" id="kontakt">
+  <div class="wrap fgrid">
+    <div>
+      <a href="#top" class="logo">Detailer<span>z</span></a>
+      <p class="muted" style="margin-top:.8rem">Studio za car detailing u Zagrebu i okolici.</p>
+      <div class="social">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg></a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.4 2.3 1.9 3.8 4 4v3.2c-1.5 0-2.8-.4-4-1.2V15a6 6 0 1 1-6-6v3.3a2.7 2.7 0 1 0 2.7 2.7V3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p>[ADRESA], 10000 Zagreb</p>
+      <a href="tel:+385910000000">+385 91 000 0000</a>
+      <a href="mailto:info@detailerz.hr">info@detailerz.hr</a>
+    </div>
+    <div>
+      <h4>Radno vrijeme</h4>
+      <div class="hours"><span>Pon–Pet</span><span>08:00–18:00</span><span>Subota</span><span>08:00–15:00</span><span>Nedjelja</span><span>po dogovoru</span></div>
+    </div>
+    <div>
+      <h4>Lokacija</h4>
+      <!-- Na pravoj stranici zamijeni ovaj div s Google Maps embedom:
+           <iframe src="https://www.google.com/maps/embed?pb=..." loading="lazy" style="border:0;width:100%;aspect-ratio:4/3" allowfullscreen></iframe> -->
+      <div class="map" role="img" aria-label="Karta lokacije, placeholder">
+        <span class="pin"></span>
+        <a href="https://maps.google.com/?q=Zagreb" target="_blank" rel="noopener">Otvori u Google Kartama</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© <span id="yr">2026</span> Detailerz · [NAZIV OBRTA / D.O.O.] · OIB [OIB] · Fotografije: <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a> (Fine Automotive Detailing, Severin Demchuk, Ivan Kazlouskij, Patrik Storm)</span>
+    <span><a href="#pravila-privatnosti">Pravila privatnosti</a> · <a href="#uvjeti-poslovanja">Uvjeti poslovanja</a> · <a href="#politika-kolacica">Politika kolačića</a> · <a href="#" id="cookieReopen">Postavke kolačića</a> · <a href="#cjenik">Cjenik i sidrene cijene</a></span>
+  </div>
+</footer>
+
+<div class="fabs">
+  <a class="fab call" href="tel:+385910000000" aria-label="Nazovi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+  <a class="fab wa" href="https://wa.me/385910000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.6 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a>
+</div>
+<div class="mbar-cta">
+  <a class="btn btn-line" href="tel:+385910000000" aria-label="Nazovi">Nazovi</a>
+  <a class="btn btn-accent" href="#rezervacija">Rezerviraj termin</a>
+</div>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="ckTitle" hidden>
+  <h3 id="ckTitle">Smijemo li koristiti kolačiće?</h3>
+  <p>Nužni kolačići omogućuju rad stranice i ne traže privolu. Analitičke i marketinške kolačiće koristimo samo ako ih vi dopustite, kako bismo poboljšali stranicu i oglase. Svoj izbor možete promijeniti bilo kada u podnožju stranice. Više u <a href="#politika-kolacica">Politici kolačića</a>.</p>
+  <div class="ck-set" id="ckSet" hidden>
+    <label class="ck-row" for="ckNec"><span><b>Nužni</b><small>Rad stranice i pamćenje vašeg izbora. Uvijek uključeni.</small></span><input type="checkbox" id="ckNec" checked disabled></label>
+    <label class="ck-row" for="ckAna"><span><b>Analitički</b><small>Anonimna statistika posjeta (npr. Google Analytics).</small></span><input type="checkbox" id="ckAna"></label>
+    <label class="ck-row" for="ckMkt"><span><b>Marketinški</b><small>Mjerenje oglasa na Facebooku, Instagramu i Googleu.</small></span><input type="checkbox" id="ckMkt"></label>
+  </div>
+  <div class="acts">
+    <button class="btn btn-accent btn-sm" id="ckAll" type="button">Prihvati sve</button>
+    <button class="btn btn-line btn-sm" id="ckNone" type="button">Samo nužni</button>
+    <button class="btn btn-line btn-sm" id="ckCustom" type="button" aria-expanded="false" aria-controls="ckSet">Postavke</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<dialog id="legal" aria-labelledby="legalT">
+  <div class="lg-head"><h3 id="legalT"></h3><button class="lg-x" id="legalClose" type="button" aria-label="Zatvori">✕</button></div>
+  <div class="lg-body" id="legalB"></div>
+  <div class="lg-foot"><span class="muted small">Zadnja izmjena: 17. 11. 2026.</span><button class="btn btn-line btn-sm" id="legalClose2" type="button">Zatvori</button></div>
+</dialog>
+
+<script src="legal.js"></script>
+<script>
+/* ============================================================
+   PODACI (cijene iz istraživanja tržišta, studeni 2026.)
+   Sve cijene konačne, s PDV-om, EUR.
+   Veličine: [mala, srednja, SUV/karavan, kombi/7 sj.]
+   ============================================================ */
+const DATA = {
+  phone: "385910000000",
+  anchorDate: "10. 9. 2026.",
+  sizes: ["Mala", "Srednja", "SUV / karavan", "Kombi / 7 sj."],
+  sizeHints: ["npr. Polo, Clio, Yaris", "npr. Golf, Octavia, A4", "npr. Tiguan, X3, Passat karavan", "npr. Transporter, Sharan"],
+  // 2. Usluge: kartice ("od" cijena po veličini)
+  cards: [
+    { icon: "drop", name: "Vanjsko pranje i dekontaminacija", desc: "Aktivna pjena, pranje metodom dviju kanti, felge te glina i kemijska dekontaminacija laka.", time: "1–2 h", from: [65, 80, 95, 115], svc: "Vanjsko pranje i dekontaminacija" },
+    { icon: "seat", name: "Detaljno čišćenje interijera", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika, ventilacija, ozon i kontrolirano sušenje.", time: "4–6 h", from: [160, 180, 210, 250], svc: "Dubinsko čišćenje interijera" },
+    { icon: "spark", name: "Poliranje i korekcija laka", desc: "Mjerenje debljine laka i poliranje u 1 ili 2 koraka. Uklanja kružne ogrebotine (swirlove) i sitne ogrebotine.", time: "1–2 dana", from: [200, 240, 280, 330], svc: "Poliranje 1-korak" },
+    { icon: "shield", name: "Keramička zaštita", desc: "Zaštita na 2 ili 5 godina, s uključenim poliranjem. Realnu trajnost upisujemo u certifikat.", time: "2–3 dana", from: [450, 520, 590, 690], svc: "Keramička zaštita" },
+    { icon: "film", name: "PPF zaštitna folija", desc: "Prozirna folija protiv kamenčića i ogrebotina. Farovi, prednji kraj ili cijelo vozilo.", time: "1–4 dana", from: [150, 150, 150, 150], svc: "PPF zaštitna folija" },
+    { icon: "leather", name: "Čišćenje i zaštita kože", desc: "pH neutralno čišćenje, hidratacija i impregnacija sjedala i volana.", time: "2 h", from: [80, 100, 120, 140], svc: "Koža: čišćenje i zaštita" },
+    { icon: "light", name: "Poliranje farova", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", from: [70, 70, 70, 70], svc: "Poliranje farova" },
+    { icon: "engine", name: "Pranje motora", desc: "Sigurno odmašćivanje, ispiranje bez visokog tlaka, sušenje i zaštita plastike.", time: "1 h", from: [40, 40, 45, 50], svc: "Pranje motora" }
+  ],
+  // Kalkulator / cjenik (sidrena cijena = cijena na dan anchorDate)
+  services: [
+    // Pranje
+    { id: "ext",  g: "Pranje", name: "Vanjsko ručno pranje", t: "45 min", p: [25, 30, 35, 45] },
+    { id: "full", g: "Pranje", name: "Kompletno pranje (izvana i iznutra)", t: "1,5 h", p: [50, 60, 70, 85] },
+    { id: "deco", g: "Pranje", name: "Dekontaminacija laka (glina i kemija)", t: "1 h", p: [40, 50, 60, 70] },
+    { id: "under", g: "Pranje", name: "Pranje podvozja", t: "20 min", p: [15, 15, 20, 25] },
+    { id: "eng",  g: "Pranje", name: "Pranje motora", t: "1 h", p: [40, 40, 45, 50] },
+    // Interijer
+    { id: "deep", g: "Interijer", name: "Dubinsko čišćenje interijera i ozon", t: "4–6 h", p: [160, 180, 210, 250] },
+    { id: "roof", g: "Interijer", name: "Čišćenje stropa (tapecirunga)", t: "1 h", p: [40, 45, 50, 60] },
+    { id: "leat", g: "Interijer", name: "Koža: čišćenje i impregnacija", t: "2 h", p: [80, 100, 120, 140] },
+    { id: "fabp", g: "Interijer", name: "Impregnacija tekstila", t: "1 h", p: [50, 60, 70, 80] },
+    { id: "ac",   g: "Interijer", name: "Čišćenje klime parom", t: "45 min", p: [45, 45, 45, 50] },
+    { id: "ozon", g: "Interijer", name: "Ozon tretman", t: "1 h", p: [35, 35, 40, 45] },
+    // Lak i zaštita
+    { id: "pane", g: "Lak i zaštita", name: "Poliranje jednog elementa", t: "1 h", p: [40, 40, 40, 40] },
+    { id: "pol1", g: "Lak i zaštita", name: "Poliranje u 1 koraku i sealant (6 mj.)", t: "1 dan", p: [200, 240, 280, 330] },
+    { id: "pol2", g: "Lak i zaštita", name: "Korekcija laka u 2 koraka", t: "1–2 dana", p: [330, 380, 440, 520] },
+    { id: "cer2", g: "Lak i zaštita", name: "Keramička zaštita 2 god. (s poliranjem)", t: "2 dana", p: [450, 520, 590, 690] },
+    { id: "cer5", g: "Lak i zaštita", name: "Keramička zaštita 5 god. (s korekcijom)", t: "3 dana", p: [850, 950, 1100, 1250] },
+    { id: "glas", g: "Lak i zaštita", name: "Keramička zaštita svih stakala", t: "1 h", p: [50, 60, 70, 80] },
+    { id: "rims", g: "Lak i zaštita", name: "Keramička zaštita felgi (4 kom.)", t: "2 h", p: [80, 80, 100, 120] },
+    { id: "head", g: "Lak i zaštita", name: "Poliranje oba fara i UV zaštita", t: "1,5 h", p: [70, 70, 70, 70] },
+    { id: "sale", g: "Lak i zaštita", name: "Priprema vozila za prodaju", t: "1 dan", p: [300, 350, 400, 480] },
+    // PPF
+    { id: "ppfh", g: "PPF zaštitna folija", name: "PPF farovi", t: "2 h", p: [150, 150, 150, 150] },
+    { id: "ppff", g: "PPF zaštitna folija", name: "PPF prednji kraj (branik, hauba, blatobrani, retrovizori)", t: "2 dana", p: [1900, 2100, 2400, 2700] }
+  ],
+  onRequest: [["PPF cijelo vozilo", "od 4.000 €"], ["Pojedinačna oštećenja i restauracija", "na upit"]],
+  extras: [
+    { id: "pet", name: "Dlake ljubimaca ili jaka zaprljanost", p: 30 },
+    { id: "mob", name: "Dolazak na adresu (Zagreb)", p: 15, freeAbove: 150 },
+    { id: "pick", name: "Preuzimanje i povrat vozila", p: 20, freeAbove: 400 }
+  ],
+  // 3. Paketi (usporedba)
+  packages: [
+    { id: "basic", lvl: "Basic", name: "Fresh", p: [99, 109, 119, 139] },
+    { id: "premium", lvl: "Premium", name: "Reset", p: [349, 389, 439, 499], hot: true },
+    { id: "ultimate", lvl: "Ultimate", name: "Signature", p: [1190, 1290, 1450, 1650] }
+  ],
+  features: [
+    ["Kompletno pranje i dekontaminacija", 1, 1, 1],
+    ["Detaljno čišćenje plastike i ventilacije", 1, 1, 1],
+    ["Dubinsko čišćenje interijera i ozon", 0, 1, 1],
+    ["Poliranje", 0, "u 1 koraku", "u 2 koraka"],
+    ["Zaštita laka", "sprej 1–2 mj.", "sealant 6 mj.", "keramika 5 god."],
+    ["Poliranje farova", 0, 1, 1],
+    ["Keramička zaštita stakala i felgi", 0, 0, 1],
+    ["Koža i motorni prostor", 0, 0, 1],
+    ["Foto-izvještaj i LED primopredaja", 1, 1, 1],
+    ["Komplet za održavanje i prva kontrola", 0, 0, 1],
+    ["Trajanje", "3 h", "1 dan", "3 dana"]
+  ],
+  subs: [
+    { name: "Club Sjaj", d: "2 kompletna pranja mjesečno", p: "69 €/mj" },
+    { name: "Club Plus", d: "1 pranje i 1 detaljno čišćenje interijera mjesečno", p: "89 €/mj" },
+    { name: "Keramika care", d: "kontrola i zaštitni sloj (top-coat), po posjetu", p: "49 €" }
+  ],
+  why: [
+    { icon: "tool", t: "Profesionalna oprema", d: "Polirke Rupes, ekstraktor Kärcher, LED inspekcijska rasvjeta i mjerač debljine laka." },
+    { icon: "flask", t: "Premium proizvodi", d: "Provjereni premazi i vlastite smjese koje smo testirali na stotinama automobila." },
+    { icon: "shield", t: "Jamstvo bez uvjeta", d: "Sve što na primopredaji nije u redu ispravljamo besplatno, odmah ili u roku od 7 dana." },
+    { icon: "truck", t: "Preuzimanje vozila", d: "Dolazimo po auto i vraćamo ga. Besplatno uz poslove iznad 400 €." }
+  ],
+  reviews: [
+    { car: "VW Golf 8 · Keramika 2 god.", name: "Marko P.", t: "Cijena je bila točno ona iz ponude. Na primopredaji su mi pod lampom pokazali lak prije i poslije." },
+    { car: "Škoda Kodiaq · Dubinsko čišćenje", name: "Ana K.", t: "Dvoje djece i pas, a auto izgleda kao iz salona. Sjedala su bila suha, auto su mi vratili na adresu." },
+    { car: "BMW 320d · Korekcija laka", name: "Ivan T.", t: "Prvi detailer koji mi je iskreno rekao koliko keramika traje i nije me tjerao na skupo održavanje." },
+    { car: "Alfa Romeo Giulia · Paket Reset", name: "Petra M.", t: "Rezervacija preko WhatsAppa, ponuda za sat vremena. Crvena boja je opet duboka." },
+    { car: "Audi A4 Avant · PPF farovi", name: "Dino R.", t: "Brzo i uredno, a foto-izvještaj je stigao isti dan. Već sam ih preporučio dvojici kolega." },
+    { car: "Toyota RAV4 · Priprema za prodaju", name: "Luka S.", t: "Auto sam prodao za tjedan dana. Detailing se isplatio višestruko." }
+  ],
+  gallery: [
+    ["g-ferrari.jpg", "Interijer od kože", "wide"],
+    ["g-350z.jpg", "Sjaj nakon poliranja", "tall"],
+    ["g-foam.jpg", "Aktivna pjena", "tall"],
+    ["g-seat.jpg", "Detaljno čišćenje sjedala", ""],
+    ["g-door.jpg", "Zaštita kože na vratima", ""],
+    ["g-suv.jpg", "SUV nakon kompletnog pranja", ""]
+  ],
+  products: [
+    { id: "v50", name: "Poklon bon 50 €", d: "Za pranje ili ozon.", p: 50, now: true, kind: "card" },
+    { id: "v100", name: "Poklon bon 100 €", d: "Za interijer ili farove.", p: 100, now: true, kind: "card" },
+    { id: "vreset", name: "Bon: paket Reset", d: "Srednje vozilo, cijeli paket.", p: 389, now: true, kind: "card" },
+    { id: "scent", name: "Signature miris No.1", d: "Potpisni miris interijera, 100 ml.", p: 12.9, kind: "bottle" },
+    { id: "qd", name: "Quick Detailer „Glow”", d: "Sjaj i zaštita između pranja, 500 ml.", p: 16.9, kind: "bottle" },
+    { id: "cs", name: "Ceramic Spray „Shield”", d: "Održavanje keramike, 500 ml.", p: 24.9, kind: "bottle" },
+    { id: "kit", name: "Komplet za održavanje", d: "Glow, Shield i Reset te dvije mikrofibre.", p: 59, kind: "box" },
+    { id: "tee", name: "Detailerz majica", d: "Crna, 100 % pamuk (220 g/m²), vezeni logo.", p: 25, kind: "tee" },
+    { id: "cap", name: "Detailerz kapa", d: "Crna, narančasti vez.", p: 20, kind: "cap" }
+  ],
+  areas: ["Zagreb – centar", "Novi Zagreb", "Trešnjevka", "Dubrava", "Sesvete", "Velika Gorica", "Zaprešić", "Samobor", "Sveta Nedelja", "Dugo Selo", "Jastrebarsko", "Ivanić-Grad"],
+  faq: [
+    ["Koliko traje detailing?", "Kompletno pranje traje 1,5 h, dubinsko čišćenje interijera 4–6 h, poliranje 1–2 dana, a keramička zaštita s korekcijom 2–3 dana. Točno trajanje navodimo u ponudi."],
+    ["Moram li ostaviti auto preko noći?", "Za pranje i interijer ne, auto preuzimate isti dan. Za poliranje i keramiku da, jer premaz mora otvrdnuti u kontroliranim uvjetima. Ako trebate, preuzimamo i vraćamo auto."],
+    ["Keramika ili vosak?", "Vosak daje lijep sjaj, ali traje samo 4–8 tjedana. Keramika je tvrdi premaz koji traje 18 mjeseci do 5 godina, odbija vodu i prljavštinu i štiti od UV zraka i ptičjeg izmeta. Za auto koji vozite svaki dan keramika se dugoročno više isplati."],
+    ["Koliko stvarno traje keramička zaštita?", "Naš dvogodišnji premaz realno traje 18–24 mjeseca, a petogodišnji 3–5 godina uz pravilno pranje. Jamstvo ne ovisi o tome gdje perete auto."],
+    ["Hoće li sjedala ostati mokra?", "Ne. Koristimo ekstrakciju s kontroliranom količinom vode i sušenje toplim zrakom. Nakon tretmana provjeravamo da na sjedalima s elektronikom nema upaljenih lampica."],
+    ["Može li se cijena promijeniti pri preuzimanju?", "Ne, ako ste poslali realne fotografije. Ako uočimo nešto što nije bilo vidljivo, prvo vas pitamo i ništa ne radimo bez vaše potvrde."],
+    ["Je li poliranje štetno za lak?", "Stručno poliranje skida tek nekoliko mikrona. Zato prije poliranja mjerimo debljinu laka i biramo najblaži postupak koji daje rezultat."],
+    ["Što je PPF i isplati li se?", "PPF je prozirna poliuretanska folija koja štiti lak od kamenčića i ogrebotina. Najviše se isplati na prednjem kraju novog ili skupljeg auta. Za ostatak auta obično je dovoljna keramika."],
+    ["Dolazite li na adresu?", "Da, za pranje, interijer i dubinsko čišćenje u Zagrebu i okolici. Poliranje, keramičku zaštitu i PPF radimo samo u studiju."],
+    ["Kako se plaća?", "Gotovinom, karticom ili virmanom. Tvrtkama izdajemo eRačun."]
+  ]
+};
+
+/* ============================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const eur = n => (Number.isInteger(n) ? n.toLocaleString("hr-HR") : n.toLocaleString("hr-HR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + " €";
+const ICON = {
+  drop: '<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+  seat: '<path d="M8 3h5l1 10H9zM6 13h11l1 5H6zM8 18v3M16 18v3"/>',
+  spark: '<circle cx="12" cy="12" r="8"/><path d="M12 7v2M12 15v2M7 12h2M15 12h2"/><circle cx="12" cy="12" r="1.5"/>',
+  shield: '<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
+  film: '<path d="M4 6c4-2 12-2 16 0v12c-4 2-12 2-16 0z"/><path d="M4 6l16 12" opacity=".6"/>',
+  leather: '<path d="M6 4h12v16H6z"/><path d="M9 4v16M15 4v16" stroke-dasharray="2 2"/>',
+  light: '<path d="M3 9c3-3 8-3 10 0v6c-2 3-7 3-10 0zM16 9h5M16 12h5M16 15h5"/>',
+  engine: '<path d="M5 9h3V7h6v2h3l2 3v4h-2v2H7l-2-2H3v-5h2z"/>',
+  tool: '<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>',
+  flask: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7 15h10"/>',
+  truck: '<path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>'
+};
+const svg = (k, cls = "") => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
+const store = { get(k) { try { return localStorage.getItem(k) } catch (e) { return null } }, set(k, v) { try { localStorage.setItem(k, v) } catch (e) {} } };
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2400); }
+
+let size = 1;
+const chosen = new Set(["full"]);
+const chosenX = new Set();
+const cart = new Map();
+
+/* size switches */
+function drawSizes() {
+  $$("[data-sizes]").forEach(g => g.innerHTML = DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}">${z}</button>`).join(""));
+  $("#sizeHint").textContent = "· " + DATA.sizeHints[size];
+  $("#rSize").textContent = DATA.sizes[size];
+  $("#fSize").value = size;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-size]");
+  if (b) { size = +b.dataset.size; renderPriced(); }
+});
+
+/* services */
+function renderCards() {
+  $("#svcGrid").innerHTML = DATA.cards.map(c => `
+    <article class="svc lift">
+      ${svg(c.icon)}
+      <h3>${c.name}</h3>
+      <p>${c.desc}</p>
+      <div class="svc-meta"><b><small>od</small>${eur(c.from[size])}</b><span>${c.time}</span></div>
+      <a href="#rezervacija" data-service="${c.svc}">Zatraži ponudu →</a>
+    </article>`).join("");
+}
+
+/* packages */
+function renderPackages() {
+  const P = DATA.packages;
+  const cell = v => v === 1 ? '<span class="yes" aria-label="Uključeno">✓</span>' : v === 0 ? '<span class="no" aria-label="Nije uključeno">—</span>' : v;
+  $("#cmp").innerHTML = `
+    <thead><tr><th scope="col"><span class="muted">Veličina vozila: ${DATA.sizes[size].toLowerCase()}</span></th>${P.map(p => `
+      <th scope="col" class="${p.hot ? "hot" : ""}">${p.hot ? '<span class="tag">Najpopularniji</span><br>' : ""}<span class="pk-lvl">${p.lvl}</span><div class="pk-name">${p.name}</div><div class="pk-price">${eur(p.p[size])}</div></th>`).join("")}</tr></thead>
+    <tbody>${DATA.features.map(f => `<tr><td>${f[0]}</td>${[1, 2, 3].map(i => `<td class="${P[i - 1].hot ? "hot" : ""}">${cell(f[i])}</td>`).join("")}</tr>`).join("")}</tbody>
+    <tfoot><tr><td></td>${P.map(p => `<td class="${p.hot ? "hot" : ""}"><a href="#rezervacija" class="btn ${p.hot ? "btn-accent" : "btn-line"} btn-sm" data-service="Paket ${p.name}">Odaberi ${p.name}</a></td>`).join("")}</tr></tfoot>`;
+  $("#subs").innerHTML = DATA.subs.map(s => `<div class="sub"><div><b>${s.name}</b><br><span class="muted small">${s.d}</span></div><span class="p">${s.p}</span></div>`).join("");
+}
+
+/* calculator */
+function renderCalc() {
+  let lastG = "";
+  $("#calcSvc").innerHTML = DATA.services.map(s => (s.g !== lastG ? `<div class="calc-grp">${lastG = s.g}</div>` : "") + `
+    <label class="opt" for="s_${s.id}"><span class="l"><input type="checkbox" id="s_${s.id}" data-svc="${s.id}" ${chosen.has(s.id) ? "checked" : ""}>${s.name}</span><span class="pr">${eur(s.p[size])}</span></label>`).join("");
+  $("#calcExt").innerHTML = DATA.extras.map(x => `
+    <label class="opt" for="x_${x.id}"><span class="l"><input type="checkbox" id="x_${x.id}" data-ext="${x.id}" ${chosenX.has(x.id) ? "checked" : ""}>${x.name}</span><span class="pr">+${eur(x.p)}${x.freeAbove ? `<br><small>besplatno iznad ${x.freeAbove} €</small>` : ""}</span></label>`).join("");
+  $("#anchorNote").textContent = `Sidrena cijena (cijena na dan ${DATA.anchorDate}) za sve je usluge u cjeniku jednaka trenutačnoj cijeni.`;
+  updateCalc();
+}
+function calcState() {
+  let base = 0; const lines = [];
+  DATA.services.forEach(s => { if (chosen.has(s.id)) { base += s.p[size]; lines.push([s.name, s.p[size]]); } });
+  let total = base;
+  DATA.extras.forEach(x => {
+    if (!chosenX.has(x.id)) return;
+    const free = x.freeAbove && base >= x.freeAbove;
+    total += free ? 0 : x.p; lines.push([x.name + (free ? " · besplatno" : ""), free ? 0 : x.p]);
+  });
+  return { base, total, lines };
+}
+function updateCalc() {
+  const { total, lines } = calcState();
+  $("#rLines").innerHTML = lines.length ? lines.map(l => `<li><span>${l[0]}</span><span>${eur(l[1])}</span></li>`).join("") : '<li><span style="color:#777">Odaberite barem jednu uslugu</span></li>';
+  const rt = $("#rTotal"); const nt = eur(total);
+  if (rt.textContent !== nt) { rt.textContent = nt; rt.classList.remove("tick"); void rt.offsetWidth; rt.classList.add("tick"); }
+  const reset = DATA.packages[1];
+  const sig = DATA.packages[2];
+  let tip = "";
+  if (chosen.has("deep") && (chosen.has("pol1") || chosen.has("pol2")) && total > reset.p[size]) tip = `Paket ${reset.name} za ${eur(reset.p[size])} uključuje dubinsko čišćenje, poliranje, sealant i poliranje farova.`;
+  if ((chosen.has("cer5")) && total > sig.p[size] * 0.85) tip = `Pogledajte paket ${sig.name} (${eur(sig.p[size])}): uključuje keramiku na 5 godina i cijeli interijer.`;
+  $("#rTip").innerHTML = tip ? `<div class="tip">${tip}</div>` : "";
+}
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.dataset.svc) { t.checked ? chosen.add(t.dataset.svc) : chosen.delete(t.dataset.svc); updateCalc(); }
+  if (t.dataset.ext) { t.checked ? chosenX.add(t.dataset.ext) : chosenX.delete(t.dataset.ext); updateCalc(); }
+});
+$("#rBook").addEventListener("click", () => {
+  const { total, lines } = calcState();
+  if (!lines.length) return;
+  $("#fSvc").value = "Kombinacija iz kalkulatora";
+  $("#fNote").value = `Kalkulator (${DATA.sizes[size]}): ${lines.map(l => l[0]).join(", ")}. Okvirno ${eur(total)}.`;
+});
+
+let firstRender = true;
+function renderPriceList() {
+  let g = "", rows = "";
+  DATA.services.forEach(sv => {
+    if (sv.g !== g) { g = sv.g; rows += `<tr class="grp"><td colspan="6">${g}</td></tr>`; }
+    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena: ${eur(v)}</small></td>`).join("")}</tr>`;
+  });
+  rows += `<tr class="grp"><td colspan="6">Na upit</td></tr>` + DATA.onRequest.map(r => `<tr><td>${r[0]}</td><td class="t">–</td><td colspan="4">${r[1]}</td></tr>`).join("");
+  rows += `<tr class="grp"><td colspan="6">Doplate i dolazak</td></tr>` + DATA.extras.map(x => `<tr><td>${x.name}</td><td class="t">–</td><td colspan="4">+${eur(x.p)}${x.freeAbove ? ` <small style="display:inline">(besplatno uz narudžbu iznad ${eur(x.freeAbove)})</small>` : ""}</td></tr>`).join("");
+  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena: ${eur(v)}</small></td>`).join("")}</tr>`).join("");
+  $("#plist").innerHTML = `<thead><tr><th>Usluga</th><th style="text-align:left">Trajanje</th>${DATA.sizes.map((z, i) => `<th class="${i === size ? "on" : ""}">${z}</th>`).join("")}</tr></thead><tbody>${rows}</tbody>`;
+  $("#plistNote").textContent = `Sve su cijene u eurima, s uključenim PDV-om. Sidrena cijena je cijena na dan ${DATA.anchorDate}. Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
+}
+function renderPriced() {
+  drawSizes(); renderCards(); renderPackages(); renderPriceList(); renderCalc(); observe();
+  if (!firstRender) $$(".svc-meta b, .pk-price, #rTotal, .plist td.on").forEach(el => { el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick"); });
+  firstRender = false;
+}
+
+/* before / after */
+const baR = $("#baRange");
+function setBA(v) { $("#baBefore").style.clipPath = `inset(0 ${100 - v}% 0 0)`; $("#baBar").style.left = v + "%"; }
+baR.addEventListener("input", () => setBA(baR.value)); setBA(50);
+
+/* why */
+$("#why").innerHTML = DATA.why.map(w => `<div class="lift">${svg(w.icon)}<h3>${w.t}</h3><p>${w.d}</p></div>`).join("");
+
+/* reviews carousel + gallery */
+$("#carousel").innerHTML = DATA.reviews.map(r => `
+  <article class="rv">
+    <div class="pic empty"><span>＋ Dodaj fotografiju auta klijenta</span></div>
+    <div class="body"><div class="stars" aria-label="5 od 5 zvjezdica">★★★★★</div><blockquote>„${r.t}”</blockquote><footer><b>${r.name}</b> · ${r.car}</footer></div>
+  </article>`).join("");
+const car = $("#carousel");
+const step = () => car.querySelector(".rv").offsetWidth + 16;
+$("#rvNext").onclick = () => car.scrollBy({ left: car.scrollLeft + car.clientWidth >= car.scrollWidth - 5 ? -car.scrollWidth : step(), behavior: "smooth" });
+$("#rvPrev").onclick = () => car.scrollBy({ left: -step(), behavior: "smooth" });
+let auto = setInterval(() => $("#rvNext").click(), 6000);
+car.addEventListener("pointerenter", () => clearInterval(auto));
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) clearInterval(auto);
+$("#gal").innerHTML = DATA.gallery.map(g => `<figure class="lift ${g[2]}"><img src="img/${g[0]}" alt="${g[1]}" loading="lazy"><figcaption>${g[1]}</figcaption></figure>`).join("") + `<figure class="add"><span>＋ Dodaj fotografiju<br><small>auti vaših klijenata</small></span></figure>`;
+
+/* shop */
+const art = {
+  card: '<svg viewBox="0 0 120 80"><rect x="2" y="2" width="116" height="76" rx="8" fill="#ff6a1a"/><text x="12" y="30" font-family="Archivo" font-weight="900" font-size="14" fill="#1a0c03">DETAILERZ</text><text x="12" y="62" font-family="Archivo" font-weight="700" font-size="11" fill="#1a0c03">POKLON BON</text></svg>',
+  bottle: '<svg viewBox="0 0 60 120"><rect x="22" y="2" width="16" height="16" rx="2" fill="#2a2e38"/><rect x="8" y="18" width="44" height="98" rx="10" fill="#15171c" stroke="#3a3f4b"/><rect x="8" y="52" width="44" height="30" fill="#ff6a1a"/><text x="30" y="71" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="7" fill="#1a0c03">DETAILERZ</text></svg>',
+  box: '<svg viewBox="0 0 120 90"><path d="M10 25 60 8l50 17v50L60 88 10 75z" fill="#15171c" stroke="#3a3f4b"/><path d="M10 25l50 17 50-17M60 42v46" stroke="#3a3f4b" fill="none"/><path d="M10 25l50 17v10L10 35z" fill="#ff6a1a"/></svg>',
+  tee: '<svg viewBox="0 0 120 110"><path d="M35 8 15 18 2 40l18 8v58h80V48l18-8-13-22L85 8c-5 10-45 10-50 0z" fill="#111317" stroke="#3a3f4b"/><text x="60" y="55" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="10" fill="#ff6a1a">DETAILERZ</text></svg>',
+  cap: '<svg viewBox="0 0 120 80"><path d="M15 55c0-28 18-45 45-45s45 17 45 45z" fill="#111317" stroke="#3a3f4b"/><path d="M5 55h110c0 8-20 14-55 14S5 63 5 55z" fill="#1b1e25" stroke="#3a3f4b"/><text x="60" y="42" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="9" fill="#ff6a1a">DTLZ</text></svg>'
+};
+$("#prods").innerHTML = DATA.products.map(p => `
+  <article class="prod">
+    <div class="ph">${art[p.kind]}<span class="soon ${p.now ? "now" : ""}">${p.now ? "Dostupno" : "Uskoro"}</span></div>
+    <h3>${p.name}</h3><p>${p.d}</p>
+    <div class="row"><b>${eur(p.p)}</b>${p.now ? `<button class="btn btn-accent btn-sm" data-add="${p.id}">Dodaj</button>` : `<button class="btn btn-line btn-sm" data-pre="${p.id}">Prednaruči</button>`}</div>
+  </article>`).join("");
+function renderCart() {
+  const items = [...cart.entries()];
+  $("#cartList").innerHTML = items.length ? items.map(([id, q]) => {
+    const p = DATA.products.find(x => x.id === id);
+    return `<li><span>${p.name}${p.now ? "" : " <small class='muted'>(prednarudžba)</small>"}</span><span class="qty"><button data-q="${id}" data-d="-1" aria-label="Manje">−</button>${q}<button data-q="${id}" data-d="1" aria-label="Više">+</button></span></li>`;
+  }).join("") : '<li class="muted">Košarica je prazna</li>';
+  const sum = items.reduce((a, [id, q]) => a + DATA.products.find(x => x.id === id).p * q, 0);
+  $("#cartSum").textContent = eur(Math.round(sum * 100) / 100);
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-add],[data-pre]");
+  if (a) { const id = a.dataset.add || a.dataset.pre; cart.set(id, (cart.get(id) || 0) + 1); renderCart(); toast(a.dataset.pre ? "Dodano kao prednarudžba" : "Dodano u košaricu"); }
+  const q = e.target.closest("[data-q]");
+  if (q) { const id = q.dataset.q; const n = (cart.get(id) || 0) + +q.dataset.d; n > 0 ? cart.set(id, n) : cart.delete(id); renderCart(); }
+});
+$("#cartOrder").addEventListener("click", e => {
+  if (!cart.size) { e.preventDefault(); toast("Košarica je prazna"); return; }
+  $("#fSvc").value = "Narudžba iz shopa";
+  $("#fNote").value = "Narudžba: " + [...cart.entries()].map(([id, q]) => `${q}× ${DATA.products.find(x => x.id === id).name}`).join(", ") + ". Ukupno " + $("#cartSum").textContent + ".";
+});
+$("#notify").addEventListener("submit", e => {
+  e.preventDefault();
+  const i = $("#notifyEmail");
+  if (!/^\S+@\S+\.\S+$/.test(i.value)) { i.style.borderColor = "#ef4444"; toast("Upišite ispravan e-mail"); return; }
+  i.style.borderColor = ""; i.value = ""; toast("Prijava zabilježena (demo)");
+});
+renderCart();
+
+/* areas + faq */
+$("#areas").innerHTML = DATA.areas.map(a => `<span>${a}</span>`).join("");
+$("#faqList").innerHTML = DATA.faq.map((f, i) => `<details ${i === 0 ? "open" : ""}><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
+// FAQ schema za SEO
+const faqLd = document.createElement("script"); faqLd.type = "application/ld+json";
+faqLd.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: DATA.faq.map(f => ({ "@type": "Question", name: f[0], acceptedAnswer: { "@type": "Answer", text: f[1] } })) });
+document.head.appendChild(faqLd);
+
+/* form */
+$("#fSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</option>`).join("");
+$("#fSvc").innerHTML = '<option value="">Odaberite uslugu</option>' +
+  DATA.packages.map(p => `<option>Paket ${p.name}</option>`).join("") +
+  DATA.cards.map(c => `<option>${c.svc}</option>`).join("") +
+  ["Keramička zaštita", "Kombinacija iz kalkulatora", "Narudžba iz shopa", "Ponuda za flotu (B2B)", "Nisam siguran / sigurna, savjetujte me"].filter((v, i, a) => a.indexOf(v) === i && !DATA.cards.some(c => c.svc === v)).map(o => `<option>${o}</option>`).join("");
+$("#makes").innerHTML = ["Alfa Romeo","Audi","BMW","BYD","Citroën","Cupra","Dacia","Fiat","Ford","Honda","Hyundai","Jaguar","Jeep","Kia","Land Rover","Lexus","Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Opel","Peugeot","Porsche","Renault","Seat","Škoda","Smart","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"].map(m => `<option value="${m} ">`).join("");
+$("#fDate").min = new Date().toISOString().slice(0, 10);
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-service]"); if (s) $("#fSvc").value = s.dataset.service;
+  const n = e.target.closest("[data-note]"); if (n) { $("#fNote").value = n.dataset.note; setTimeout(() => $("#fNote").focus(), 500); }
+});
+$("#fPhotos").addEventListener("change", e => {
+  $("#thumbs").innerHTML = "";
+  [...e.target.files].slice(0, 6).forEach(f => { const img = new Image(); img.src = URL.createObjectURL(f); img.alt = f.name; $("#thumbs").appendChild(img); });
+});
+$("#bookForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target; let ok = true;
+  $$("[required]", f).forEach(el => { const bad = el.type === "checkbox" ? !el.checked : !el.value.trim(); el.classList.toggle("bad", bad); if (bad) ok = false; });
+  if (!ok) { $("#fErr").textContent = "Ispunite označena polja i dajte privolu za obradu podataka."; f.querySelector(".bad")?.focus(); return; }
+  $("#fErr").textContent = "";
+  const d = new FormData(f), photos = $("#fPhotos").files.length;
+  const txt = `Upit — Detailerz\nIme: ${d.get("ime")}\nTelefon: ${d.get("tel")}\nE-mail: ${d.get("email") || "-"}\nVozilo: ${d.get("auto")} (${DATA.sizes[d.get("velicina")]})\nUsluga: ${d.get("usluga")}\nKontakt: ${d.get("kontakt")}\nDatum: ${d.get("datum") || "fleksibilno"}\nNapomena: ${d.get("napomena") || "-"}${photos ? `\nFotografije: ${photos} (šaljem u nastavku)` : ""}`;
+  $("#doneText").textContent = txt;
+  $("#doneWa").href = `https://wa.me/${DATA.phone}?text=${encodeURIComponent(txt)}`;
+  f.hidden = true; $("#done").classList.add("show"); $("#done").scrollIntoView({ behavior: "smooth", block: "center" });
+});
+$("#doneCopy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText($("#doneText").textContent); toast("Upit kopiran"); }
+  catch (e) { const r = document.createRange(); r.selectNodeContents($("#doneText")); getSelection().removeAllRanges(); getSelection().addRange(r); toast("Tekst je označen, kopirajte ga s Ctrl + C"); }
+});
+$("#doneNew").addEventListener("click", () => { $("#bookForm").reset(); $("#bookForm").hidden = false; $("#done").classList.remove("show"); $("#thumbs").innerHTML = ""; $("#fSize").value = size; });
+
+/* nav */
+function setMenu(open) {
+  $("#mnav").classList.toggle("open", open); $("#mnav").setAttribute("aria-hidden", !open);
+  $("#burger").setAttribute("aria-expanded", open); $("#burger").setAttribute("aria-label", open ? "Zatvori izbornik" : "Otvori izbornik");
+  document.body.classList.toggle("menu-open", open);
+}
+$("#burger").addEventListener("click", () => setMenu(!$("#mnav").classList.contains("open")));
+$("#mnav").addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+/* header: smanji se pri scrollu, aktivna sekcija */
+const onScroll = () => $("#nav").classList.toggle("scrolled", scrollY > 30);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+if ("IntersectionObserver" in window) {
+  const navLinks = $$(".nav-links a");
+  const secIo = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  ["usluge", "cjenik", "paketi", "galerija", "shop", "faq"].forEach(id => { const el = document.getElementById(id); if (el) secIo.observe(el); });
+}
+/* traka s ponudom: može se zatvoriti */
+if (store.get("dz_promo_x")) $("#promo").hidden = true;
+$("#promoX").addEventListener("click", () => { $("#promo").hidden = true; store.set("dz_promo_x", "1"); });
+
+/* ===== KOLAČIĆI (privola) =====
+   Analitičke i marketinške skripte učitavaju se TEK nakon privole, u applyConsent(). */
+const CK_KEY = "dz_consent", CK_VERSION = 1, CK_MAX_DAYS = 182;
+function readConsent() {
+  try { const c = JSON.parse(store.get(CK_KEY)); if (c && c.v === CK_VERSION && (Date.now() - c.at) / 864e5 < CK_MAX_DAYS) return c; } catch (e) {}
+  return null;
+}
+function applyConsent(c) {
+  if (c.analytics) { /* Ovdje zalijepite Google Analytics 4 kod (gtag.js). */ }
+  if (c.marketing) { /* Ovdje zalijepite Meta Pixel ili Google Ads kod. */ }
+}
+function saveConsent(analytics, marketing) {
+  const c = { v: CK_VERSION, necessary: true, analytics, marketing, at: Date.now() };
+  store.set(CK_KEY, JSON.stringify(c)); applyConsent(c);
+  $("#cookie").hidden = true;
+  toast(analytics && marketing ? "Prihvatili ste sve kolačiće" : analytics || marketing ? "Vaš je odabir spremljen" : "Koristimo samo nužne kolačiće");
+}
+function openCookie(showSettings) {
+  const c = readConsent();
+  $("#ckAna").checked = !!(c && c.analytics); $("#ckMkt").checked = !!(c && c.marketing);
+  $("#ckSet").hidden = !showSettings; $("#ckCustom").textContent = showSettings ? "Spremi odabir" : "Postavke";
+  $("#ckCustom").setAttribute("aria-expanded", showSettings);
+  $("#cookie").hidden = false;
+}
+const existing = readConsent();
+if (existing) applyConsent(existing); else setTimeout(() => openCookie(false), 600);
+$("#ckAll").addEventListener("click", () => saveConsent(true, true));
+$("#ckNone").addEventListener("click", () => saveConsent(false, false));
+$("#ckCustom").addEventListener("click", () => {
+  if ($("#ckSet").hidden) openCookie(true); else saveConsent($("#ckAna").checked, $("#ckMkt").checked);
+});
+$("#cookieReopen").addEventListener("click", e => { e.preventDefault(); openCookie(true); });
+
+/* ===== PRAVNI TEKSTOVI ===== */
+const LEGAL = window.LEGAL_TEXTS;
+function openLegal(id) {
+  const L = LEGAL[id]; if (!L) return;
+  $("#legalT").textContent = L.title; $("#legalB").innerHTML = L.html; $("#legalB").scrollTop = 0;
+  if (!$("#legal").open) $("#legal").showModal();
+}
+function closeLegal() { $("#legal").close(); }
+$("#legal").addEventListener("close", () => { if (LEGAL[location.hash.slice(1)]) history.replaceState(null, "", location.pathname + location.search); });
+$("#legalClose").addEventListener("click", closeLegal);
+$("#legalClose2").addEventListener("click", closeLegal);
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if (LEGAL[id]) { e.preventDefault(); openLegal(id); try { history.replaceState(null, "", "#" + id); } catch (er) {} }
+  if (id === "postavke-kolacica") { e.preventDefault(); closeLegal(); openCookie(true); }
+});
+function routeHash() { const id = location.hash.slice(1); if (LEGAL[id]) openLegal(id); }
+addEventListener("hashchange", routeHash); routeHash();
+
+/* scroll lift (elements are visible at rest; only a small lift) */
+let io;
+function observe() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  io = io || new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.remove("pre"); io.unobserve(en.target); } }), { threshold: .1 });
+  $$(".sec-head, .steps li, .prod, .rv, .box, .honest > div, .meter").forEach(el => el.classList.add("lift"));
+  $$(".lift").forEach(el => {
+    if (el.dataset.seen) return; el.dataset.seen = 1;
+    const sib = el.parentElement ? [...el.parentElement.children].filter(c => c.classList.contains("lift")) : [];
+    el.style.transitionDelay = Math.min(sib.indexOf(el), 5) * 70 + "ms";
+    const r = el.getBoundingClientRect(); if (r.top > innerHeight) { el.classList.add("pre"); io.observe(el); }
+  });
+}
+$("#yr").textContent = new Date().getFullYear();
+renderPriced();
+</script>
+</body>
+</html>
