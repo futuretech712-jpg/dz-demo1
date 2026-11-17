@@ -130,8 +130,11 @@ body.menu-open .nav-tel{visibility:hidden}
 .trust span{font-size:.82rem;color:var(--muted)}
 
 /* size switch */
-.sizes{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
-.sizes button{border:0;background:none;padding:.55rem .95rem;border-radius:9px;font-weight:600;font-size:.85rem;color:var(--muted);cursor:pointer;min-height:40px}
+.sizes{display:inline-grid;grid-template-columns:repeat(4,auto);gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.sizes-lbl{grid-column:1/-1;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.35rem .6rem .1rem}
+.sizes button b{display:block;font-weight:700;font-size:.88rem;color:inherit}
+.sizes button small{display:block;font-size:.7rem;font-weight:500;opacity:.75;white-space:nowrap}
+.sizes button{border:0;background:none;text-align:left;padding:.5rem .9rem;border-radius:9px;font-weight:600;font-size:.85rem;color:var(--muted);cursor:pointer;min-height:40px}
 .sizes button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
 
 /* services */
@@ -372,7 +375,8 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 .lg-body th{background:var(--ink-2);color:var(--text)}
 .lg-body .ph{color:#ffb98f}
 /* floating */
-.fabs{position:fixed;right:16px;bottom:16px;z-index:50;display:grid;gap:.6rem}
+.fabs{position:fixed;right:16px;bottom:16px;z-index:50;display:grid;gap:.6rem;opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.fabs.show{opacity:1;transform:none;pointer-events:auto}
 .fab{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 28px -8px rgba(0,0,0,.7);transition:transform .2s}
 .fab:hover{transform:scale(1.07)}
 .fab.wa{background:#25d366;color:#fff}
@@ -458,6 +462,30 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 .lift.pre .kicker::before{width:0}
 .toast{transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
 
+
+/* paketi: kartice na mobitelu */
+.pk-cards{display:none;gap:1rem}
+.pk-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.pk-card.hot{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,106,26,.12),var(--panel) 45%)}
+.pk-card .tag{position:absolute;top:-11px;right:1.2rem;background:var(--accent);color:var(--accent-ink);font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .55rem;border-radius:6px}
+.pk-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.pk-card .pk-lvl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pk-card .pk-name{font-family:var(--display);font-stretch:125%;font-size:1.5rem;font-weight:800;text-transform:uppercase;line-height:1.1}
+.pk-card .pk-price{font-family:var(--display);font-weight:800;font-size:1.9rem;text-align:right;line-height:1}
+.pk-card .pk-price small{display:block;font-family:var(--body);font-size:.72rem;font-weight:500;color:var(--muted);margin-top:.3rem}
+.pk-card ul{list-style:none;margin:1rem 0 1.3rem;display:grid;gap:.55rem;font-size:.92rem}
+.pk-card li{position:relative;padding-left:1.6rem;display:flex;justify-content:space-between;gap:.8rem}
+.pk-card li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+.pk-card li em{font-style:normal;color:var(--accent);font-weight:700;white-space:nowrap;font-size:.85rem}
+.pk-card li.off{color:#5b616e;text-decoration:line-through}
+.pk-card li.off::before{content:"–";color:#4a505c}
+.pk-card .btn{width:100%}
+@media (max-width:760px){
+  .pk-table{display:none}
+  .pk-cards{display:grid}
+  .sizes{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .sizes button{min-height:52px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .hero h1{background:none;color:var(--text)}
@@ -509,6 +537,7 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
   .mbar-cta .btn{flex:1;min-height:50px}
   .mbar-cta .btn-line{flex:0 0 auto}
   .fabs{bottom:84px}
+  .fab.call{display:none}
   .cookie{bottom:84px;max-height:calc(100svh - 120px);overflow:auto}
   .toast{bottom:150px}
   .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
@@ -614,7 +643,8 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
       <div><p class="kicker">Paketi</p><h2>Tri paketa, bez sitnih slova</h2></div>
       <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
     </div>
-    <div class="cmp-wrap"><table class="cmp" id="cmp"></table></div>
+    <div class="cmp-wrap pk-table"><table class="cmp" id="cmp"></table></div>
+    <div class="pk-cards" id="pkCards"></div>
     <div class="subs" id="subs"></div>
   </div>
 </section>
@@ -948,8 +978,9 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 const DATA = {
   phone: "385910000000",
   anchorDate: "10. 9. 2026.",
-  sizes: ["Mala", "Srednja", "SUV / karavan", "Kombi / 7 sj."],
+  sizes: ["Mali", "Srednji", "SUV / karavan", "Kombi / 7 sjedala"],
   sizeHints: ["npr. Polo, Clio, Yaris", "npr. Golf, Octavia, A4", "npr. Tiguan, X3, Passat karavan", "npr. Transporter, Sharan"],
+  sizeShort: ["Polo, Clio, Yaris", "Golf, Octavia, A4", "Tiguan, X3, karavani", "Transporter, Sharan"],
   // 2. Usluge: kartice ("od" cijena po veličini)
   cards: [
     { icon: "drop", name: "Vanjsko pranje i dekontaminacija", desc: "Aktivna pjena, pranje metodom dviju kanti, felge te glina i kemijska dekontaminacija laka.", time: "1–2 h", from: [65, 80, 95, 115], svc: "Vanjsko pranje i dekontaminacija" },
@@ -1095,8 +1126,9 @@ const chosenX = new Set();
 const cart = new Map();
 
 /* size switches */
+const sizeLabel = i => i < 2 ? DATA.sizes[i].toLowerCase() + " auto" : DATA.sizes[i];
 function drawSizes() {
-  $$("[data-sizes]").forEach(g => g.innerHTML = DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}">${z}</button>`).join(""));
+  $$("[data-sizes]").forEach(g => g.innerHTML = `<span class="sizes-lbl">Veličina vašeg vozila</span>` + DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}"><b>${z}${i < 2 ? " auto" : ""}</b><small>${DATA.sizeShort[i]}</small></button>`).join(""));
   $("#sizeHint").textContent = "· " + DATA.sizeHints[size];
   $("#rSize").textContent = DATA.sizes[size];
   $("#fSize").value = size;
@@ -1123,10 +1155,17 @@ function renderPackages() {
   const P = DATA.packages;
   const cell = v => v === 1 ? '<span class="yes" aria-label="Uključeno">✓</span>' : v === 0 ? '<span class="no" aria-label="Nije uključeno">—</span>' : v;
   $("#cmp").innerHTML = `
-    <thead><tr><th scope="col"><span class="muted">Veličina vozila: ${DATA.sizes[size].toLowerCase()}</span></th>${P.map(p => `
+    <thead><tr><th scope="col"><span class="muted">Cijene za: ${sizeLabel(size)}</span></th>${P.map(p => `
       <th scope="col" class="${p.hot ? "hot" : ""}">${p.hot ? '<span class="tag">Najpopularniji</span><br>' : ""}<span class="pk-lvl">${p.lvl}</span><div class="pk-name">${p.name}</div><div class="pk-price">${eur(p.p[size])}</div></th>`).join("")}</tr></thead>
     <tbody>${DATA.features.map(f => `<tr><td>${f[0]}</td>${[1, 2, 3].map(i => `<td class="${P[i - 1].hot ? "hot" : ""}">${cell(f[i])}</td>`).join("")}</tr>`).join("")}</tbody>
     <tfoot><tr><td></td>${P.map(p => `<td class="${p.hot ? "hot" : ""}"><a href="#rezervacija" class="btn ${p.hot ? "btn-accent" : "btn-line"} btn-sm" data-service="Paket ${p.name}">Odaberi ${p.name}</a></td>`).join("")}</tr></tfoot>`;
+  $("#pkCards").innerHTML = P.map((p, k) => `
+    <article class="pk-card ${p.hot ? "hot" : ""}">
+      ${p.hot ? '<span class="tag">Najpopularniji</span>' : ""}
+      <div class="pk-top"><div><span class="pk-lvl">${p.lvl}</span><div class="pk-name">${p.name}</div></div><div class="pk-price">${eur(p.p[size])}<small>${sizeLabel(size)}</small></div></div>
+      <ul>${DATA.features.map(f => { const v = f[k + 1]; return v === 0 ? `<li class="off">${f[0]}</li>` : `<li><span>${f[0]}</span>${v === 1 ? "" : `<em>${v}</em>`}</li>`; }).join("")}</ul>
+      <a href="#rezervacija" class="btn ${p.hot ? "btn-accent" : "btn-line"}" data-service="Paket ${p.name}">Odaberi ${p.name}</a>
+    </article>`).join("");
   $("#subs").innerHTML = DATA.subs.map(s => `<div class="sub"><div><b>${s.name}</b><br><span class="muted small">${s.d}</span></div><span class="p">${s.p}</span></div>`).join("");
 }
 
@@ -1311,7 +1350,11 @@ $("#burger").addEventListener("click", () => setMenu(!$("#mnav").classList.conta
 $("#mnav").addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
 addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 /* header: smanji se pri scrollu, aktivna sekcija */
-const onScroll = () => $("#nav").classList.toggle("scrolled", scrollY > 30);
+const onScroll = () => {
+  $("#nav").classList.toggle("scrolled", scrollY > 30);
+  const h = document.querySelector(".hero");
+  $(".fabs").classList.toggle("show", scrollY > (h ? h.offsetHeight * .85 : 600));
+};
 addEventListener("scroll", onScroll, { passive: true }); onScroll();
 if ("IntersectionObserver" in window) {
   const navLinks = $$(".nav-links a");
