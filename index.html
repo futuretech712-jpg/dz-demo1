@@ -140,7 +140,7 @@ body.menu-open .nav-tel{visibility:hidden}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.2rem;border-top:1px solid var(--line)}
 .trust div{padding:1.1rem 1rem 0 0}
 .trust b{display:block;font-family:var(--display);font-size:1.9rem;font-weight:900;line-height:1}
-.trust span{font-size:.82rem;color:var(--muted)}
+.trust span{display:block;font-size:.82rem;line-height:1.35;color:var(--muted);margin-top:.3rem}
 
 /* size switch */
 .sizes{display:inline-grid;grid-template-columns:repeat(4,auto);gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
@@ -527,11 +527,12 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 @media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding-inline:20px}.chips::-webkit-scrollbar{display:none}.chips button{flex:none}}
 
 /* traka s uslugama */
-.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--ink-2);padding:1.1rem 0;white-space:nowrap}
-.marquee-in{display:inline-flex;gap:2.4rem;animation:marq 38s linear infinite;padding-left:2.4rem}
-.marquee span{font-family:var(--display);font-weight:900;font-size:clamp(2rem,5vw,3.4rem);text-transform:uppercase;line-height:1;color:transparent;-webkit-text-stroke:1px #4a505c}
+.marquee{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-block:1px solid var(--line);background:var(--ink-2);padding:1.1rem 0;white-space:nowrap;cursor:grab}
+.marquee::-webkit-scrollbar{display:none}
+.marquee-in{display:inline-flex;align-items:center;gap:2rem;padding:0 1rem}
+.marquee span{display:block;font-family:var(--display);font-weight:900;font-size:clamp(2rem,5vw,3.4rem);text-transform:uppercase;line-height:1;padding-top:.06em;color:transparent;-webkit-text-stroke:1px #4a505c}
 .marquee span:nth-child(odd){color:var(--text);-webkit-text-stroke:0}
-.marquee i{font-style:normal;color:var(--accent);font-size:2rem;align-self:center}
+.marquee i{display:block;font-style:normal;color:var(--accent);font-size:clamp(1.1rem,2.4vw,1.6rem);line-height:1}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* oznake na naslovnoj (računalo) */
@@ -592,10 +593,12 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
   .hero-credit .m{display:inline}
   .mbar-cta{transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(12,13,16,.95);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
   .mbar-cta.show{transform:none}
-  .mbar-cta .btn{flex:1;min-height:50px}
-  .mbar-cta .btn-line{flex:0 0 auto}
-  .fabs{bottom:84px}
-  .fab.call{display:none}
+  .mbar-cta{align-items:stretch}
+  .mbar-cta .btn{flex:1;min-height:54px}
+  .mb-ic{flex:0 0 62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:1px solid var(--line);border-radius:10px;background:var(--panel);text-decoration:none;color:var(--text);font-size:.62rem;font-weight:700;letter-spacing:.02em}
+  .mb-ic svg{width:20px;height:20px;color:var(--accent)}
+  .mb-ic.wa svg{color:#25d366}
+  .fabs{display:none}
   .cookie{bottom:16px;max-height:calc(100svh - 120px);overflow:auto}
   .toast{bottom:150px}
   .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
@@ -1009,7 +1012,8 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
   <a class="fab wa" href="https://wa.me/385910000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.6 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></a>
 </div>
 <div class="mbar-cta">
-  <a class="btn btn-line" href="tel:+385910000000" aria-label="Nazovi">Nazovi</a>
+  <a class="mb-ic" href="tel:+385910000000" aria-label="Nazovi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Nazovi</span></a>
+  <a class="mb-ic wa" href="https://wa.me/385910000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.6 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><span>WhatsApp</span></a>
   <a class="btn btn-accent" href="#rezervacija">Rezerviraj termin</a>
 </div>
 
@@ -1283,6 +1287,26 @@ $("#rBook").addEventListener("click", () => {
   $("#fNote").value = `Kalkulator (${DATA.sizes[size]}): ${lines.map(l => l[0]).join(", ")}. Okvirno ${eur(total)}.`;
 });
 
+/* traka s uslugama: sama se pomiče, a može se povući prstom ili mišem */
+(function () {
+  const m = $(".marquee"); if (!m) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let paused = 0, last = performance.now(), drag = null, pos = 0;
+  const half = () => m.scrollWidth / 2;
+  const hold = () => { paused = performance.now() + 2500; };
+  m.addEventListener("touchstart", hold, { passive: true });
+  m.addEventListener("wheel", hold, { passive: true });
+  m.addEventListener("pointerdown", e => { if (e.pointerType === "mouse") { drag = { x: e.clientX, l: m.scrollLeft }; m.style.cursor = "grabbing"; } hold(); });
+  addEventListener("pointermove", e => { if (drag) { m.scrollLeft = drag.l - (e.clientX - drag.x); hold(); } });
+  addEventListener("pointerup", () => { drag = null; m.style.cursor = ""; });
+  m.addEventListener("scroll", () => { if (m.scrollLeft >= half()) m.scrollLeft -= half(); else if (m.scrollLeft <= 0 && performance.now() < paused) m.scrollLeft += half(); pos = m.scrollLeft; }, { passive: true });
+  function tick(t) {
+    const dt = t - last; last = t;
+    if (!reduce && t > paused && !drag) { pos += dt * 0.04; if (pos >= half()) pos -= half(); m.scrollLeft = pos; }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 let firstRender = true;
 let svcCat = "Sve";
 function renderChips() {
