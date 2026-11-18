@@ -9,13 +9,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Detailerz · Car detailing Zagreb">
 <meta property="og:description" content="Opet kao iz salona. Car detailing u Zagrebu: fiksna cijena prije početka i primopredaja pod LED svjetlom.">
-<meta property="og:image" content="img/hero.jpg">
+<meta property="og:image" content="img/h1.jpg">
 <meta name="theme-color" content="#0c0d10">
 <!-- DEMO: stranica se ne prikazuje na Googleu. Za pravu objavu obriši sljedeći red i robots.txt. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"AutoWash","name":"Detailerz","description":"Car detailing studio u Zagrebu: pranje, dubinsko čišćenje, poliranje, keramička zaštita, PPF.","image":"img/hero.jpg","telephone":"+385910000000","email":"info@detailerz.hr","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"[ADRESA]","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"areaServed":["Zagreb","Novi Zagreb","Sesvete","Velika Gorica","Zaprešić","Samobor","Sveta Nedelja","Dugo Selo","Zagrebačka županija"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"15:00"}]}
+{"@context":"https://schema.org","@type":"AutoWash","name":"Detailerz","description":"Car detailing studio u Zagrebu: pranje, dubinsko čišćenje, poliranje, keramička zaštita, PPF.","image":"img/h1.jpg","telephone":"+385910000000","email":"info@detailerz.hr","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"[ADRESA]","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"areaServed":["Zagreb","Novi Zagreb","Sesvete","Velika Gorica","Zaprešić","Samobor","Sveta Nedelja","Dugo Selo","Zagrebačka županija"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"15:00"}]}
 </script>
 <style>
 @font-face{font-family:'Big Shoulders Display';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/big-shoulders-display-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -123,7 +123,8 @@ body.menu-open .nav-tel{visibility:hidden}
 
 /* hero */
 .hero{position:relative;min-height:min(100svh,920px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden;opacity:0;transition:opacity 1.4s ease}
+.hero picture.on{opacity:1}
 .hero picture img{width:100%;height:100%;object-fit:cover;object-position:70% 35%}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,13,16,.2),rgba(12,13,16,.1) 40%,rgba(12,13,16,.92) 82%),linear-gradient(90deg,rgba(12,13,16,.85),transparent 60%)}
 .hero-in{padding:7rem 0 3rem}
@@ -133,7 +134,6 @@ body.menu-open .nav-tel{visibility:hidden}
 @keyframes inspect{from{background-position:100% 0}to{background-position:0 0}}
 .hero .hero-sub{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c9ced8;max-width:48ch;margin:1.4rem 0 2rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
-.hero-credit .m{display:none}
 .gauge{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.6rem;padding:.5rem .9rem .5rem .6rem;border:1px solid var(--line);border-radius:999px;background:rgba(12,13,16,.6);font-size:.8rem;color:var(--muted)}
 .gauge b{font-family:var(--display);color:var(--text);font-variant-numeric:tabular-nums;font-size:.95rem}
 .gauge .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(62,207,142,.18)}
@@ -451,7 +451,11 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 .hero .hero-cta{animation:rise .8s 1.3s cubic-bezier(.2,.8,.2,1) both}
 .hero .trust div{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
 .hero .trust div:nth-child(1){animation-delay:1.5s}.hero .trust div:nth-child(2){animation-delay:1.6s}.hero .trust div:nth-child(3){animation-delay:1.7s}.hero .trust div:nth-child(4){animation-delay:1.8s}
-.hero picture img{animation:heroZoom 14s ease-out both}
+.hero picture.on img{animation:heroZoom 7s ease-out both}
+.dots{position:absolute;z-index:3;right:max(20px,calc((100% - 1200px)/2));bottom:28px;display:flex;gap:6px}
+.dots button{width:28px;height:4px;border:0;border-radius:4px;background:rgba(255,255,255,.3);cursor:pointer;padding:0;transition:background .3s,width .3s}
+.dots button[aria-selected="true"]{background:var(--accent);width:44px}
+@media (max-width:640px){.dots{right:auto;left:20px;bottom:14px}}
 @keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
 .gauge .dot{animation:blink 2.4s infinite}
 @keyframes blink{50%{box-shadow:0 0 0 8px rgba(62,207,142,0)}}
@@ -478,6 +482,15 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 
 .anchor{display:block;font:500 .7rem/1.3 var(--body);color:var(--muted);letter-spacing:0;text-transform:none;}
 .svc .anchor{margin-top:-.4rem}
+.mrow.rec{background:rgba(255,106,26,.07);margin:0 -.8rem;padding-inline:.8rem;border-radius:8px}
+.mrow em{font-style:normal;font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:.15rem .4rem;border-radius:4px;margin-left:.3rem}
+.rec-box{margin-top:1.4rem;border:1px solid var(--accent);border-radius:var(--r);padding:1.4rem;background:linear-gradient(160deg,rgba(255,106,26,.14),transparent 60%)}
+.rec-tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:.25rem .55rem;border-radius:6px;margin-bottom:.7rem}
+.rec-box h3{font-size:1.2rem}
+.rec-box p{font-size:.92rem;margin:.5rem 0 1rem}
+.rec-row{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem}
+.rec-row b{font-family:var(--display);font-weight:900;font-size:2.6rem;line-height:1}
+.rec-row span{font-size:.78rem;color:var(--muted)}
 /* paketi: kartice na mobitelu */
 .pk-cards{display:none;gap:1rem}
 .pk-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
@@ -589,8 +602,7 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
   .hero-in{padding-top:11rem}
   .hero picture img{object-position:75% 50%}
   .hero::before{background:linear-gradient(180deg,rgba(12,13,16,.45),rgba(12,13,16,.72) 40%,rgba(12,13,16,.95) 75%)}
-  .hero-credit .d,.g-more{display:none}
-  .hero-credit .m{display:inline}
+  .g-more{display:none}
   .mbar-cta{transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(12,13,16,.95);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
   .mbar-cta.show{transform:none}
   .mbar-cta{align-items:stretch}
@@ -660,18 +672,31 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 
 <!-- 1. HERO -->
 <section class="hero" aria-label="Uvod">
-  <picture>
-    <source media="(max-width: 640px)" srcset="img/hero-m.jpg">
-    <img src="img/hero.jpg" alt="Detailer polira lak automobila strojem Rupes" fetchpriority="high" width="1920" height="1280">
+  <picture class="slide on" data-credit="Foto: Fine Automotive Detailing / Unsplash">
+    <source media="(max-width: 640px)" srcset="img/h1m.jpg">
+    <img src="img/h1.jpg" alt="Detailer polira lak automobila" fetchpriority="high" width="1920" height="1280">
   </picture>
-  <span class="placeholder-tag hero-credit" style="left:auto;right:12px;bottom:auto;top:12px"><span class="d">Foto: Fine Automotive Detailing / Unsplash</span><span class="m">Foto: Severin Demchuk / Unsplash</span></span>
+  <picture class="slide" data-credit="Foto: Severin Demchuk / Unsplash">
+    <source media="(max-width: 640px)" srcset="img/h3m.jpg">
+    <img src="img/h3.jpg" alt="Bijeli auto u aktivnoj pjeni" loading="lazy" width="1920" height="1280">
+  </picture>
+  <picture class="slide" data-credit="Foto: Fine Automotive Detailing / Unsplash">
+    <source media="(max-width: 640px)" srcset="img/h2m.jpg">
+    <img src="img/h2.jpg" alt="Kožni interijer nakon detailinga" loading="lazy" width="1920" height="1280">
+  </picture>
+  <picture class="slide" data-credit="Foto: Fine Automotive Detailing / Unsplash">
+    <source media="(max-width: 640px)" srcset="img/h4m.jpg">
+    <img src="img/h4.jpg" alt="Detaljno čišćenje sjedala" loading="lazy" width="1920" height="1280">
+  </picture>
+  <span class="placeholder-tag hero-credit" id="heroCredit" style="left:auto;right:12px;bottom:auto;top:12px">Foto: Fine Automotive Detailing / Unsplash</span>
+  <div class="dots" id="heroDots" role="tablist" aria-label="Naslovne fotografije"><button type="button" aria-label="Fotografija 1" aria-selected="true"></button><button type="button" aria-label="Fotografija 2" aria-selected="false"></button><button type="button" aria-label="Fotografija 3" aria-selected="false"></button><button type="button" aria-label="Fotografija 4" aria-selected="false"></button></div>
   <div class="callouts" aria-hidden="true">
     <div class="callout"><b>2 h</b><span><strong>Fiksna ponuda</strong>nakon vaših fotografija</span></div>
-    <div class="callout"><b>µm</b><span><strong>Mjerimo lak</strong>prije svakog poliranja</span></div>
+    <div class="callout"><b><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4-5"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/></svg></b><span><strong>Mjerimo lak</strong>prije svakog poliranja</span></div>
     <div class="callout"><b>7</b><span><strong>Dana jamstva</strong>na popravak nedostataka</span></div>
   </div>
   <div class="wrap hero-in">
-    <div class="gauge"><span class="dot" aria-hidden="true"></span>Debljina laka <b>118 µm</b><span class="g-more"> · mjerimo je prije svakog poliranja</span></div>
+    <div class="gauge"><span class="dot" aria-hidden="true"></span>Debljinu laka mjerimo prije svakog poliranja</div>
     <h1>Opet kao iz salona.</h1>
     <p class="hero-sub">Sjećate se kako je mirisao i blistao prvi dan? Vraćamo mu to. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i preuzimanje pod LED svjetlom.</p>
     <div class="hero-cta">
@@ -775,7 +800,7 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
       <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Pomakni usporedbu prije i poslije">
       <span class="placeholder-tag">Placeholder · zamijeni stvarnim fotografijama</span>
     </div>
-    <div class="ba-meta"><span>Postupak: <b>korekcija u 2 koraka</b></span><span>Uklonjeno: <b>~85 % ogrebotina</b></span><span>Lak prije / poslije: <b>121 → 114 µm</b></span><span>Trajanje: <b>1,5 dana</b></span></div>
+    <div class="ba-meta"><span>Postupak: <b>korekcija u 2 koraka</b></span><span>Uklonjeno: <b>~85 % ogrebotina</b></span><span>Debljina laka: <b>izmjerena prije i poslije</b></span><span>Trajanje: <b>1,5 dana</b></span></div>
   </div>
 </section>
 
@@ -811,12 +836,19 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
       <h2>Koliko keramika stvarno traje?</h2>
       <p style="margin-top:1.2rem">Najčešća pritužba na forumima: obećane su dvije godine, a premaz je izdržao jedno ljeto. Ili je jamstvo vrijedilo samo uz skupo održavanje u istoj radionici.</p>
       <p>Mi dajemo realne brojke. Jamstvo ne ovisi o tome gdje perete auto. Preporučujemo godišnju kontrolu, ali ona nije uvjet jamstva.</p>
-      <a href="#rezervacija" class="btn btn-line" data-service="Keramička zaštita">Zatraži ponudu za keramiku</a>
+      <div class="rec-box">
+        <span class="rec-tag">Naša preporuka</span>
+        <h3>Keramička zaštita na 3 godine</h3>
+        <p>Za većinu vozača najoptimalniji izbor. Traje dvostruko dulje od dvogodišnje, a košta znatno manje od petogodišnje. Poliranje je uključeno, a realnu trajnost upisujemo u certifikat.</p>
+        <div class="rec-row"><b id="recPrice">690 €</b><span id="recSize">srednji auto · sidrena cijena (10. 9. 2026.): 690 €</span></div>
+        <a href="#rezervacija" class="btn btn-accent" data-service="Keramička zaštita 3 god. (preporuka)">Zatraži ponudu za keramiku 3 god. <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
     <div class="meter">
       <div class="mrow"><span>Vosak</span><b>4–8 tjedana</b><div class="mbar"><i style="width:7%"></i></div></div>
       <div class="mrow"><span>Sealant</span><b>~6 mjeseci</b><div class="mbar"><i style="width:12%"></i></div></div>
       <div class="mrow"><span>Keramika „2 godine” · realno</span><b>18–24 mj.</b><div class="mbar"><i style="width:40%"></i></div></div>
+      <div class="mrow rec"><span>Keramika „3 godine” · realno <em>Preporuka</em></span><b>30–36 mj.</b><div class="mbar"><i style="width:62%"></i></div></div>
       <div class="mrow"><span>Keramika „5 godina” · realno</span><b>3–5 god.</b><div class="mbar"><i style="width:90%"></i></div></div>
       <div class="mrow"><span>Obavezno održavanje kod nas</span><b style="color:var(--ok)">Ne</b></div>
       <div class="mrow"><span>Pisani certifikat</span><b style="color:var(--ok)">Da</b></div>
@@ -1057,7 +1089,7 @@ const DATA = {
     { icon: "drop", name: "Vanjsko pranje i dekontaminacija", cat: "Pranje", desc: "Aktivna pjena, pranje metodom dviju kanti, felge te glina i kemijska dekontaminacija laka.", time: "1–2 h", from: [65, 80, 95, 115], svc: "Vanjsko pranje i dekontaminacija" },
     { icon: "seat", name: "Detaljno čišćenje interijera", cat: "Interijer", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika, ventilacija, ozon i kontrolirano sušenje.", time: "4–6 h", from: [160, 180, 210, 250], svc: "Dubinsko čišćenje interijera" },
     { icon: "spark", name: "Poliranje i korekcija laka", cat: "Lak", desc: "Mjerenje debljine laka i poliranje u 1 ili 2 koraka. Uklanja kružne ogrebotine (swirlove) i sitne ogrebotine.", time: "1–2 dana", from: [200, 240, 280, 330], svc: "Poliranje 1-korak" },
-    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Zaštita na 2 ili 5 godina, s uključenim poliranjem. Realnu trajnost upisujemo u certifikat.", time: "2–3 dana", from: [450, 520, 590, 690], svc: "Keramička zaštita" },
+    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Zaštita na 2, 3 ili 5 godina, s uključenim poliranjem. Preporučujemo 3 godine: najbolji omjer cijene i trajanja.", time: "2–3 dana", from: [450, 520, 590, 690], svc: "Keramička zaštita" },
     { icon: "film", name: "PPF zaštitna folija", cat: "Zaštita", desc: "Prozirna folija protiv kamenčića i ogrebotina. Farovi, prednji kraj ili cijelo vozilo.", time: "1–4 dana", from: [150, 150, 150, 150], svc: "PPF zaštitna folija" },
     { icon: "leather", name: "Čišćenje i zaštita kože", cat: "Interijer", desc: "pH neutralno čišćenje, hidratacija i impregnacija sjedala i volana.", time: "2 h", from: [80, 100, 120, 140], svc: "Koža: čišćenje i zaštita" },
     { icon: "light", name: "Poliranje farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", from: [70, 70, 70, 70], svc: "Poliranje farova" },
@@ -1083,6 +1115,7 @@ const DATA = {
     { id: "pol1", g: "Lak i zaštita", name: "Poliranje u 1 koraku i sealant (6 mj.)", t: "1 dan", p: [200, 240, 280, 330] },
     { id: "pol2", g: "Lak i zaštita", name: "Korekcija laka u 2 koraka", t: "1–2 dana", p: [330, 380, 440, 520] },
     { id: "cer2", g: "Lak i zaštita", name: "Keramička zaštita 2 god. (s poliranjem)", t: "2 dana", p: [450, 520, 590, 690] },
+    { id: "cer3", g: "Lak i zaštita", name: "Keramička zaštita 3 god. (s poliranjem) · preporuka", t: "2 dana", p: [620, 690, 780, 890], rec: true },
     { id: "cer5", g: "Lak i zaštita", name: "Keramička zaštita 5 god. (s korekcijom)", t: "3 dana", p: [850, 950, 1100, 1250] },
     { id: "glas", g: "Lak i zaštita", name: "Keramička zaštita svih stakala", t: "1 h", p: [50, 60, 70, 80] },
     { id: "rims", g: "Lak i zaštita", name: "Keramička zaštita felgi (4 kom.)", t: "2 h", p: [80, 80, 100, 120] },
@@ -1160,10 +1193,10 @@ const DATA = {
     ["Koliko traje detailing?", "Kompletno pranje traje 1,5 h, dubinsko čišćenje interijera 4–6 h, poliranje 1–2 dana, a keramička zaštita s korekcijom 2–3 dana. Točno trajanje navodimo u ponudi."],
     ["Moram li ostaviti auto preko noći?", "Za pranje i interijer ne, auto preuzimate isti dan. Za poliranje i keramiku da, jer premaz mora otvrdnuti u kontroliranim uvjetima. Ako trebate, preuzimamo i vraćamo auto."],
     ["Keramika ili vosak?", "Vosak daje lijep sjaj, ali traje samo 4–8 tjedana. Keramika je tvrdi premaz koji traje 18 mjeseci do 5 godina, odbija vodu i prljavštinu i štiti od UV zraka i ptičjeg izmeta. Za auto koji vozite svaki dan keramika se dugoročno više isplati."],
-    ["Koliko stvarno traje keramička zaštita?", "Naš dvogodišnji premaz realno traje 18–24 mjeseca, a petogodišnji 3–5 godina uz pravilno pranje. Jamstvo ne ovisi o tome gdje perete auto."],
+    ["Koliko stvarno traje keramička zaštita?", "Uz pravilno pranje, naš dvogodišnji premaz realno traje 18–24 mjeseca, trogodišnji 30–36 mjeseci, a petogodišnji 3–5 godina. Za većinu vozača preporučujemo trogodišnji: najbolji je omjer cijene i trajanja. Jamstvo ne ovisi o tome gdje perete auto."],
     ["Hoće li sjedala ostati mokra?", "Ne. Koristimo ekstrakciju s kontroliranom količinom vode i sušenje toplim zrakom. Nakon tretmana provjeravamo da na sjedalima s elektronikom nema upaljenih lampica."],
     ["Može li se cijena promijeniti pri preuzimanju?", "Ne, ako ste poslali realne fotografije. Ako uočimo nešto što nije bilo vidljivo, prvo vas pitamo i ništa ne radimo bez vaše potvrde."],
-    ["Je li poliranje štetno za lak?", "Stručno poliranje skida tek nekoliko mikrona. Zato prije poliranja mjerimo debljinu laka i biramo najblaži postupak koji daje rezultat."],
+    ["Je li poliranje štetno za lak?", "Stručno poliranje skida tek vrlo tanak sloj laka. Zato prije poliranja mjerimo debljinu laka i biramo najblaži postupak koji daje rezultat."],
     ["Što je PPF i isplati li se?", "PPF je prozirna poliuretanska folija koja štiti lak od kamenčića i ogrebotina. Najviše se isplati na prednjem kraju novog ili skupljeg auta. Za ostatak auta obično je dovoljna keramika."],
     ["Dolazite li na adresu?", "Da, za pranje, interijer i dubinsko čišćenje u Zagrebu i okolici. Poliranje, keramičku zaštitu i PPF radimo samo u studiju."],
     ["Kako se plaća?", "Gotovinom, karticom ili virmanom. Tvrtkama izdajemo eRačun."]
@@ -1307,6 +1340,20 @@ $("#rBook").addEventListener("click", () => {
   }
   requestAnimationFrame(tick);
 })();
+/* naslovne fotografije se izmjenjuju */
+(function () {
+  const sl = $$(".hero picture.slide"), dots = $$("#heroDots button"); if (sl.length < 2) return;
+  let k = 0, timer;
+  function show(n) {
+    sl[k].classList.remove("on"); dots[k].setAttribute("aria-selected", "false");
+    k = (n + sl.length) % sl.length;
+    sl[k].classList.add("on"); dots[k].setAttribute("aria-selected", "true");
+    $("#heroCredit").textContent = sl[k].dataset.credit;
+  }
+  const start = () => { clearInterval(timer); timer = setInterval(() => show(k + 1), 6000); };
+  dots.forEach((d, i) => d.addEventListener("click", () => { show(i); start(); }));
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) start();
+})();
 let firstRender = true;
 let svcCat = "Sve";
 function renderChips() {
@@ -1315,6 +1362,11 @@ function renderChips() {
   $$("#svcGrid .svc").forEach(el => el.classList.toggle("hide", svcCat !== "Sve" && el.dataset.cat !== svcCat));
 }
 document.addEventListener("click", e => { const b = e.target.closest("#svcChips [data-cat]"); if (b) { svcCat = b.dataset.cat; renderChips(); } });
+function renderRec() {
+  const c = DATA.services.find(x => x.id === "cer3"); if (!c || !$("#recPrice")) return;
+  $("#recPrice").textContent = eur(c.p[size]);
+  $("#recSize").textContent = `${sizeLabel(size)} · ${anchor(c.p[size])}`;
+}
 function renderPriceList() {
   let g = "", rows = "";
   DATA.services.forEach(sv => {
@@ -1334,7 +1386,7 @@ function renderPriceList() {
   $("#plistNote").textContent = `Sve su cijene u eurima, s uključenim PDV-om. Sidrena cijena je cijena na dan ${DATA.anchorDate} Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
 }
 function renderPriced() {
-  drawSizes(); renderCards(); renderChips(); renderPackages(); renderPriceList(); renderCalc(); observe();
+  drawSizes(); renderCards(); renderChips(); renderRec(); renderPackages(); renderPriceList(); renderCalc(); observe();
   if (!firstRender) $$(".svc-meta b, .pk-price, #rTotal, .plist td.on").forEach(el => { el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick"); });
   firstRender = false;
 }
@@ -1417,7 +1469,7 @@ $("#fSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</opt
 $("#fSvc").innerHTML = '<option value="">Odaberite uslugu</option>' +
   DATA.packages.map(p => `<option>Paket ${p.name}</option>`).join("") +
   DATA.cards.map(c => `<option>${c.svc}</option>`).join("") +
-  ["Keramička zaštita", "Kombinacija iz kalkulatora", "Narudžba iz shopa", "Ponuda za flotu (B2B)", "Nisam siguran / sigurna, savjetujte me"].filter((v, i, a) => a.indexOf(v) === i && !DATA.cards.some(c => c.svc === v)).map(o => `<option>${o}</option>`).join("");
+  ["Keramička zaštita 3 god. (preporuka)", "Keramička zaštita", "Kombinacija iz kalkulatora", "Narudžba iz shopa", "Ponuda za flotu (B2B)", "Nisam siguran / sigurna, savjetujte me"].filter((v, i, a) => a.indexOf(v) === i && !DATA.cards.some(c => c.svc === v)).map(o => `<option>${o}</option>`).join("");
 $("#makes").innerHTML = ["Alfa Romeo","Audi","BMW","BYD","Citroën","Cupra","Dacia","Fiat","Ford","Honda","Hyundai","Jaguar","Jeep","Kia","Land Rover","Lexus","Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Opel","Peugeot","Porsche","Renault","Seat","Škoda","Smart","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"].map(m => `<option value="${m} ">`).join("");
 $("#fDate").min = new Date().toISOString().slice(0, 10);
 document.addEventListener("click", e => {
