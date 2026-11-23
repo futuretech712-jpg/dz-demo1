@@ -649,7 +649,7 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
       <a href="#paketi">Paketi</a>
       <a href="#kalkulator">Kalkulator</a>
       <a href="#galerija">Galerija</a>
-      <a href="#shop">Shop</a>
+      <a href="#shop">Bonovi</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -667,7 +667,7 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
     <a href="#kalkulator"><small>03</small>Kalkulator</a>
     <a href="#galerija"><small>04</small>Prije / poslije</a>
     <a href="#recenzije"><small>05</small>Recenzije</a>
-    <a href="#shop"><small>06</small>Shop i bonovi</a>
+    <a href="#shop"><small>06</small>Poklon bonovi</a>
     <a href="#faq"><small>07</small>Česta pitanja</a>
     <a href="#rezervacija"><small>08</small>Rezervacija</a>
   </nav>
@@ -872,8 +872,8 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
 <section class="sec" id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="kicker">Shop</p><h2>Poklon bonovi i Detailerz smjese</h2></div>
-      <p>Bonove možete naručiti odmah. Naše smjese i merch stižu uskoro, a prijavom na listu dobivate 10 % popusta na prvu narudžbu.</p>
+      <div><p class="kicker">Pokloni</p><h2>Poklon bonovi</h2></div>
+      <p>Poklonite čist auto. Bon stiže kao PDF na e-mail odmah nakon narudžbe i vrijedi 12 mjeseci.</p>
     </div>
     <div class="shop">
       <div class="prods" id="prods"></div>
@@ -883,13 +883,6 @@ footer.site{border-top:1px solid var(--line);padding:4rem 0 6rem;background:#080
         <div class="sum"><span>Ukupno</span><span id="cartSum">0 €</span></div>
         <a href="#rezervacija" class="btn btn-accent" style="width:100%" id="cartOrder">Naruči</a>
         <p class="muted small" style="margin-top:.8rem">Bon stiže kao PDF na e-mail i vrijedi 12 mjeseci. U demo verziji narudžba se šalje kroz formu za upit.</p>
-        <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0">
-        <h3 style="font-size:.95rem">Merch uskoro</h3>
-        <form id="notify" style="display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap" novalidate>
-          <label for="notifyEmail" class="muted small" style="width:100%">Javit ćemo vam kad krene prodaja.</label>
-          <input id="notifyEmail" type="email" placeholder="vas@email.hr" required style="flex:1;min-width:0;background:var(--ink);border:1px solid #333845;border-radius:10px;padding:.7rem;color:var(--text);font:inherit;min-height:44px">
-          <button class="btn btn-line btn-sm" style="min-height:44px">Prijavi me</button>
-        </form>
       </aside>
     </div>
   
@@ -1169,13 +1162,7 @@ const DATA = {
   products: [
     { id: "v50", name: "Poklon bon 50 €", d: "Za pranje ili ozon.", p: 50, now: true, kind: "card" },
     { id: "v100", name: "Poklon bon 100 €", d: "Za interijer ili farove.", p: 100, now: true, kind: "card" },
-    { id: "vreset", name: "Bon: paket Reset", d: "Srednje vozilo, cijeli paket.", p: 389, now: true, kind: "card" },
-    { id: "scent", name: "Signature miris No.1", d: "Potpisni miris interijera, 100 ml.", p: 12.9, kind: "bottle" },
-    { id: "qd", name: "Quick Detailer „Glow”", d: "Sjaj i zaštita između pranja, 500 ml.", p: 16.9, kind: "bottle" },
-    { id: "cs", name: "Ceramic Spray „Shield”", d: "Održavanje keramike, 500 ml.", p: 24.9, kind: "bottle" },
-    { id: "kit", name: "Komplet za održavanje", d: "Glow, Shield i Reset te dvije mikrofibre.", p: 59, kind: "box" },
-    { id: "tee", name: "Detailerz majica", d: "Crna, 100 % pamuk (220 g/m²), vezeni logo.", p: 25, kind: "tee" },
-    { id: "cap", name: "Detailerz kapa", d: "Crna, narančasti vez.", p: 20, kind: "cap" }
+    { id: "vreset", name: "Bon: paket Reset", d: "Srednje vozilo, cijeli paket.", p: 389, now: true, kind: "card" }
   ],
   areas: ["Zagreb – centar", "Novi Zagreb", "Trešnjevka", "Dubrava", "Sesvete", "Velika Gorica", "Zaprešić", "Samobor", "Sveta Nedelja", "Dugo Selo", "Jastrebarsko", "Ivanić-Grad"],
   faq: [
@@ -1429,7 +1416,7 @@ const art = {
 };
 $("#prods").innerHTML = DATA.products.map(p => `
   <article class="prod">
-    <div class="ph">${art[p.kind]}<span class="soon ${p.now ? "now" : ""}">${p.now ? "Dostupno" : "Uskoro"}</span></div>
+    <div class="ph">${art[p.kind]}</div>
     <h3>${p.name}</h3><p>${p.d}</p>
     <div class="row"><b>${eur(p.p)}</b>${p.now ? `<button class="btn btn-accent btn-sm" data-add="${p.id}">Dodaj</button>` : `<button class="btn btn-line btn-sm" data-pre="${p.id}">Prednaruči</button>`}</div>
   </article>`).join("");
@@ -1452,12 +1439,6 @@ $("#cartOrder").addEventListener("click", e => {
   if (!cart.size) { e.preventDefault(); toast("Košarica je prazna"); return; }
   $("#fSvc").value = "Narudžba iz shopa";
   $("#fNote").value = "Narudžba: " + [...cart.entries()].map(([id, q]) => `${q}× ${DATA.products.find(x => x.id === id).name}`).join(", ") + ". Ukupno " + $("#cartSum").textContent + ".";
-});
-$("#notify").addEventListener("submit", e => {
-  e.preventDefault();
-  const i = $("#notifyEmail");
-  if (!/^\S+@\S+\.\S+$/.test(i.value)) { i.style.borderColor = "#ef4444"; toast("Upišite ispravan e-mail"); return; }
-  i.style.borderColor = ""; i.value = ""; toast("Prijava zabilježena (demo)");
 });
 renderCart();
 
