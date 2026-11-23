@@ -36,7 +36,7 @@ window.LEGAL_TEXTS = (function () {
 <table>
   <tr><th>Svrha</th><th>Pravna osnova (GDPR)</th></tr>
   <tr><td>Odgovor na upit, izrada ponude i dogovor termina</td><td>Poduzimanje radnji na vaš zahtjev prije sklapanja ugovora (čl. 6. st. 1. t. b)</td></tr>
-  <tr><td>Izvršenje usluge, preuzimanje i povrat vozila, reklamacije</td><td>Izvršenje ugovora (čl. 6. st. 1. t. b)</td></tr>
+  <tr><td>Izvršenje usluge, primopredaja vozila i reklamacije</td><td>Izvršenje ugovora (čl. 6. st. 1. t. b)</td></tr>
   <tr><td>Izdavanje računa i čuvanje knjigovodstvene dokumentacije</td><td>Zakonska obveza (čl. 6. st. 1. t. c)</td></tr>
   <tr><td>Podsjetnik za održavanje i obavijesti o ponudama</td><td>Privola (čl. 6. st. 1. t. a), koju možete povući u svakom trenutku</td></tr>
   <tr><td>Analitički i marketinški kolačići</td><td>Privola (čl. 6. st. 1. t. a)</td></tr>
@@ -83,7 +83,7 @@ window.LEGAL_TEXTS = (function () {
   <li>Sve cijene na stranici iskazane su u eurima i uključuju PDV <span class="ph">[ako je tvrtka u sustavu PDV-a]</span>.</li>
   <li>Cijene ovise o veličini vozila. Uz svaku cijenu navedena je i sidrena cijena, u skladu s propisima o isticanju cijena.</li>
   <li>Kalkulator na stranici daje okvirnu cijenu. Obvezujuća je pisana ponuda koju šaljemo nakon fotografija ili pregleda vozila.</li>
-  <li>Ako se pri preuzimanju vozila utvrdi stanje koje nije bilo vidljivo na fotografijama (npr. jaka zaprljanost, dlake ljubimaca), dodatni rad obavljamo samo uz vašu prethodnu suglasnost.</li>
+  <li>Ako se pri predaji vozila u studio utvrdi stanje koje nije bilo vidljivo na fotografijama (npr. jaka zaprljanost, dlake ljubimaca), dodatni rad obavljamo samo uz vašu prethodnu suglasnost.</li>
 </ul>
 
 <h4>2. Rezervacija i otkazivanje termina</h4>
@@ -94,11 +94,10 @@ window.LEGAL_TEXTS = (function () {
   <li>Ako mi moramo otkazati termin, javljamo vam se što prije i nudimo novi termin. Uplaćeni predujam vraćamo ako vam novi termin ne odgovara.</li>
 </ul>
 
-<h4>3. Preuzimanje i predaja vozila</h4>
+<h4>3. Predaja i preuzimanje vozila u studiju</h4>
 <ul>
   <li>Prije početka rada zajedno s vama pregledavamo vozilo i fotografiramo postojeća oštećenja.</li>
   <li>Molimo vas da iz vozila izvadite osobne i vrijedne stvari. Za stvari ostavljene u vozilu ne odgovaramo, osim u slučaju naše namjere ili krajnje nepažnje.</li>
-  <li>Kod usluge preuzimanja i dostave vozilom upravlja naš djelatnik s važećom vozačkom dozvolom, a vozilo mora imati važeće obvezno osiguranje.</li>
   <li>Vozilo preuzimate nakon zajedničkog pregleda pod LED svjetlom. Vozilo koje nije preuzeto u dogovorenom roku čuvamo do <span class="ph">[BROJ]</span> dana bez naknade, a nakon toga naplaćujemo čuvanje <span class="ph">[IZNOS] €</span> po danu.</li>
 </ul>
 
@@ -117,7 +116,7 @@ window.LEGAL_TEXTS = (function () {
 </ul>
 
 <h4>6. Plaćanje</h4>
-<p>Plaćanje je moguće gotovinom, karticom ili uplatom na račun. Tvrtkama izdajemo eRačun. Račun izdajemo po završetku usluge, a vozilo predajemo nakon plaćanja.</p>
+<p>Plaćanje je moguće gotovinom, karticom ili uplatom na račun. Pakete iznad 600 € moguće je platiti u dvije rate, po dogovoru. Tvrtkama izdajemo eRačun. Račun izdajemo po završetku usluge, a vozilo predajemo nakon plaćanja.</p>
 
 <h4>7. Poklon bonovi</h4>
 <ul>
