@@ -714,6 +714,9 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 /* prije / poslije preko cijele širine */
 .ba{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);border-radius:0;border-left:0;border-right:0;aspect-ratio:21/9;max-height:78vh}
 @media(max-width:760px){.ba{aspect-ratio:4/3}}
+.anchor{font-size:.74rem;color:#a3a9b5}
+:root{--muted:#a3a9b5}
+.svc-meta b small{font-size:.8rem;margin-right:.15rem}
 </style>
 </head>
 <body>
@@ -784,7 +787,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
   </picture>
   <picture class="slide" data-credit="Foto: Fine Automotive Detailing / Unsplash">
     <source media="(max-width: 640px)" srcset="img/h4m.jpg">
-    <img src="img/h4.jpg" alt="Detaljno čišćenje sjedala" loading="lazy" width="1920" height="1280">
+    <img src="img/h4.jpg" alt="Dubinsko čišćenje sjedala" loading="lazy" width="1920" height="1280">
   </picture>
   <span class="placeholder-tag hero-credit" id="heroCredit" style="left:auto;right:12px;bottom:auto;top:12px">Foto: Fine Automotive Detailing / Unsplash</span>
   <div class="dots" id="heroDots" role="tablist" aria-label="Naslovne fotografije"><button type="button" aria-label="Fotografija 1" aria-selected="true"></button><button type="button" aria-label="Fotografija 2" aria-selected="false"></button><button type="button" aria-label="Fotografija 3" aria-selected="false"></button><button type="button" aria-label="Fotografija 4" aria-selected="false"></button></div>
@@ -794,18 +797,17 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <div class="callout"><b>7</b><span><strong>Dana jamstva</strong>na popravak nedostataka</span></div>
   </div>
   <div class="wrap hero-in">
-    <div class="gauge"><span class="dot" aria-hidden="true"></span>Debljinu laka mjerimo prije svakog poliranja</div>
     <h1>Opet kao iz salona.</h1>
-    <p class="hero-sub">Sjećate se kako je mirisao i blistao prvi dan? Vraćamo mu to. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i primopredaju pod LED svjetlom.</p>
+    <p class="hero-sub">Sjećate se kako je vaš auto mirisao i blistao prvog dana? Vraćamo mu taj sjaj. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i primopredaju pod LED svjetlom.</p>
     <div class="hero-cta">
       <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
       <a href="#usluge" class="btn btn-line">Pogledaj usluge</a>
     </div>
     <div class="trust">
-      <div><b>Fiksna</b><span>cijena, pisano prije početka</span></div>
-      <div><b>LED</b><span>primopredaja i pregled laka</span></div>
-      <div><b>Foto</b><span>izvještaj prije i poslije</span></div>
       <div><b>Besplatna</b><span>procjena u studiju, bez obveze</span></div>
+      <div><b>Foto</b><span>izvještaj prije i poslije</span></div>
+      <div><b>Subotom</b><span>radimo od 8 do 15 h</span></div>
+      <div><b>2 rate</b><span>za pakete iznad 600 €</span></div>
     </div>
   </div>
 </section>
@@ -817,7 +819,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <div class="sec-head">
       <div><p class="kicker">Usluge i cjenik</p><h2>Od pranja do PPF folije</h2></div>
       <div>
-        <p style="margin-bottom:.8rem">Cijene „od” mijenjaju se prema veličini vozila. Odaberite svoj auto:</p>
+        <p style="margin-bottom:.8rem">Cijene ovise o veličini vozila. Odaberite veličinu svog auta:</p>
         <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
       </div>
     </div>
@@ -854,7 +856,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <div class="rec-box">
         <span class="rec-tag">Naša preporuka</span>
         <h3>Keramika na 3 godine: paket Shield</h3>
-        <p>Za većinu vozača najoptimalniji izbor. Traje dvostruko dulje od dvogodišnje, a košta znatno manje od petogodišnje. U paketu dobivate pranje, dekontaminaciju, poliranje te keramiku stakala i felgi, a realnu trajnost upisujemo u certifikat.</p>
+        <p>Za većinu vozača najbolji izbor. Traje dvostruko dulje od dvogodišnje, a košta znatno manje od petogodišnje. U paketu dobivate pranje, dekontaminaciju, poliranje te keramiku stakala i felgi, a realnu trajnost upisujemo u certifikat.</p>
         <div class="rec-row"><b id="recPrice">690 €</b><span id="recSize">srednji auto · sidrena cijena (10. 9. 2026.): 690 €</span></div>
         <a href="#rezervacija" class="btn btn-accent" data-service="Paket Shield">Odaberi paket Shield <span class="arr" aria-hidden="true">→</span></a>
       </div>
@@ -967,7 +969,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
         <ul id="cartList"></ul>
         <div class="sum"><span>Ukupno</span><span id="cartSum">0 €</span></div>
         <a href="#rezervacija" class="btn btn-accent" style="width:100%" id="cartOrder">Naruči</a>
-        <p class="muted small" style="margin-top:.8rem">Bon stiže kao PDF na e-mail i vrijedi 12 mjeseci. U demo verziji narudžba se šalje kroz formu za upit.</p>
+        <p class="muted small" style="margin-top:.8rem">Narudžbu šaljete kroz formu za upit, a bon dobivate e-mailom nakon uplate.</p>
       </aside>
     </div>
   
@@ -982,7 +984,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <div class="box warm" id="preporuka">
       <p class="kicker">Preporuči prijatelja</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">15 € za vas, 15 € za prijatelja</h2>
-      <p>Prijatelj u napomeni upita navede vaše ime. Nakon njegovog prvog detailinga oboje dobivate 15 € popusta ili besplatan ozon tretman.</p>
+      <p>Prijatelj u napomeni upita navede vaše ime. Nakon njegova prvog detailinga oboje dobivate 15 € popusta ili besplatan ozon tretman.</p>
       <a href="#rezervacija" class="btn btn-line" data-note="Preporuka od: ">Imam preporuku</a>
     </div>
   
@@ -1070,7 +1072,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
   <div class="wrap fgrid">
     <div>
       <a href="#top" class="logo">Detailer<span>z</span></a>
-      <p class="muted" style="margin-top:.8rem">Studio za car detailing u Zagrebu i okolici.</p>
+      <p class="muted" style="margin-top:.8rem">Studio za detailing automobila u Zagrebu.</p>
       <div class="social">
         <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
         <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg></a>
@@ -1150,46 +1152,48 @@ const DATA = {
   sizeShort: ["Polo, Clio, Yaris", "Golf, Octavia, A4", "Tiguan, X3, karavani", "Transporter, Sharan"],
   // 2. Usluge: kartice ("od" cijena po veličini)
   cards: [
-    { icon: "drop", name: "Vanjsko pranje i dekontaminacija", cat: "Pranje", desc: "Aktivna pjena, pranje metodom dviju kanti, felge te glina i kemijska dekontaminacija laka.", time: "1–2 h", from: [65, 80, 95, 115], svc: "Vanjsko pranje i dekontaminacija" },
-    { icon: "seat", name: "Detaljno čišćenje interijera", cat: "Interijer", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika, ventilacija, ozon i kontrolirano sušenje.", time: "4–6 h", from: [160, 180, 210, 250], svc: "Dubinsko čišćenje interijera" },
-    { icon: "spark", name: "Poliranje i korekcija laka", cat: "Lak", desc: "Mjerenje debljine laka i poliranje u 1 ili 2 koraka. Uklanja kružne ogrebotine (swirlove) i sitne ogrebotine.", time: "1–2 dana", from: [200, 240, 280, 330], svc: "Poliranje 1-korak" },
-    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Zaštita na 2, 3 ili 5 godina, s uključenim poliranjem. Preporučujemo 3 godine: najbolji omjer cijene i trajanja.", time: "2–3 dana", from: [450, 520, 590, 690], svc: "Keramička zaštita" },
-    { icon: "film", name: "PPF zaštitna folija", cat: "Zaštita", desc: "Prozirna folija protiv kamenčića i ogrebotina. Farovi, pragovi, djelomični ili cijeli prednji kraj te cijelo vozilo.", time: "1–4 dana", from: [150, 150, 150, 150], svc: "PPF zaštitna folija" },
-    { icon: "leather", name: "Čišćenje i zaštita kože", cat: "Interijer", desc: "pH neutralno čišćenje, hidratacija i impregnacija sjedala i volana.", time: "2 h", from: [80, 100, 120, 140], svc: "Koža: čišćenje i zaštita" },
-    { icon: "light", name: "Poliranje farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", from: [70, 70, 70, 70], svc: "Poliranje farova" },
-    { icon: "engine", name: "Pranje motora", cat: "Pranje", desc: "Sigurno odmašćivanje, ispiranje bez visokog tlaka, sušenje i zaštita plastike.", time: "1 h", from: [40, 40, 45, 50], svc: "Pranje motora" }
+    { icon: "drop", name: "Ručno pranje", cat: "Pranje", desc: "Aktivna pjena, pranje metodom dviju kanti i felge. Po želji dekontaminacija laka, pranje motora i podvozja.", time: "45 min – 1,5 h", ids: ["ext", "full"], svc: "Vanjsko ručno pranje" },
+    { icon: "seat", name: "Dubinsko čišćenje interijera", cat: "Interijer", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika, ventilacija, ozon i kontrolirano sušenje.", time: "4–6 h", ids: ["deep"], svc: "Dubinsko čišćenje interijera i ozon" },
+    { icon: "leather", name: "Čišćenje i zaštita kože", cat: "Interijer", desc: "pH neutralno čišćenje, hidratacija i impregnacija sjedala i volana.", time: "2 h", ids: ["leat"], svc: "Čišćenje i zaštita kože" },
+    { icon: "spark", name: "Poliranje i korekcija laka", cat: "Lak", desc: "Mjerenje debljine laka i poliranje u 1 ili 2 koraka. Uklanja kružne ogrebotine (swirlove) i sitne ogrebotine.", time: "1–2 dana", ids: ["pol1", "pol2"], svc: "Poliranje u 1 koraku i sealant (6 mj.)" },
+    { icon: "light", name: "Poliranje farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", ids: ["head"], svc: "Poliranje farova i UV zaštita" },
+    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Zaštita na 2, 3 ili 5 godina, s uključenim poliranjem. Preporučujemo 3 godine: najbolji omjer cijene i trajanja.", time: "2–3 dana", ids: ["cer2", "cer3", "cer5"], svc: "Keramika 3 god. (s poliranjem) · preporuka" },
+    { icon: "film", name: "PPF zaštitna folija", cat: "Zaštita", desc: "Prozirna folija protiv kamenčića i ogrebotina: farovi, pragovi, djelomični ili cijeli prednji kraj te cijelo vozilo.", time: "2 h – 4 dana", ids: ["ppfh", "ppfs", "ppfp", "ppff"], svc: "PPF farovi" },
+    { icon: "doc", name: "Priprema za prodaju", cat: "Prodaja", desc: "Kompletno pranje i dubinsko čišćenje interijera, da auto na prvom pregledu ostavi najbolji dojam na kupca.", time: "1 dan", ids: ["sale"], svc: "Priprema vozila za prodaju" }
   ],
   // Kalkulator / cjenik (sidrena cijena = cijena na dan anchorDate)
   services: [
-    // Pranje
+    // Pranje: glavne usluge pa dodaci
     { id: "ext",  g: "Pranje", name: "Vanjsko ručno pranje", t: "45 min", p: [25, 30, 35, 45] },
     { id: "full", g: "Pranje", name: "Kompletno pranje (izvana i iznutra)", t: "1,5 h", p: [50, 60, 70, 85] },
-    { id: "deco", g: "Pranje", name: "Dekontaminacija laka (glina i kemija)", t: "1 h", p: [40, 50, 60, 70] },
-    { id: "under", g: "Pranje", name: "Pranje podvozja", t: "20 min", p: [15, 15, 20, 25] },
+    { id: "deco", g: "Pranje", name: "Dekontaminacija laka (glina i kemijsko čišćenje)", t: "1 h", p: [40, 50, 60, 70] },
     { id: "eng",  g: "Pranje", name: "Pranje motora", t: "1 h", p: [40, 40, 45, 50] },
+    { id: "under", g: "Pranje", name: "Pranje podvozja", t: "20 min", p: [15, 15, 20, 25] },
     // Interijer
     { id: "deep", g: "Interijer", name: "Dubinsko čišćenje interijera i ozon", t: "4–6 h", p: [160, 180, 210, 250] },
-    { id: "roof", g: "Interijer", name: "Čišćenje stropa (tapecirunga)", t: "1 h", p: [40, 45, 50, 60] },
-    { id: "leat", g: "Interijer", name: "Koža: čišćenje i impregnacija", t: "2 h", p: [80, 100, 120, 140] },
-    { id: "fabp", g: "Interijer", name: "Impregnacija tekstila", t: "1 h", p: [50, 60, 70, 80] },
-    { id: "ac",   g: "Interijer", name: "Čišćenje klime parom", t: "45 min", p: [45, 45, 45, 50] },
-    { id: "ozon", g: "Interijer", name: "Ozon tretman", t: "1 h", p: [35, 35, 40, 45] },
-    // Lak i zaštita
-    { id: "pane", g: "Lak i zaštita", name: "Poliranje jednog elementa", t: "1 h", p: [40, 40, 40, 40] },
-    { id: "pol1", g: "Lak i zaštita", name: "Poliranje u 1 koraku i sealant (6 mj.)", t: "1 dan", p: [200, 240, 280, 330] },
-    { id: "pol2", g: "Lak i zaštita", name: "Korekcija laka u 2 koraka", t: "1–2 dana", p: [330, 380, 440, 520] },
-    { id: "cer2", g: "Lak i zaštita", name: "Keramička zaštita 2 god. (s poliranjem)", t: "2 dana", p: [450, 520, 590, 690] },
-    { id: "cer3", g: "Lak i zaštita", name: "Keramička zaštita 3 god. (s poliranjem) · preporuka", t: "2 dana", p: [620, 690, 780, 890], rec: true },
-    { id: "cer5", g: "Lak i zaštita", name: "Keramička zaštita 5 god. (s korekcijom)", t: "3 dana", p: [850, 950, 1100, 1250] },
-    { id: "glas", g: "Lak i zaštita", name: "Keramička zaštita svih stakala", t: "1 h", p: [50, 60, 70, 80] },
-    { id: "rims", g: "Lak i zaštita", name: "Keramička zaštita felgi (4 kom., sa skidanjem kotača)", t: "3 h", p: [120, 130, 140, 150] },
-    { id: "head", g: "Lak i zaštita", name: "Poliranje oba fara i UV zaštita", t: "1,5 h", p: [70, 70, 70, 70] },
-    { id: "sale", g: "Lak i zaštita", name: "Priprema vozila za prodaju", t: "1 dan", p: [300, 350, 400, 480] },
+    { id: "leat", g: "Interijer", name: "Čišćenje i zaštita kože", t: "2 h", p: [80, 100, 120, 140] },
+    { id: "fabp", g: "Interijer", name: "Impregnacija tekstilnih sjedala", t: "1 h", p: [50, 60, 70, 80] },
+    { id: "roof", g: "Interijer", name: "Čišćenje stropne obloge", t: "1 h", p: [40, 45, 50, 60] },
+    { id: "ac",   g: "Interijer", name: "Čišćenje klima-uređaja parom", t: "45 min", p: [45, 45, 45, 50] },
+    { id: "ozon", g: "Interijer", name: "Tretman ozonom", t: "1 h", p: [35, 35, 40, 45] },
+    // Poliranje
+    { id: "pane", g: "Poliranje", name: "Poliranje jednog dijela karoserije", t: "1 h", p: [40, 40, 40, 40] },
+    { id: "pol1", g: "Poliranje", name: "Poliranje u 1 koraku i sealant (6 mj.)", t: "1 dan", p: [200, 240, 280, 330] },
+    { id: "pol2", g: "Poliranje", name: "Korekcija laka u 2 koraka", t: "1–2 dana", p: [330, 380, 440, 520] },
+    { id: "head", g: "Poliranje", name: "Poliranje farova i UV zaštita", t: "1,5 h", p: [70, 70, 70, 70] },
+    // Keramička zaštita
+    { id: "cer2", g: "Keramička zaštita", name: "Keramika 2 god. (s poliranjem)", t: "2 dana", p: [450, 520, 590, 690] },
+    { id: "cer3", g: "Keramička zaštita", name: "Keramika 3 god. (s poliranjem) · preporuka", t: "2 dana", p: [620, 690, 780, 890], rec: true },
+    { id: "cer5", g: "Keramička zaštita", name: "Keramika 5 god. (s korekcijom u 2 koraka)", t: "3 dana", p: [850, 950, 1100, 1250] },
+    { id: "glas", g: "Keramička zaštita", name: "Keramika svih stakala", t: "1 h", p: [50, 60, 70, 80] },
+    { id: "rims", g: "Keramička zaštita", name: "Keramika felgi (4 kom., sa skidanjem kotača)", t: "3 h", p: [120, 130, 140, 150] },
     // PPF
     { id: "ppfh", g: "PPF zaštitna folija", name: "PPF farovi", t: "2 h", p: [150, 150, 150, 150] },
     { id: "ppfs", g: "PPF zaštitna folija", name: "PPF pragovi i rub prtljažnika", t: "3 h", p: [170, 180, 200, 220] },
     { id: "ppfp", g: "PPF zaštitna folija", name: "PPF djelomični prednji kraj (branik i prednji dio haube)", t: "1 dan", p: [790, 850, 920, 990] },
-    { id: "ppff", g: "PPF zaštitna folija", name: "PPF prednji kraj (branik, hauba, blatobrani, retrovizori)", t: "2 dana", p: [1900, 2100, 2400, 2700] }
+    { id: "ppff", g: "PPF zaštitna folija", name: "PPF cijeli prednji kraj (branik, hauba, blatobrani, retrovizori)", t: "2 dana", p: [1900, 2100, 2400, 2700] },
+    // Prodaja
+    { id: "sale", g: "Prodaja vozila", name: "Priprema vozila za prodaju", t: "1 dan", p: [300, 350, 400, 480] }
   ],
   onRequest: [["PPF cijelo vozilo", "od 4.000 €"], ["Pojedinačna oštećenja i restauracija", "na upit"]],
   extras: [
@@ -1198,10 +1202,10 @@ const DATA = {
   ],
   // 3. Paketi (usporedba)
   packages: [
-    { id: "basic", lvl: "Basic", name: "Fresh", p: [99, 109, 119, 139] },
-    { id: "premium", lvl: "Premium", name: "Reset", p: [349, 389, 439, 499], hot: true },
+    { id: "basic", lvl: "Osvježenje", name: "Fresh", p: [99, 109, 119, 139] },
+    { id: "premium", lvl: "Dubinsko čišćenje i poliranje", name: "Reset", p: [349, 389, 439, 499], hot: true },
     { id: "shield", lvl: "Keramika 3 god.", name: "Shield", p: [690, 790, 890, 990] },
-    { id: "ultimate", lvl: "Ultimate", name: "Signature", p: [990, 1090, 1250, 1450] }
+    { id: "ultimate", lvl: "Sve uključeno", name: "Signature", p: [990, 1090, 1250, 1450] }
   ],
   features: [
     ["Kompletno pranje i dekontaminacija", 1, 1, 1, 1],
@@ -1218,9 +1222,9 @@ const DATA = {
     ["Trajanje", "3 h", "1 dan", "2 dana", "3 dana"]
   ],
   subs: [
-    { name: "Club Sjaj", d: "2 kompletna pranja mjesečno", p: "69 €/mj" },
-    { name: "Club Plus", d: "1 pranje i 1 detaljno čišćenje interijera mjesečno", p: "89 €/mj" },
-    { name: "Keramika care", d: "kontrola i zaštitni sloj (top-coat), po posjetu", p: "49 €" }
+    { name: "Pretplata Sjaj", d: "2 kompletna pranja mjesečno", p: "69 €/mj." },
+    { name: "Pretplata Plus", d: "1 kompletno pranje i 1 dubinsko čišćenje interijera mjesečno", p: "89 €/mj." },
+    { name: "Održavanje keramike", d: "kontrola i novi zaštitni sloj (top-coat), po dolasku", p: "49 €" }
   ],
   why: [
     { icon: "tool", t: "Profesionalna oprema", d: "Polirke Rupes, ekstraktor Kärcher, LED inspekcijska rasvjeta i mjerač debljine laka." },
@@ -1237,17 +1241,18 @@ const DATA = {
     { car: "Toyota RAV4 · Priprema za prodaju", name: "Luka S.", t: "Auto sam prodao za tjedan dana. Detailing se isplatio višestruko." }
   ],
   gallery: [
-    ["g-ferrari.jpg", "Interijer od kože", "wide"],
+    ["g-ferrari.jpg", "Kožni interijer", "wide"],
     ["g-350z.jpg", "Sjaj nakon poliranja", "tall"],
     ["g-foam.jpg", "Aktivna pjena", "tall"],
     ["g-seat.jpg", "Detaljno čišćenje sjedala", ""],
-    ["g-door.jpg", "Zaštita kože na vratima", ""],
+    ["g-door.jpg", "Zaštita kožne obloge vrata", ""],
     ["g-suv.jpg", "SUV nakon kompletnog pranja", ""]
   ],
   products: [
-    { id: "v50", name: "Poklon bon 50 €", d: "Za pranje ili ozon.", p: 50, now: true, kind: "card" },
-    { id: "v100", name: "Poklon bon 100 €", d: "Za interijer ili farove.", p: 100, now: true, kind: "card" },
-    { id: "vreset", name: "Bon: paket Reset", d: "Srednje vozilo, cijeli paket.", p: 389, now: true, kind: "card" }
+    { id: "v50", name: "Poklon bon 50 €", d: "Za kompletno pranje ili tretman ozonom.", p: 50, now: true, kind: "card" },
+    { id: "v100", name: "Poklon bon 100 €", d: "Za poliranje farova ili čišćenje kože.", p: 100, now: true, kind: "card" },
+    { id: "vreset", name: "Bon za paket Reset", d: "Cijeli paket za srednji auto.", p: 389, now: true, kind: "card" },
+    { id: "vshield", name: "Bon za paket Shield", d: "Keramika na 3 godine za srednji auto.", p: 790, now: true, kind: "card" }
   ],
   areas: ["Zagreb – centar", "Novi Zagreb", "Trešnjevka", "Dubrava", "Sesvete", "Velika Gorica", "Zaprešić", "Samobor", "Sveta Nedelja", "Dugo Selo", "Jastrebarsko", "Ivanić-Grad"],
   faq: [
@@ -1302,14 +1307,15 @@ document.addEventListener("click", e => {
 });
 
 /* services */
+const cardFrom = c => Math.min(...c.ids.map(id => DATA.services.find(x => x.id === id).p[size]));
 function renderCards() {
   $("#svcGrid").innerHTML = DATA.cards.map(c => `
     <article class="svc lift" data-cat="${c.cat}">
       ${svg(c.icon)}
       <h3>${c.name}</h3>
       <p>${c.desc}</p>
-      <div class="svc-meta"><b><small>od</small>${eur(c.from[size])}</b><span>${c.time}</span></div>
-      <span class="anchor">${anchor(c.from[size])}</span>
+      <div class="svc-meta"><b><small>od </small>${eur(cardFrom(c))}</b><span>${c.time}</span></div>
+      <span class="anchor">${anchor(cardFrom(c))}</span>
       <a href="#rezervacija" data-service="${c.svc}">Zatraži ponudu →</a>
     </article>`).join("");
 }
@@ -1357,7 +1363,6 @@ function renderCalc() {
 function calcState() {
   let base = 0; const lines = [];
   DATA.services.forEach(s => { if (chosen.has(s.id)) { base += s.p[size]; lines.push([s.name, s.p[size]]); } });
-  DATA.services.forEach(s => { const by = coveredBy(s.id); if (by) lines.push([s.name + " · uključeno", 0]); });
   let total = base;
   DATA.extras.forEach(x => { if (chosenX.has(x.id)) { total += x.p; lines.push([x.name, x.p]); } });
   return { base, total, lines };
@@ -1446,18 +1451,18 @@ function renderRec() {
 }
 function renderPriceList() {
   let g = "", rows = "";
+  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`).join("");
   DATA.services.forEach(sv => {
     if (sv.g !== g) { g = sv.g; rows += `<tr class="grp"><td colspan="6">${g}</td></tr>`; }
     rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`;
   });
   rows += `<tr class="grp"><td colspan="6">Na upit</td></tr>` + DATA.onRequest.map(r => `<tr><td>${r[0]}</td><td class="t">–</td><td colspan="4">${r[1]}</td></tr>`).join("");
   rows += `<tr class="grp"><td colspan="6">Doplate</td></tr>` + DATA.extras.map(x => `<tr><td>${x.name}</td><td class="t">–</td><td colspan="4">+${eur(x.p)}${x.freeAbove ? ` <small style="display:inline">(besplatno uz narudžbu iznad ${eur(x.freeAbove)})</small>` : ""}</td></tr>`).join("");
-  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`).join("");
   const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small>` : v}</div></div>`;
   const groups = [...new Set(DATA.services.map(x => x.g))];
   $("#plm").innerHTML = `<p class="plm-for">Cijene za: <b>${sizeLabel(size)}</b></p>` +
-    groups.map((gg, gi) => `<details class="plm-g" ${gi === 0 ? "open" : ""}><summary>${gg}<em>${DATA.services.filter(x => x.g === gg).length}</em></summary>${DATA.services.filter(x => x.g === gg).map(x => item(x.name, x.t, x.p[size])).join("")}</details>`).join("") +
-    `<details class="plm-g"><summary>Paketi<em>${DATA.packages.length}</em></summary>${DATA.packages.map(pk => item("Paket " + pk.name, pk.lvl, pk.p[size])).join("")}</details>` +
+    `<details class="plm-g" open><summary>Paketi<em>${DATA.packages.length}</em></summary>${DATA.packages.map(pk => item("Paket " + pk.name, pk.lvl, pk.p[size])).join("")}</details>` +
+    groups.map((gg, gi) => `<details class="plm-g"><summary>${gg}<em>${DATA.services.filter(x => x.g === gg).length}</em></summary>${DATA.services.filter(x => x.g === gg).map(x => item(x.name, x.t, x.p[size])).join("")}</details>`).join("") +
     `<details class="plm-g"><summary>Doplate i na upit<em>${DATA.extras.length + DATA.onRequest.length}</em></summary>${DATA.extras.map(x => item(x.name, x.freeAbove ? "besplatno iznad " + eur(x.freeAbove) : "", "+" + eur(x.p))).join("")}${DATA.onRequest.map(r => item(r[0], "", r[1])).join("")}</details>`;
   $("#plist").innerHTML = `<thead><tr><th>Usluga</th><th style="text-align:left">Trajanje</th>${DATA.sizes.map((z, i) => `<th class="${i === size ? "on" : ""}">${z}</th>`).join("")}</tr></thead><tbody>${rows}</tbody>`;
   $("#plistNote").textContent = `Sve su cijene u eurima, s uključenim PDV-om. Sidrena cijena je cijena na dan ${DATA.anchorDate} Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
@@ -1522,7 +1527,7 @@ document.addEventListener("click", e => {
 });
 $("#cartOrder").addEventListener("click", e => {
   if (!cart.size) { e.preventDefault(); toast("Košarica je prazna"); return; }
-  $("#fSvc").value = "Narudžba iz shopa";
+  $("#fSvc").value = "Narudžba poklon bona";
   $("#fNote").value = "Narudžba: " + [...cart.entries()].map(([id, q]) => `${q}× ${DATA.products.find(x => x.id === id).name}`).join(", ") + ". Ukupno " + $("#cartSum").textContent + ".";
 });
 renderCart();
@@ -1537,9 +1542,9 @@ document.head.appendChild(faqLd);
 /* form */
 $("#fSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</option>`).join("");
 $("#fSvc").innerHTML = '<option value="">Odaberite uslugu</option>' +
-  DATA.packages.map(p => `<option>Paket ${p.name}</option>`).join("") +
-  DATA.cards.map(c => `<option>${c.svc}</option>`).join("") +
-  ["Keramička zaštita 3 god. (preporuka)", "Keramička zaštita", "Kombinacija iz kalkulatora", "Narudžba iz shopa", "Ponuda za flotu (B2B)", "Besplatna procjena u studiju", "Nisam siguran / sigurna, savjetujte me"].filter((v, i, a) => a.indexOf(v) === i && !DATA.cards.some(c => c.svc === v)).map(o => `<option>${o}</option>`).join("");
+  `<optgroup label="Paketi">${DATA.packages.map(p => `<option>Paket ${p.name}</option>`).join("")}</optgroup>` +
+  [...new Set(DATA.services.map(x => x.g))].map(g => `<optgroup label="${g}">${DATA.services.filter(x => x.g === g).map(x => `<option>${x.name}</option>`).join("")}</optgroup>`).join("") +
+  `<optgroup label="Ostalo">${["Besplatna procjena u studiju", "Kombinacija iz kalkulatora", "Narudžba poklon bona", "Ponuda za flotu (B2B)", "Nisam siguran/sigurna, savjetujte me"].map(o => `<option>${o}</option>`).join("")}</optgroup>`;
 $("#makes").innerHTML = ["Alfa Romeo","Audi","BMW","BYD","Citroën","Cupra","Dacia","Fiat","Ford","Honda","Hyundai","Jaguar","Jeep","Kia","Land Rover","Lexus","Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Opel","Peugeot","Porsche","Renault","Seat","Škoda","Smart","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"].map(m => `<option value="${m} ">`).join("");
 $("#fDate").min = new Date().toISOString().slice(0, 10);
 document.addEventListener("click", e => {
