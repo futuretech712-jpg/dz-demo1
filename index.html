@@ -861,12 +861,12 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 <section class="sec alt" id="paketi">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="kicker">Paketi</p><h2>Četiri paketa, bez sitnih slova</h2></div>
+      <div><p class="kicker">Paketi</p><h2>Tri paketa zaštite, bez sitnih slova</h2></div>
       <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
     </div>
     <div class="cmp-wrap pk-table"><table class="cmp" id="cmp"></table></div>
     <div class="pk-cards" id="pkCards"></div>
-    <div class="subs" id="subs"></div>
+    <div class="subs" id="subs" hidden></div>
     <p class="muted small" style="margin-top:1rem">Pakete iznad 600 € možete platiti u dvije rate, po dogovoru.</p>
     <div class="honest subblock" id="keramika">
     <div>
@@ -887,7 +887,6 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <div class="mrow"><span>Sealant</span><b>~6 mjeseci</b><div class="mbar"><i style="width:12%"></i></div></div>
       <div class="mrow"><span>Keramika „2 godine” · realno</span><b>18–24 mj.</b><div class="mbar"><i style="width:40%"></i></div></div>
       <div class="mrow rec"><span>Keramika „3 godine” · realno <em>Preporuka</em></span><b>30–36 mj.</b><div class="mbar"><i style="width:62%"></i></div></div>
-      <div class="mrow"><span>Keramika „5 godina” · realno</span><b>3–5 god.</b><div class="mbar"><i style="width:90%"></i></div></div>
       <div class="mrow"><span>Obavezno održavanje kod nas</span><b style="color:var(--ok)">Ne</b></div>
       <div class="mrow"><span>Pisani certifikat</span><b style="color:var(--ok)">Da</b></div>
     </div>
@@ -999,7 +998,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <p class="kicker">Za tvrtke</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);max-width:none">Flote, <span style="white-space:nowrap">rent-a-car</span> i autokuće</h2>
       <p>Paušal za održavanje službenih vozila, priprema rabljenih vozila za prodaju i čišćenje rent-a-car vozila između najmova. Izvještaj po vozilu i eRačun.</p>
-      <ul><li>Flota: 2 kompletna pranja mjesečno od 79 € po vozilu</li><li>Priprema za prodaju od 350 €</li></ul>
+      <ul><li>Flota: 2 kompletna pranja mjesečno od 79 € po vozilu</li><li>Priprema rabljenih vozila za prodaju po dogovoru</li></ul>
       <a href="#rezervacija" class="btn btn-accent" data-service="Ponuda za flotu (B2B)">Zatraži ponudu za flotu</a>
     </div>
     <div class="box warm" id="preporuka">
@@ -1201,80 +1200,60 @@ const DATA = {
   sizeShort: ["Polo, Clio, Yaris", "Golf, Octavia, A4", "Tiguan, X3, karavani", "Transporter, Sharan"],
   // 2. Usluge: kartice ("od" cijena po veličini)
   cards: [
-    { icon: "drop", name: "Ručno pranje", cat: "Pranje", desc: "Aktivna pjena, pranje metodom dviju kanti i felge. Po želji dekontaminacija laka, pranje motora i podvozja.", time: "45 min – 1,5 h", ids: ["ext", "full"], svc: "Vanjsko ručno pranje" },
-    { icon: "seat", name: "Dubinsko čišćenje interijera", cat: "Interijer", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika, ventilacija, ozon i kontrolirano sušenje.", time: "4–6 h", ids: ["deep"], svc: "Dubinsko čišćenje interijera i ozon" },
-    { icon: "leather", name: "Čišćenje i zaštita kože", cat: "Interijer", desc: "pH neutralno čišćenje, hidratacija i impregnacija sjedala i volana.", time: "2 h", ids: ["leat"], svc: "Čišćenje i zaštita kože" },
-    { icon: "spark", name: "Poliranje i korekcija laka", cat: "Lak", desc: "Mjerenje debljine laka i poliranje u 1 ili 2 koraka. Uklanja kružne ogrebotine (swirlove) i sitne ogrebotine.", time: "1–2 dana", ids: ["pol1", "pol2"], svc: "Poliranje u 1 koraku i sealant (6 mj.)" },
-    { icon: "light", name: "Poliranje farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", ids: ["head"], svc: "Poliranje farova i UV zaštita" },
-    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Zaštita na 2, 3 ili 5 godina, s uključenim poliranjem. Preporučujemo 3 godine: najbolji omjer cijene i trajanja.", time: "2–3 dana", ids: ["cer2", "cer3", "cer5"], svc: "Keramika 3 god. (s poliranjem) · preporuka" },
-    { icon: "film", name: "PPF zaštitna folija", cat: "Zaštita", desc: "Prozirna folija protiv kamenčića i ogrebotina: farovi, pragovi, djelomični ili cijeli prednji kraj te cijelo vozilo.", time: "2 h – 4 dana", ids: ["ppfh", "ppfs", "ppfp", "ppff"], svc: "PPF farovi" },
-    { icon: "doc", name: "Priprema za prodaju", cat: "Prodaja", desc: "Kompletno pranje i dubinsko čišćenje interijera, da auto na prvom pregledu ostavi najbolji dojam na kupca.", time: "1 dan", ids: ["sale"], svc: "Priprema vozila za prodaju" }
+    { icon: "drop", name: "Premium ručno pranje", cat: "Pranje", desc: "Predpranje aktivnom pjenom, metoda dviju kanti, felge i sušenje bez ogrebotina. Po želji kemijska i glinena dekontaminacija.", time: "3–4 h", ids: ["wash"], svc: "Premium ručno pranje" },
+    { icon: "seat", name: "Detailing interijera", cat: "Interijer", desc: "Ekstrakcijsko čišćenje sjedala i tepiha, plastika i ventilacija. U premium verziji i keramička zaštita kože, tekstila i plastike.", time: "1 dan", ids: ["deep", "ideep"], svc: "Detailing interijera" },
+    { icon: "spark", name: "Poliranje i korekcija laka", cat: "Lak", desc: "Mjerenje debljine laka, poliranje u 1 koraku ili višeslojna korekcija (STG 2+). Uklanja kružne ogrebotine, holograme i oksidaciju.", time: "1–3 dana", ids: ["pol1", "pol2"], svc: "Poliranje u 1 koraku (STG 1)" },
+    { icon: "shield", name: "Keramička zaštita", cat: "Zaštita", desc: "Keramički premaz na 3 ili 5+ godina, uvijek s poliranjem laka. Preporučujemo paket na 3 godine: najbolji omjer cijene i trajanja.", time: "2–5 dana", ids: ["cer3", "cer5"], svc: "Keramika 3 god. (s poliranjem) · preporuka" },
+    { icon: "film", name: "PPF zaštitna folija", cat: "Zaštita", desc: "Prozirna folija protiv kamenčića i ogrebotina: farovi, pragovi, djelomični ili cijeli prednji kraj, cijelo vozilo i interijer.", time: "2 h – 5 dana", ids: ["ppfh", "ppfs", "ppfp", "ppff"], svc: "PPF farovi" },
+    { icon: "light", name: "Poliranje i obnova farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", ids: ["head"], svc: "Poliranje i obnova farova" },
+    { icon: "leather", name: "Zaštita naplataka i stakala", cat: "Zaštita", desc: "Keramika za felge (sa skidanjem kotača) i sva stakla. Kočiona prašina i kiša jednostavno se ispiru.", time: "1–3 h", ids: ["glas", "rims"], svc: "Keramika felgi (4 kom., sa skidanjem kotača)" }
   ],
   // Kalkulator / cjenik (sidrena cijena = cijena na dan anchorDate)
   services: [
-    // Pranje: glavne usluge pa dodaci
-    { id: "ext",  g: "Pranje", name: "Vanjsko ručno pranje", t: "45 min", p: [25, 30, 35, 45] },
-    { id: "full", g: "Pranje", name: "Kompletno pranje (izvana i iznutra)", t: "1,5 h", p: [50, 60, 70, 85] },
-    { id: "deco", g: "Pranje", name: "Dekontaminacija laka (glina i kemijsko čišćenje)", t: "1 h", p: [40, 50, 60, 70] },
-    { id: "eng",  g: "Pranje", name: "Pranje motora", t: "1 h", p: [40, 40, 45, 50] },
-    { id: "under", g: "Pranje", name: "Pranje podvozja", t: "20 min", p: [15, 15, 20, 25] },
-    // Interijer
-    { id: "deep", g: "Interijer", name: "Dubinsko čišćenje interijera i ozon", t: "4–6 h", p: [160, 180, 210, 250] },
-    { id: "leat", g: "Interijer", name: "Čišćenje i zaštita kože", t: "2 h", p: [80, 100, 120, 140] },
-    { id: "fabp", g: "Interijer", name: "Impregnacija tekstilnih sjedala", t: "1 h", p: [50, 60, 70, 80] },
-    { id: "roof", g: "Interijer", name: "Čišćenje stropne obloge", t: "1 h", p: [40, 45, 50, 60] },
-    { id: "ac",   g: "Interijer", name: "Čišćenje klima-uređaja parom", t: "45 min", p: [45, 45, 45, 50] },
-    { id: "ozon", g: "Interijer", name: "Tretman ozonom", t: "1 h", p: [35, 35, 40, 45] },
-    // Poliranje
-    { id: "pane", g: "Poliranje", name: "Poliranje jednog dijela karoserije", t: "1 h", p: [40, 40, 40, 40] },
-    { id: "pol1", g: "Poliranje", name: "Poliranje u 1 koraku i sealant (6 mj.)", t: "1 dan", p: [200, 240, 280, 330] },
-    { id: "pol2", g: "Poliranje", name: "Korekcija laka u 2 koraka", t: "1–2 dana", p: [330, 380, 440, 520] },
-    { id: "head", g: "Poliranje", name: "Poliranje farova i UV zaštita", t: "1,5 h", p: [70, 70, 70, 70] },
-    // Keramička zaštita
-    { id: "cer2", g: "Keramička zaštita", name: "Keramika 2 god. (s poliranjem)", t: "2 dana", p: [450, 520, 590, 690] },
-    { id: "cer3", g: "Keramička zaštita", name: "Keramika 3 god. (s poliranjem) · preporuka", t: "2 dana", p: [620, 690, 780, 890], rec: true },
-    { id: "cer5", g: "Keramička zaštita", name: "Keramika 5 god. (s korekcijom u 2 koraka)", t: "3 dana", p: [850, 950, 1100, 1250] },
-    { id: "glas", g: "Keramička zaštita", name: "Keramika svih stakala", t: "1 h", p: [50, 60, 70, 80] },
-    { id: "rims", g: "Keramička zaštita", name: "Keramika felgi (4 kom., sa skidanjem kotača)", t: "3 h", p: [120, 130, 140, 150] },
-    // PPF
-    { id: "ppfh", g: "PPF zaštitna folija", name: "PPF farovi", t: "2 h", p: [150, 150, 150, 150] },
-    { id: "ppfs", g: "PPF zaštitna folija", name: "PPF pragovi i rub prtljažnika", t: "3 h", p: [170, 180, 200, 220] },
-    { id: "ppfp", g: "PPF zaštitna folija", name: "PPF djelomični prednji kraj (branik i prednji dio haube)", t: "1 dan", p: [790, 850, 920, 990] },
-    { id: "ppff", g: "PPF zaštitna folija", name: "PPF cijeli prednji kraj (branik, hauba, blatobrani, retrovizori)", t: "2 dana", p: [1900, 2100, 2400, 2700] },
-    // Prodaja
-    { id: "sale", g: "Prodaja vozila", name: "Priprema vozila za prodaju", t: "1 dan", p: [300, 350, 400, 480] }
+    // Okvir i cijene: primedetailing.hr/cjenik, 10 % jeftinije (mali = njihov min, kombi = njihov max)
+    { id: "wash", g: "Pranje", name: "Premium ručno pranje", t: "3–4 h", p: [60, 75, 90, 105] },
+    { id: "deco", g: "Pranje", name: "Kemijska i glinena dekontaminacija laka", t: "1 h", p: [35, 45, 55, 60] },
+    { id: "deep", g: "Interijer", name: "Detailing interijera", t: "1 dan", p: [135, 165, 195, 225] },
+    { id: "ideep", g: "Interijer", name: "Premium detailing interijera s keramikom", t: "1–2 dana", p: [225, 255, 285, 315] },
+    { id: "leat", g: "Interijer", name: "Keramička zaštita kože", t: "2 h", p: [70, 80, 95, 105] },
+    { id: "pol1", g: "Poliranje", name: "Poliranje u 1 koraku (STG 1)", t: "1–2 dana", p: [180, 225, 270, 315] },
+    { id: "pol2", g: "Poliranje", name: "Višeslojna korekcija laka (STG 2+)", t: "2–3 dana", p: [315, 390, 465, 540] },
+    { id: "head", g: "Poliranje", name: "Poliranje i obnova farova", t: "1,5 h", p: [45, 60, 75, 90] },
+    { id: "cer3", g: "Keramička zaštita", name: "Keramika 3 god. (s poliranjem) · preporuka", t: "2–3 dana", p: [450, 515, 580, 645], rec: true },
+    { id: "cer5", g: "Keramička zaštita", name: "Keramika 5+ god. (s korekcijom STG 2+)", t: "3–5 dana", p: [720, 800, 880, 960] },
+    { id: "glas", g: "Keramička zaštita", name: "Keramika svih stakala", t: "1 h", p: [45, 50, 60, 65] },
+    { id: "rims", g: "Keramička zaštita", name: "Keramika felgi (4 kom., sa skidanjem kotača)", t: "3 h", p: [125, 130, 135, 140] },
+    { id: "ppfh", g: "PPF zaštitna folija", name: "PPF farovi", t: "2 h", p: [135, 135, 135, 135] },
+    { id: "ppfi", g: "PPF zaštitna folija", name: "PPF folija za interijer (po elementu)", t: "1 h", p: [45, 45, 45, 45] },
+    { id: "ppfs", g: "PPF zaštitna folija", name: "PPF pragovi i rub prtljažnika", t: "3 h", p: [160, 165, 175, 185] },
+    { id: "ppfp", g: "PPF zaštitna folija", name: "PPF djelomični prednji kraj (branik i prednji dio haube)", t: "1 dan", p: [720, 775, 830, 890] },
+    { id: "ppff", g: "PPF zaštitna folija", name: "PPF cijeli prednji kraj (branik, hauba, blatobrani, retrovizori)", t: "2 dana", p: [1800, 2000, 2200, 2400] }
   ],
-  onRequest: [["PPF cijelo vozilo", "od 4.000 €"], ["Pojedinačna oštećenja i restauracija", "na upit"]],
+  onRequest: [["PPF cijelo vozilo, sjajna folija", "od 3.600 €"], ["PPF cijelo vozilo, mat folija", "od 4.500 €"], ["Pojedinačna oštećenja i restauracija", "na upit"]],
   extras: [
     { id: "pet", name: "Dlake ljubimaca ili jaka zaprljanost", p: 30 }
 
   ],
   // 3. Paketi (usporedba)
   packages: [
-    { id: "basic", lvl: "Osvježenje", name: "Fresh", p: [99, 109, 119, 139] },
-    { id: "premium", lvl: "Dubinsko čišćenje i poliranje", name: "Reset", p: [349, 389, 439, 499], hot: true },
-    { id: "shield", lvl: "Keramika 3 god.", name: "Shield", p: [690, 790, 890, 990] },
-    { id: "ultimate", lvl: "Sve uključeno", name: "Signature", p: [990, 1090, 1250, 1450] }
+    { id: "premium", lvl: "Sjaj i zaštita 1 god.", name: "Reset", p: [270, 315, 360, 405] },
+    { id: "shield", lvl: "Keramika 3 god.", name: "Shield", p: [540, 615, 690, 765], hot: true },
+    { id: "ultimate", lvl: "Keramika 5+ god. i interijer", name: "Signature", p: [810, 900, 990, 1080] }
   ],
   features: [
-    ["Kompletno pranje i dekontaminacija", 1, 1, 1, 1],
-    ["Detaljno čišćenje plastike i ventilacije", 1, 1, 1, 1],
-    ["Dubinsko čišćenje interijera i ozon", 0, 1, 0, 1],
-    ["Poliranje", 0, "u 1 koraku", "u 1 koraku", "u 2 koraka"],
-    ["Zaštita laka", "sprej 1–2 mj.", "zaštita 12 mj.", "keramika 3 god.", "keramika 5 god."],
-    ["Poliranje farova", 0, 1, 0, 1],
-    ["Keramička zaštita stakala i felgi", 0, 0, 1, 1],
-    ["Koža i motorni prostor", 0, 0, 0, 1],
-    ["Pisani certifikat za keramiku", 0, 0, 1, 1],
-    ["Foto-izvještaj i LED primopredaja", 1, 1, 1, 1],
-    ["Komplet za održavanje i prva kontrola", 0, 0, 0, 1],
-    ["Trajanje", "3 h", "1 dan", "2 dana", "3 dana"]
+    ["Premium ručno pranje", 1, 1, 1],
+    ["Kemijska i glinena dekontaminacija", 1, 1, 1],
+    ["Poliranje laka", "u 1 koraku", "u 1 koraku", "korekcija STG 2+"],
+    ["Zaštita laka", "hidrofobna, 1 god.", "keramika 3 god.", "keramika 5+ god."],
+    ["Detailing interijera", 1, 1, "premium, s keramikom"],
+    ["Keramika svih stakala i felgi", 0, 1, 1],
+    ["Tretman i zaštita guma", 0, 1, 1],
+    ["Keramika kože, tekstila i plastike", 0, 0, 1],
+    ["Pisani certifikat", 0, 1, 1],
+    ["Uputa za održavanje", 1, 1, 1],
+    ["Trajanje", "1–2 dana", "2–3 dana", "3–5 dana"]
   ],
-  subs: [
-    { name: "Pretplata Sjaj", d: "2 kompletna pranja mjesečno", p: "69 €/mj." },
-    { name: "Pretplata Plus", d: "1 kompletno pranje i 1 dubinsko čišćenje interijera mjesečno", p: "89 €/mj." },
-    { name: "Održavanje keramike", d: "kontrola i novi zaštitni sloj (top-coat), po dolasku", p: "49 €" }
-  ],
+  subs: [],
   why: [
     { icon: "tool", t: "Profesionalna oprema", d: "Polirke Rupes, ekstraktor Kärcher, LED inspekcijska rasvjeta i mjerač debljine laka." },
     { icon: "flask", t: "Premium proizvodi", d: "Provjereni premazi i vlastite smjese koje smo testirali na stotinama automobila." },
@@ -1300,14 +1279,14 @@ const DATA = {
   products: [
     { id: "v50", name: "Poklon bon 50 €", d: "Za kompletno pranje ili tretman ozonom.", p: 50, now: true, kind: "card" },
     { id: "v100", name: "Poklon bon 100 €", d: "Za poliranje farova ili čišćenje kože.", p: 100, now: true, kind: "card" },
-    { id: "vreset", name: "Bon za paket Reset", d: "Cijeli paket za srednji auto.", p: 389, now: true, kind: "card" },
-    { id: "vshield", name: "Bon za paket Shield", d: "Keramika na 3 godine za srednji auto.", p: 790, now: true, kind: "card" }
+    { id: "vreset", name: "Bon za paket Reset", d: "Cijeli paket za srednji auto.", p: 315, now: true, kind: "card" },
+    { id: "vshield", name: "Bon za paket Shield", d: "Keramika na 3 godine za srednji auto.", p: 615, now: true, kind: "card" }
   ],
   areas: ["Zagreb – centar", "Novi Zagreb", "Trešnjevka", "Dubrava", "Sesvete", "Velika Gorica", "Zaprešić", "Samobor", "Sveta Nedelja", "Dugo Selo", "Jastrebarsko", "Ivanić-Grad"],
   faq: [
-    ["Koliko traje detailing?", "Kompletno pranje traje 1,5 h, dubinsko čišćenje interijera 4–6 h, poliranje 1–2 dana, a keramička zaštita s korekcijom 2–3 dana. Točno trajanje navodimo u ponudi."],
+    ["Koliko traje detailing?", "Premium pranje traje 3–4 h, detailing interijera jedan dan, poliranje 1–3 dana, a paket keramičke zaštite 2–5 dana. Točno trajanje navodimo u ponudi."],
     ["Moram li ostaviti auto preko noći?", "Za pranje i interijer ne, auto preuzimate isti dan. Za poliranje i keramiku da, jer premaz mora otvrdnuti u kontroliranim uvjetima."],
-    ["Koliko stvarno traje keramička zaštita?", "Uz pravilno pranje, naš dvogodišnji premaz realno traje 18–24 mjeseca, trogodišnji 30–36 mjeseci, a petogodišnji 3–5 godina. Za većinu vozača preporučujemo trogodišnji: najbolji je omjer cijene i trajanja. Jamstvo ne ovisi o tome gdje perete auto."],
+    ["Koliko stvarno traje keramička zaštita?", "Hidrofobna zaštita iz paketa Reset traje oko godinu dana, keramika na 3 godine uz pravilno pranje realno 30–36 mjeseci, a premaz 5+ godina namijenjen je višegodišnjoj zaštiti uz godišnju kontrolu. Jamstvo ne ovisi o tome gdje perete auto."],
     ["Hoće li sjedala ostati mokra?", "Ne. Koristimo ekstrakciju s kontroliranom količinom vode i sušenje toplim zrakom. Nakon tretmana provjeravamo da na sjedalima s elektronikom nema upaljenih lampica."],
     ["Može li se cijena promijeniti pri preuzimanju?", "Ne, ako ste poslali realne fotografije. Ako uočimo nešto što nije bilo vidljivo, prvo vas pitamo i ništa ne radimo bez vaše potvrde."],
     ["Kako se plaća?", "Gotovinom, karticom ili virmanom. Pakete iznad 600 € možete platiti u dvije rate, po dogovoru. Tvrtkama izdajemo eRačun."]
@@ -1337,7 +1316,7 @@ const store = { get(k) { try { return localStorage.getItem(k) } catch (e) { retu
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2400); }
 
 let size = 1;
-const chosen = new Set(["full"]);
+const chosen = new Set(["wash"]);
 const chosenX = new Set();
 const cart = new Map();
 
@@ -1389,9 +1368,9 @@ function renderPackages() {
 }
 
 /* calculator: veća usluga uključuje manju; paket se nudi kad je jeftiniji */
-const INCL = { pol2: ["pol1"], cer2: ["pol1"], cer3: ["pol1"], cer5: ["pol2", "pol1"], deep: ["ozon"], full: ["ext"] };
-const SHORT = { pol2: "korekciju u 2 koraka", cer2: "keramiku 2 god.", cer3: "keramiku 3 god.", cer5: "keramiku 5 god.", deep: "dubinsko čišćenje", full: "kompletno pranje" };
-const PKG_ITEMS = { basic: ["full", "deco"], premium: ["full", "deco", "deep", "pol1", "head"], shield: ["full", "deco", "pol1", "cer3", "glas", "rims"], ultimate: ["full", "deco", "deep", "pol2", "cer5", "head", "glas", "rims", "leat", "eng"] };
+const INCL = { pol2: ["pol1"], cer3: ["pol1"], cer5: ["pol2", "pol1"], ideep: ["deep"] };
+const SHORT = { pol2: "korekciju STG 2+", cer3: "keramiku 3 god.", cer5: "keramiku 5+ god.", ideep: "premium detailing interijera" };
+const PKG_ITEMS = { premium: ["wash", "deco", "pol1", "deep"], shield: ["wash", "deco", "pol1", "cer3", "glas", "rims", "deep"], ultimate: ["wash", "deco", "pol2", "cer5", "glas", "rims", "ideep", "leat"] };
 const svcP = id => DATA.services.find(x => x.id === id).p[size];
 const coveredBy = id => [...chosen].find(c => (INCL[c] || []).includes(id));
 const has = id => chosen.has(id) || !!coveredBy(id);
