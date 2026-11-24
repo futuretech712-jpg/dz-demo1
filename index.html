@@ -707,7 +707,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .rv:hover,.prod:hover{border-color:#3d4352;box-shadow:none}
 /* raspored: usporedba paketa kao radni nalog */
 .pk-table{position:relative;border-style:dashed;border-color:#3a3f4b}
-.pk-table::before{content:"RADNI NALOG · USPOREDBA PAKETA · CIJENE S PDV-om";display:block;padding:.75rem 1.1rem;font:500 .7rem/1 var(--mono);letter-spacing:.14em;color:var(--muted);border-bottom:1px dashed #3a3f4b;background:var(--ink)}
+.pk-table::before{content:"RADNI NALOG · USPOREDBA PAKETA · CIJENE U EURIMA · PDV NIJE OBRAČUNAT";display:block;padding:.75rem 1.1rem;font:500 .7rem/1 var(--mono);letter-spacing:.14em;color:var(--muted);border-bottom:1px dashed #3a3f4b;background:var(--ink)}
 .cmp tbody{counter-reset:row}
 .cmp tbody td{border-bottom-style:dashed}
 .cmp tbody td:first-child::before{counter-increment:row;content:counter(row,decimal-leading-zero);font-family:var(--mono);font-size:.72rem;color:#5b616e;margin-right:.9rem}
@@ -717,6 +717,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .anchor{font-size:.74rem;color:#a3a9b5}
 :root{--muted:#a3a9b5}
 .svc-meta b small{font-size:.8rem;margin-right:.15rem}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -737,7 +738,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <a href="#paketi">Paketi</a>
       <a href="#kalkulator">Kalkulator</a>
       <a href="#galerija">Galerija</a>
-      <a href="#shop">Bonovi</a>
+      <a href="#tvrtke">Za tvrtke</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -754,10 +755,9 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <a href="#paketi"><small>02</small>Paketi</a>
     <a href="#kalkulator"><small>03</small>Kalkulator</a>
     <a href="#galerija"><small>04</small>Prije / poslije</a>
-    <a href="#recenzije"><small>05</small>Recenzije</a>
-    <a href="#shop"><small>06</small>Poklon bonovi</a>
-    <a href="#faq"><small>07</small>Česta pitanja</a>
-    <a href="#rezervacija"><small>08</small>Rezervacija</a>
+    <a href="#tvrtke"><small>05</small>Za tvrtke i preporuke</a>
+    <a href="#faq"><small>06</small>Česta pitanja</a>
+    <a href="#rezervacija"><small>07</small>Rezervacija</a>
   </nav>
   <div class="mnav-foot">
     <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
@@ -826,7 +826,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <div class="chips" id="svcChips" role="group" aria-label="Filtriraj usluge"></div>
     <div class="svc-grid" id="svcGrid"></div>
     <details class="allprices" id="cjenik">
-      <summary><span><span class="o">Prikaži sve cijene</span><span class="c">Sakrij cjenik</span><br><small>Cijeli cjenik po veličini vozila, s PDV-om</small></span></summary>
+      <summary><span><span class="o">Prikaži sve cijene</span><span class="c">Sakrij cjenik</span><br><small>Cijeli cjenik po veličini vozila. PDV nije obračunat.</small></span></summary>
       <div class="allprices-in">
         <div class="cmp-wrap plist-wrap"><table class="plist" id="plist"></table></div>
         <div class="plm" id="plm"></div>
@@ -893,7 +893,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <div class="rh"><span>Detailerz</span><span id="rSize">Srednja</span></div>
       <ul id="rLines"></ul>
       <div class="tot"><span>Ukupno</span><b id="rTotal">0 €</b></div>
-      <p class="note">Okvirni izračun s uključenim PDV-om. Fiksnu ponudu šaljemo u roku od 2 h radnim danom.</p>
+      <p class="note">Okvirni izračun. PDV nije obračunat (obrt nije u sustavu PDV-a). Fiksnu ponudu šaljemo u roku od 2 h radnim danom.</p>
       <div id="rTip"></div>
       <a href="#rezervacija" class="btn btn-accent" id="rBook" style="margin-top:.8rem">Zatraži ponudu za ovaj izračun</a>
     </aside>
@@ -941,7 +941,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 </section>
 
 <!-- 7. RECENZIJE -->
-<section class="sec alt" id="recenzije">
+<section class="sec alt" id="recenzije" hidden>
   <div class="wrap">
     <div class="sec-head">
       <div><p class="kicker">Recenzije</p><h2>Zadovoljni vlasnici</h2></div>
@@ -956,13 +956,13 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 </section>
 
 <!-- 8. SHOP, PREPORUKA I TVRTKE -->
-<section class="sec" id="shop">
+<section class="sec alt" id="shop">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" hidden>
       <div><p class="kicker">Pokloni</p><h2>Poklon bonovi</h2></div>
       <p>Poklonite čist auto. Bon stiže kao PDF na e-mail odmah nakon narudžbe i vrijedi 12 mjeseci.</p>
     </div>
-    <div class="shop">
+    <div class="shop" hidden>
       <div class="prods" id="prods"></div>
       <aside class="cart" aria-live="polite">
         <h3>Košarica</h3>
@@ -973,18 +973,18 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       </aside>
     </div>
   
-    <div class="duo subblock" id="tvrtke">
+    <div class="duo" id="tvrtke">
     <div class="box">
       <p class="kicker">Za tvrtke</p>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Flote, rent-a-car i autokuće</h2>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);max-width:none">Flote, <span style="white-space:nowrap">rent-a-car</span> i autokuće</h2>
       <p>Paušal za održavanje službenih vozila, priprema rabljenih vozila za prodaju i čišćenje rent-a-car vozila između najmova. Izvještaj po vozilu i eRačun.</p>
       <ul><li>Flota: 2 kompletna pranja mjesečno od 79 € po vozilu</li><li>Priprema za prodaju od 350 €</li></ul>
       <a href="#rezervacija" class="btn btn-accent" data-service="Ponuda za flotu (B2B)">Zatraži ponudu za flotu</a>
     </div>
     <div class="box warm" id="preporuka">
       <p class="kicker">Preporuči prijatelja</p>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">15 € za vas, 15 € za prijatelja</h2>
-      <p>Prijatelj u napomeni upita navede vaše ime. Nakon njegova prvog detailinga oboje dobivate 15 € popusta ili besplatan ozon tretman.</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">15&nbsp;€ za vas, 15&nbsp;€ za prijatelja</h2>
+      <p>Prijatelj u napomeni upita navede vaše ime. Nakon njegova prvog detailinga oboje dobivate 15 € popusta ili besplatan tretman ozonom.</p>
       <a href="#rezervacija" class="btn btn-line" data-note="Preporuka od: ">Imam preporuku</a>
     </div>
   
@@ -993,7 +993,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 </section>
 
 <!-- 9. FAQ -->
-<section class="sec alt" id="faq">
+<section class="sec" id="faq">
   <div class="wrap faq">
     <div>
       <p class="kicker">FAQ</p>
@@ -1006,7 +1006,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 </section>
 
 <!-- 10. REZERVACIJA -->
-<section class="sec" id="rezervacija">
+<section class="sec alt" id="rezervacija">
   <div class="wrap book">
     <div>
       <p class="kicker">Rezervacija</p>
@@ -1141,7 +1141,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 <script>
 /* ============================================================
    PODACI (cijene iz istraživanja tržišta, studeni 2026.)
-   Sve cijene konačne, s PDV-om, EUR.
+   Sve cijene konačne, u EUR; PDV nije obračunat (obrt izvan sustava PDV-a).
    Veličine: [mala, srednja, SUV/karavan, kombi/7 sj.]
    ============================================================ */
 const DATA = {
@@ -1465,7 +1465,7 @@ function renderPriceList() {
     groups.map((gg, gi) => `<details class="plm-g"><summary>${gg}<em>${DATA.services.filter(x => x.g === gg).length}</em></summary>${DATA.services.filter(x => x.g === gg).map(x => item(x.name, x.t, x.p[size])).join("")}</details>`).join("") +
     `<details class="plm-g"><summary>Doplate i na upit<em>${DATA.extras.length + DATA.onRequest.length}</em></summary>${DATA.extras.map(x => item(x.name, x.freeAbove ? "besplatno iznad " + eur(x.freeAbove) : "", "+" + eur(x.p))).join("")}${DATA.onRequest.map(r => item(r[0], "", r[1])).join("")}</details>`;
   $("#plist").innerHTML = `<thead><tr><th>Usluga</th><th style="text-align:left">Trajanje</th>${DATA.sizes.map((z, i) => `<th class="${i === size ? "on" : ""}">${z}</th>`).join("")}</tr></thead><tbody>${rows}</tbody>`;
-  $("#plistNote").textContent = `Sve su cijene u eurima, s uključenim PDV-om. Sidrena cijena je cijena na dan ${DATA.anchorDate} Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
+  $("#plistNote").textContent = `Sve su cijene u eurima i konačne. PDV nije obračunat (obrt nije u sustavu PDV-a). Sidrena cijena je cijena na dan ${DATA.anchorDate} Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
 }
 function renderPriced() {
   drawSizes(); renderCards(); renderChips(); renderRec(); renderPackages(); renderPriceList(); renderCalc(); observe();
@@ -1544,7 +1544,7 @@ $("#fSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</opt
 $("#fSvc").innerHTML = '<option value="">Odaberite uslugu</option>' +
   `<optgroup label="Paketi">${DATA.packages.map(p => `<option>Paket ${p.name}</option>`).join("")}</optgroup>` +
   [...new Set(DATA.services.map(x => x.g))].map(g => `<optgroup label="${g}">${DATA.services.filter(x => x.g === g).map(x => `<option>${x.name}</option>`).join("")}</optgroup>`).join("") +
-  `<optgroup label="Ostalo">${["Besplatna procjena u studiju", "Kombinacija iz kalkulatora", "Narudžba poklon bona", "Ponuda za flotu (B2B)", "Nisam siguran/sigurna, savjetujte me"].map(o => `<option>${o}</option>`).join("")}</optgroup>`;
+  `<optgroup label="Ostalo">${["Besplatna procjena u studiju", "Kombinacija iz kalkulatora", "Ponuda za flotu (B2B)", "Nisam siguran/sigurna, savjetujte me"].map(o => `<option>${o}</option>`).join("")}</optgroup>`;
 $("#makes").innerHTML = ["Alfa Romeo","Audi","BMW","BYD","Citroën","Cupra","Dacia","Fiat","Ford","Honda","Hyundai","Jaguar","Jeep","Kia","Land Rover","Lexus","Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Opel","Peugeot","Porsche","Renault","Seat","Škoda","Smart","Subaru","Suzuki","Tesla","Toyota","Volkswagen","Volvo"].map(m => `<option value="${m} ">`).join("");
 $("#fDate").min = new Date().toISOString().slice(0, 10);
 document.addEventListener("click", e => {
