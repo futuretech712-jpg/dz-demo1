@@ -758,6 +758,8 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .svc-grid.filtered{display:flex;flex-wrap:wrap}
 .svc-grid.filtered .svc{flex:1 1 300px}
 .svc-grid.filtered .svc.hide{display:none}
+.plist td small,.plm-p small{font-size:.68rem}
+html,body{overflow-x:clip}
 </style>
 </head>
 <body>
@@ -1018,7 +1020,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
       <p class="kicker">Za tvrtke</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);max-width:none">Flote, <span style="white-space:nowrap">rent-a-car</span> i autokuće</h2>
       <p>Paušal za održavanje službenih vozila, priprema rabljenih vozila za prodaju i čišćenje rent-a-car vozila između najmova. Izvještaj po vozilu i eRačun.</p>
-      <ul><li>Flota: 2 kompletna pranja mjesečno od 79 € po vozilu</li><li>Priprema rabljenih vozila za prodaju po dogovoru</li></ul>
+      <ul><li>Redovno održavanje flote po dogovorenom rasporedu</li><li>Priprema rabljenih vozila za prodaju</li><li>Cijene na upit, prema broju vozila i opsegu posla</li></ul>
       <a href="#rezervacija" class="btn btn-accent" data-service="Ponuda za flotu (B2B)">Zatraži ponudu za flotu</a>
     </div>
     <div class="box warm" id="preporuka">
@@ -1532,14 +1534,14 @@ function renderRec() {
 }
 function renderPriceList() {
   let g = "", rows = "";
-  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna ${eur(v)}</small></td>`).join("")}</tr>`).join("");
+  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`).join("");
   DATA.services.forEach(sv => {
     if (sv.g !== g) { g = sv.g; rows += `<tr class="grp"><td colspan="6">${g}</td></tr>`; }
-    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna ${eur(v)}</small></td>`).join("")}</tr>`;
+    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`;
   });
   rows += `<tr class="grp"><td colspan="6">Na upit</td></tr>` + DATA.onRequest.map(r => `<tr><td>${r[0]}</td><td class="t">–</td><td colspan="4">${r[1]}</td></tr>`).join("");
   rows += `<tr class="grp"><td colspan="6">Doplate</td></tr>` + DATA.extras.map(x => `<tr><td>${x.name}</td><td class="t">–</td><td colspan="4">+${eur(x.p)}${x.freeAbove ? ` <small style="display:inline">(besplatno uz narudžbu iznad ${eur(x.freeAbove)})</small>` : ""}</td></tr>`).join("");
-  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>bazna ${eur(v)}</small>` : v}</div></div>`;
+  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>bazna (${DATA.anchorDate}): ${eur(v)}</small>` : v}</div></div>`;
   const groups = [...new Set(DATA.services.map(x => x.g))];
   $("#plm").innerHTML = `<p class="plm-for">Cijene za: <b>${sizeLabel(size)}</b></p>` +
     `<details class="plm-g" open><summary>Paketi<em>${DATA.packages.length}</em></summary>${DATA.packages.map(pk => item("Paket " + pk.name, pk.lvl, pk.p[size])).join("")}</details>` +
@@ -1766,7 +1768,7 @@ function renderQuick() {
   if (qState.total !== null && sz !== size) { const st = (() => { const k = size; size = sz; const r = calcState(); size = k; return r; })(); price = st.total; }
   $("#qLines").textContent = qState.lines.length ? qState.lines.join(" · ") : "";
   $("#qPrice").textContent = price !== null && price !== undefined ? eur(price) : "";
-  $("#qFor").textContent = price ? (qState.total !== null ? "okvirno, " : "") + DATA.sizes[sz].toLowerCase() + " · PDV nije obračunat" : "cijena prema ponudi";
+  $("#qFor").textContent = price ? (qState.total !== null ? "okvirno, " : "") + DATA.sizes[sz].toLowerCase() + (qState.total === null ? " · " + anchor(price).toLowerCase() : "") + " · PDV nije obračunat" : "cijena prema ponudi";
 }
 function openQuick(svc, lines, total, note) {
   $("#qSvcSel").innerHTML = $("#fSvc").innerHTML;
