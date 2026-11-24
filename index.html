@@ -898,7 +898,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
         <span class="rec-tag">Naša preporuka</span>
         <h3>Keramika na 3 godine: paket Shield</h3>
         <p>Za većinu vozača najbolji izbor. Traje dvostruko dulje od dvogodišnje, a košta znatno manje od petogodišnje. U paketu dobivate pranje, dekontaminaciju, poliranje te keramiku stakala i felgi, a realnu trajnost upisujemo u certifikat.</p>
-        <div class="rec-row"><b id="recPrice">690 €</b><span id="recSize">srednji auto · sidrena cijena (10. 9. 2026.): 690 €</span></div>
+        <div class="rec-row"><b id="recPrice">690 €</b><span id="recSize">srednji auto · bazna cijena: 690 €</span></div>
         <a href="#rezervacija" class="btn btn-accent" data-service="Paket Shield">Odaberi paket Shield <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -1143,7 +1143,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
   </div>
   <div class="wrap legal">
     <span>© <span id="yr">2026</span> Detailerz · [NAZIV OBRTA / D.O.O.] · OIB [OIB] · Fotografije: <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a> (Fine Automotive Detailing, Severin Demchuk, Ivan Kazlouskij, Patrik Storm)</span>
-    <span><a href="#pravila-privatnosti">Pravila privatnosti</a> · <a href="#uvjeti-poslovanja">Uvjeti poslovanja</a> · <a href="#politika-kolacica">Politika kolačića</a> · <a href="#" id="cookieReopen">Postavke kolačića</a> · <a href="#cjenik">Cjenik i sidrene cijene</a></span>
+    <span><a href="#pravila-privatnosti">Pravila privatnosti</a> · <a href="#uvjeti-poslovanja">Uvjeti poslovanja</a> · <a href="#politika-kolacica">Politika kolačića</a> · <a href="#" id="cookieReopen">Postavke kolačića</a> · <a href="#cjenik">Cjenik i bazne cijene</a></span>
   </div>
 </footer>
 
@@ -1217,7 +1217,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
    ============================================================ */
 const DATA = {
   phone: "385910000000",
-  anchorDate: "10. 9. 2026.",
+  anchorDate: "24. 11. 2026.", // dan kad je usluga prvi put ponuđena (bazna cijena, NN 132/2026)
   sizes: ["Mali", "Srednji", "SUV / karavan", "Kombi / 7 sjedala"],
   sizeHints: ["npr. Polo, Clio, Yaris", "npr. Golf, Octavia, A4", "npr. Tiguan, X3, Passat karavan", "npr. Transporter, Sharan"],
   sizeShort: ["Polo, Clio, Yaris", "Golf, Octavia, A4", "Tiguan, X3, karavani", "Transporter, Sharan"],
@@ -1231,7 +1231,7 @@ const DATA = {
     { icon: "light", name: "Poliranje i obnova farova", cat: "Lak", desc: "Brušenje, poliranje i UV zaštita. Bolja vidljivost noću i lakši tehnički pregled.", time: "1,5 h", ids: ["head"], svc: "Poliranje i obnova farova" },
     { icon: "leather", name: "Zaštita naplataka i stakala", cat: "Zaštita", desc: "Keramika za felge (sa skidanjem kotača) i sva stakla. Kočiona prašina i kiša jednostavno se ispiru.", time: "1–3 h", ids: ["glas", "rims"], svc: "Keramika felgi (4 kom., sa skidanjem kotača)" }
   ],
-  // Kalkulator / cjenik (sidrena cijena = cijena na dan anchorDate)
+  // Kalkulator / cjenik (bazna cijena = cijena na dan anchorDate)
   services: [
     // Okvir i cijene: primedetailing.hr/cjenik, 10 % jeftinije (mali = njihov min, kombi = njihov max)
     { id: "wash", g: "Pranje", name: "Premium ručno pranje", t: "3–4 h", p: [60, 75, 90, 105] },
@@ -1344,7 +1344,7 @@ const chosenX = new Set();
 const cart = new Map();
 
 /* size switches */
-const anchor = v => `Sidrena cijena (${DATA.anchorDate}): ${eur(v)}`;
+const anchor = v => `Bazna cijena: ${eur(v)}`;
 const sizeLabel = i => i < 2 ? DATA.sizes[i].toLowerCase() + " auto" : DATA.sizes[i];
 function drawSizes() {
   $$("[data-sizes]").forEach(g => g.innerHTML = `<span class="sizes-lbl">Veličina vašeg vozila</span>` + DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}"><b>${z}${i < 2 ? " auto" : ""}</b><small>${DATA.sizeShort[i]}</small></button>`).join(""));
@@ -1414,7 +1414,7 @@ function renderCalc() {
   }).join("");
   $("#calcExt").innerHTML = DATA.extras.map(x => `
     <label class="opt" for="x_${x.id}"><span class="l"><input type="checkbox" id="x_${x.id}" data-ext="${x.id}" ${chosenX.has(x.id) ? "checked" : ""}>${x.name}</span><span class="pr">+${eur(x.p)}</span></label>`).join("");
-  $("#anchorNote").textContent = `Sidrena cijena (cijena na dan ${DATA.anchorDate}) za sve je usluge u cjeniku jednaka trenutačnoj cijeni.`;
+  $("#anchorNote").textContent = `Bazna cijena je cijena po kojoj smo uslugu prvi put ponudili (${DATA.anchorDate}).`;
   updateCalc();
 }
 /* odabir se sam slaže u najpovoljniji paket; ostalo ide kao dodatak */
@@ -1532,21 +1532,21 @@ function renderRec() {
 }
 function renderPriceList() {
   let g = "", rows = "";
-  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena ${eur(v)}</small></td>`).join("")}</tr>`).join("");
+  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna ${eur(v)}</small></td>`).join("")}</tr>`).join("");
   DATA.services.forEach(sv => {
     if (sv.g !== g) { g = sv.g; rows += `<tr class="grp"><td colspan="6">${g}</td></tr>`; }
-    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena ${eur(v)}</small></td>`).join("")}</tr>`;
+    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>bazna ${eur(v)}</small></td>`).join("")}</tr>`;
   });
   rows += `<tr class="grp"><td colspan="6">Na upit</td></tr>` + DATA.onRequest.map(r => `<tr><td>${r[0]}</td><td class="t">–</td><td colspan="4">${r[1]}</td></tr>`).join("");
   rows += `<tr class="grp"><td colspan="6">Doplate</td></tr>` + DATA.extras.map(x => `<tr><td>${x.name}</td><td class="t">–</td><td colspan="4">+${eur(x.p)}${x.freeAbove ? ` <small style="display:inline">(besplatno uz narudžbu iznad ${eur(x.freeAbove)})</small>` : ""}</td></tr>`).join("");
-  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>sidrena ${eur(v)}</small>` : v}</div></div>`;
+  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>bazna ${eur(v)}</small>` : v}</div></div>`;
   const groups = [...new Set(DATA.services.map(x => x.g))];
   $("#plm").innerHTML = `<p class="plm-for">Cijene za: <b>${sizeLabel(size)}</b></p>` +
     `<details class="plm-g" open><summary>Paketi<em>${DATA.packages.length}</em></summary>${DATA.packages.map(pk => item("Paket " + pk.name, pk.lvl, pk.p[size])).join("")}</details>` +
     groups.map((gg, gi) => `<details class="plm-g"><summary>${gg}<em>${DATA.services.filter(x => x.g === gg).length}</em></summary>${DATA.services.filter(x => x.g === gg).map(x => item(x.name, x.t, x.p[size])).join("")}</details>`).join("") +
     `<details class="plm-g"><summary>Doplate i na upit<em>${DATA.extras.length + DATA.onRequest.length}</em></summary>${DATA.extras.map(x => item(x.name, x.freeAbove ? "besplatno iznad " + eur(x.freeAbove) : "", "+" + eur(x.p))).join("")}${DATA.onRequest.map(r => item(r[0], "", r[1])).join("")}</details>`;
   $("#plist").innerHTML = `<thead><tr><th>Usluga</th><th style="text-align:left">Trajanje</th>${DATA.sizes.map((z, i) => `<th class="${i === size ? "on" : ""}">${z}</th>`).join("")}</tr></thead><tbody>${rows}</tbody>`;
-  $("#plistNote").textContent = `Sve su cijene u eurima i konačne. PDV nije obračunat (obrt nije u sustavu PDV-a). Sidrena cijena je cijena na dan ${DATA.anchorDate} Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
+  $("#plistNote").textContent = `Sve su cijene u eurima i konačne. PDV nije obračunat (obrt nije u sustavu PDV-a). Bazna cijena je cijena po kojoj smo uslugu prvi put ponudili (${DATA.anchorDate}). Konačnu cijenu potvrđujemo pisanom ponudom nakon fotografija ili pregleda vozila. Doplata za jaku zaprljanost obračunava se samo uz vašu prethodnu suglasnost.`;
 }
 function renderPriced() {
   drawSizes(); renderCards(); renderChips(); renderRec(); renderPackages(); renderPriceList(); renderCalc(); observe();
