@@ -723,6 +723,22 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .plist td:first-child{font-weight:500;color:var(--text)}
 .plist td small,.plm-p small{display:block;white-space:nowrap;font-size:.74rem;color:var(--muted);font-weight:400}
 .plist td:not(:first-child){font-weight:600}
+#quick{max-width:620px;width:calc(100% - 24px);max-height:90vh;margin:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden}
+#quick[open]{display:flex;flex-direction:column}
+#quick::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+#quick .lg-body{display:grid;gap:1rem}
+#quick .f{display:grid;gap:.9rem;border:0;padding:0;background:none;box-shadow:none}
+.q-sum{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;padding:1rem 1.1rem;border:1px dashed #3a3f4b;border-radius:12px;background:var(--ink)}
+.q-sum b{display:block;font-size:1.05rem;color:var(--text)}
+.q-sum small{display:block;color:var(--muted);font-size:.8rem;margin-top:.25rem}
+.q-lbl{display:block;font:500 .68rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.q-price{text-align:right;white-space:nowrap}
+.q-price b{font-family:var(--display);font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1}
+.q-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.q-err{color:#ff8b8b;font-size:.85rem;min-height:1em}
+.q-done pre{white-space:pre-wrap;font:inherit;font-size:.88rem;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:.9rem;margin:.8rem 0;color:#c9ced8}
+#quick .chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
+#quick .chk input{width:20px;height:20px;min-height:20px;accent-color:#e9ebef;margin-top:2px;flex:none}
 </style>
 </head>
 <body>
@@ -1136,6 +1152,34 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 </div>
 <div class="toast" id="toast" role="status"></div>
 
+<dialog id="quick" aria-labelledby="qT">
+  <div class="lg-head"><h3 id="qT">Brzi upit</h3><button class="lg-x" id="qClose" type="button" aria-label="Zatvori">✕</button></div>
+  <div class="lg-body">
+    <div class="q-sum"><div><span class="q-lbl">Odabrali ste</span><b id="qSvc"></b><small id="qLines"></small></div><div class="q-price"><b id="qPrice"></b><small id="qFor"></small></div></div>
+    <form class="f" id="qForm" novalidate>
+      <div class="two">
+        <label for="qName">Ime *<input id="qName" name="ime" autocomplete="name" required></label>
+        <label for="qTel">Telefon *<input id="qTel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></label>
+      </div>
+      <div class="two">
+        <label for="qCar">Marka i model *<input id="qCar" name="auto" list="makes" placeholder="npr. Škoda Octavia" required></label>
+        <label for="qSize">Veličina vozila<select id="qSize" name="velicina"></select></label>
+      </div>
+      <label for="qNote">Napomena<textarea id="qNote" name="napomena" rows="2" placeholder="Željeni termin, stanje auta…"></textarea></label>
+      <label class="chk" for="qOk"><input id="qOk" type="checkbox" required> <span>Dajem privolu za obradu podataka radi odgovora na upit (<a href="#privatnost">Pravila privatnosti</a>).</span></label>
+      <p class="q-err" id="qErr" role="alert"></p>
+      <div class="q-actions">
+        <button class="btn btn-accent" type="submit">Pošalji upit na WhatsApp</button>
+        <button class="btn btn-line" type="button" id="qFull">Puna forma s fotografijama</button>
+      </div>
+    </form>
+    <div class="q-done" id="qDone" hidden>
+      <p><b>Upit je spreman.</b> Otvorili smo WhatsApp s porukom. Ako se nije otvorio, pošaljite ga ovim gumbom ili ga kopirajte.</p>
+      <pre id="qText"></pre>
+      <div class="q-actions"><a class="btn btn-accent" id="qWa" target="_blank" rel="noopener">Otvori WhatsApp</a><button class="btn btn-line" type="button" id="qCopy">Kopiraj upit</button></div>
+    </div>
+  </div>
+</dialog>
 <dialog id="legal" aria-labelledby="legalT">
   <div class="lg-head"><h3 id="legalT"></h3><button class="lg-x" id="legalClose" type="button" aria-label="Zatvori">✕</button></div>
   <div class="lg-body" id="legalB"></div>
@@ -1676,6 +1720,62 @@ function observe() {
 }
 $("#yr").textContent = new Date().getFullYear();
 renderPriced();
+
+/* brzi upit: odabir otvara prozor na istom mjestu umjesto skoka na dno stranice */
+const qState = { svc: "", lines: [], total: null };
+function priceFor(svc, sz) {
+  const pk = DATA.packages.find(p => "Paket " + p.name === svc); if (pk) return pk.p[sz];
+  const sv = DATA.services.find(x => x.name === svc); return sv ? sv.p[sz] : null;
+}
+function renderQuick() {
+  const sz = +$("#qSize").value;
+  $("#qSvc").textContent = qState.svc;
+  let price = qState.total !== null ? qState.total : priceFor(qState.svc, sz);
+  if (qState.total !== null && sz !== size) { const st = (() => { const k = size; size = sz; const r = calcState(); size = k; return r; })(); price = st.total; }
+  $("#qLines").textContent = qState.lines.length ? qState.lines.join(" · ") : "";
+  $("#qPrice").textContent = price !== null && price !== undefined ? eur(price) : "";
+  $("#qFor").textContent = price ? (qState.total !== null ? "okvirno, " : "") + DATA.sizes[sz].toLowerCase() + " · PDV nije obračunat" : "cijena prema ponudi";
+}
+function openQuick(svc, lines, total) {
+  qState.svc = svc; qState.lines = lines || []; qState.total = total ?? null;
+  $("#qSize").value = size; $("#qForm").hidden = false; $("#qDone").hidden = true; $("#qErr").textContent = "";
+  renderQuick(); $("#quick").showModal(); setTimeout(() => $("#qName").focus(), 50);
+}
+$("#qSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</option>`).join("");
+$("#qSize").addEventListener("change", renderQuick);
+$("#qClose").addEventListener("click", () => $("#quick").close());
+$("#quick").addEventListener("click", e => { if (e.target === $("#quick")) $("#quick").close(); });
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[data-service][href="#rezervacija"]'); if (!a) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  openQuick(a.dataset.service);
+}, true);
+$("#rBook").addEventListener("click", e => {
+  const { total, lines } = calcState(); if (!lines.length) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  openQuick("Kombinacija iz kalkulatora", lines.map(l => l[0]), total);
+}, true);
+$("#qForm").addEventListener("submit", e => {
+  e.preventDefault(); let ok = true;
+  $$("[required]", e.target).forEach(el => { const bad = el.type === "checkbox" ? !el.checked : !el.value.trim(); el.classList.toggle("bad", bad); if (bad) ok = false; });
+  if (!ok) { $("#qErr").textContent = "Ispunite označena polja i dajte privolu."; e.target.querySelector(".bad")?.focus(); return; }
+  const sz = +$("#qSize").value;
+  const txt = `Upit — Detailerz\nUsluga: ${qState.svc}${qState.lines.length ? " (" + qState.lines.join(", ") + ")" : ""}\nOkvirna cijena: ${$("#qPrice").textContent || "prema ponudi"}\nVozilo: ${$("#qCar").value} (${DATA.sizes[sz]})\nIme: ${$("#qName").value}\nTelefon: ${$("#qTel").value}${$("#qNote").value.trim() ? "\nNapomena: " + $("#qNote").value.trim() : ""}`;
+  const url = `https://wa.me/${DATA.phone}?text=${encodeURIComponent(txt)}`;
+  $("#qText").textContent = txt; $("#qWa").href = url;
+  $("#qForm").hidden = true; $("#qDone").hidden = false;
+  try { window.open(url, "_blank", "noopener"); } catch (er) {}
+});
+$("#qCopy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText($("#qText").textContent); toast("Upit kopiran"); } catch (er) { toast("Označite tekst i kopirajte ga"); }
+});
+$("#qFull").addEventListener("click", () => {
+  $("#fSvc").value = qState.svc && [...$("#fSvc").options].some(o => o.text === qState.svc) ? qState.svc : "Kombinacija iz kalkulatora";
+  if (qState.lines.length) $("#fNote").value = `Kalkulator: ${qState.lines.join(", ")}. Okvirno ${$("#qPrice").textContent}.`;
+  ["Name", "Tel", "Car"].forEach(k => { const src = $("#q" + k), dst = $({ Name: "#fName", Tel: "#fTel", Car: "#fCar" }[k]); if (dst && src.value) dst.value = src.value; });
+  $("#fSize").value = $("#qSize").value; $("#quick").close();
+  document.getElementById("rezervacija").scrollIntoView({ behavior: "smooth" });
+});
 </script>
 </body>
 </html>
