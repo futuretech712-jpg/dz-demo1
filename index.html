@@ -831,6 +831,19 @@ h2{line-height:1.04}
   #quick .two{grid-template-columns:1fr}
   #quick .lg-head{padding:.9rem 1rem}
 }
+
+/* manje AI ukrasa */
+.kicker{display:none}
+.pk-table::before,.cmp tbody td:first-child::before{content:none;display:none}
+.svc::after,.svc:hover::after{display:none}
+.svc:hover{background:inherit}.svc:hover svg{transform:none}
+.hero h1{font-size:clamp(2.8rem,6.2vw,5.6rem);line-height:1;max-width:16ch;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--text)}
+.hero-note{margin-top:2rem;max-width:52ch;color:var(--muted);font-size:.98rem}
+.days{list-style:none;margin:2.4rem 0 0;padding:0}
+.days li{display:flex;gap:1.6rem;padding:1.1rem 0;border-top:1px solid var(--line)}
+.days li:last-child{border-bottom:1px solid var(--line)}
+.days b{flex:0 0 10rem;font-weight:700}
+@media(max-width:560px){.days li{flex-direction:column;gap:.3rem}.days b{flex:none}}
 </style>
 </head>
 <body>
@@ -838,7 +851,7 @@ h2{line-height:1.04}
 <div class="promo" id="promo">
   <div class="wrap promo-in">
     <span class="promo-tag">Novo</span>
-    <p><span class="pl">Preporučite nas prijatelju i oboje dobivate 15 € popusta.</span><span class="ps">−15 € za vas i prijatelja</span> <a href="#preporuka">Saznajte kako →</a></p>
+    <p><span class="pl">Preporučite nas prijatelju i oboje dobivate 15 € popusta.</span><span class="ps">−15 € za vas i prijatelja</span> <a href="#preporuka">Saznajte kako</a></p>
     <button class="promo-x" id="promoX" type="button" aria-label="Zatvori obavijest">✕</button>
   </div>
 </div>
@@ -864,21 +877,21 @@ h2{line-height:1.04}
 
 <div class="mnav" id="mnav" aria-hidden="true">
   <nav class="mnav-links" aria-label="Izbornik za mobitel">
-    <a href="#usluge"><small>01</small>Usluge i cjenik</a>
-    <a href="#paketi"><small>02</small>Paketi</a>
-    <a href="#kalkulator"><small>03</small>Kalkulator</a>
-    <a href="#galerija"><small>04</small>Prije / poslije</a>
-    <a href="#tvrtke"><small>05</small>Za tvrtke i preporuke</a>
-    <a href="#faq"><small>06</small>Česta pitanja</a>
-    <a href="#rezervacija"><small>07</small>Rezervacija</a>
+    <a href="#usluge">Usluge i cjenik</a>
+    <a href="#paketi">Paketi</a>
+    <a href="#kalkulator">Kalkulator</a>
+    <a href="#galerija">Prije / poslije</a>
+    <a href="#tvrtke">Za tvrtke i preporuke</a>
+    <a href="#faq">Česta pitanja</a>
+    <a href="#rezervacija">Rezervacija</a>
   </nav>
   <div class="mnav-foot">
-    <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
+    <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin</a>
     <div class="mnav-row">
       <a href="tel:+385910000000" class="btn btn-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Nazovi</a>
       <a href="https://wa.me/385910000000" target="_blank" rel="noopener" class="btn btn-line">WhatsApp</a>
     </div>
-    <p class="muted small">Pon–Pet 08–18 · Sub 08–15 · [ADRESA], Zagreb</p>
+    <p class="muted small">Pon–Pet 08–18, Sub 08–15, [ADRESA], Zagreb</p>
   </div>
 </div>
 
@@ -905,17 +918,13 @@ h2{line-height:1.04}
   <span class="placeholder-tag hero-credit" id="heroCredit" hidden>Foto: Fine Automotive Detailing / Unsplash</span>
   <div class="dots" id="heroDots" role="tablist" aria-label="Naslovne fotografije"><button type="button" aria-label="Fotografija 1" aria-selected="true"></button><button type="button" aria-label="Fotografija 2" aria-selected="false"></button><button type="button" aria-label="Fotografija 3" aria-selected="false"></button><button type="button" aria-label="Fotografija 4" aria-selected="false"></button></div>
   <div class="wrap hero-in">
-    <h1>Opet kao iz salona.</h1>
-    <p class="hero-sub">Sjećate se kako je vaš auto mirisao i blistao prvog dana? Vraćamo mu taj sjaj. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i primopredaju pod LED svjetlom.</p>
+    <h1>Detailing u Zagrebu. Cijenu znate prije nego što počnemo.</h1>
+    <p class="hero-sub">Pošaljete nam nekoliko fotografija auta, a mi vam u roku od dva sata pošaljemo pisanu ponudu. Toliko i platite kad dođete po auto, pregledan pod jakim svjetlom.</p>
     <div class="hero-cta">
-      <a href="#rezervacija" class="btn btn-accent">Rezerviraj termin <span class="arr" aria-hidden="true">→</span></a>
-      <a href="#usluge" class="btn btn-line">Pogledaj usluge</a>
+      <a href="#rezervacija" class="btn btn-accent">Pošaljite fotografije</a>
+      <a href="#usluge" class="btn btn-line">Pogledajte cjenik</a>
     </div>
-    <div class="trust">
-      <div><b>Besplatna</b><span>procjena u studiju, bez obveze</span></div>
-      <div><b>Foto</b><span>izvještaj prije i poslije</span></div>
-      <div><b>Subotom</b><span>radimo od 8 do 15 h</span></div>
-      <div><b>2 rate</b><span>za pakete iznad 600 €</span></div>
+    <p class="hero-note">Procjena u studiju je besplatna. Radimo i subotom od 8 do 15 sati, a pakete iznad 600 € možete platiti u dvije rate.</p>
     </div>
   </div>
 </section>
@@ -967,7 +976,7 @@ h2{line-height:1.04}
         <h3>Keramika na 3 godine: paket Shield</h3>
         <p>Za većinu vozača najbolji izbor. Traje dvostruko dulje od dvogodišnje, a košta znatno manje od petogodišnje. U paketu dobivate pranje, dekontaminaciju, poliranje te keramiku stakala i felgi, a realnu trajnost upisujemo u certifikat.</p>
         <div class="rec-row"><b id="recPrice">690 €</b><span id="recSize">srednji auto · bazna cijena (10. 9. 2026.): 690 €</span></div>
-        <a href="#rezervacija" class="btn btn-accent" data-service="Paket Shield">Odaberi paket Shield <span class="arr" aria-hidden="true">→</span></a>
+        <a href="#rezervacija" class="btn btn-accent" data-service="Paket Shield">Odaberi paket Shield</a>
       </div>
     </div>
     <div class="meter">
@@ -1034,16 +1043,16 @@ h2{line-height:1.04}
 <section class="sec" id="zasto">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="kicker">Zašto Detailerz</p><h2>Četiri jamstva, četiri koraka</h2></div>
-      <a href="#rezervacija" class="btn btn-accent">Pošalji upit <span class="arr" aria-hidden="true">→</span></a>
+      <div><h2>Kako radimo</h2><p class="muted" style="margin-top:.8rem;max-width:44ch">Primjer za keramičku zaštitu: od prve poruke do preuzimanja prođe oko tjedan dana.</p></div>
+      <a href="#rezervacija" class="btn btn-accent">Pošalji upit</a>
     </div>
-    <div class="why" id="why"></div>
-    <ol class="steps" id="proces" style="margin-top:2.6rem">
-      <li><h3>Upit</h3><p>Pošaljite 3–4 fotografije auta preko forme ili WhatsAppa.</p></li>
-      <li><h3>Procjena</h3><p>Fiksna pisana ponuda u roku od 2 h, ili besplatna procjena u studiju uz mjerenje laka.</p></li>
-      <li><h3>Detailing</h3><p>Radimo uz foto-dokumentaciju i mjerenje debljine laka.</p></li>
-      <li><h3>Primopredaja</h3><p>Zajednički pregled pod LED svjetlom, upute i podsjetnik za održavanje.</p></li>
+    <ol class="days" id="proces">
+      <li><b>Ponedjeljak</b><span>Pošaljete tri ili četiri fotografije. Do podneva imate pisanu ponudu i slobodne termine.</span></li>
+      <li><b>Četvrtak, 8 h</b><span>Dovezete auto. Zajedno izmjerimo debljinu laka i fotografiramo oštećenja.</span></li>
+      <li><b>Četvrtak i petak</b><span>Pranje, poliranje i nanošenje premaza. Premaz se suši preko noći u studiju.</span></li>
+      <li><b>Subota, 10 h</b><span>Preuzimanje pod LED svjetlom, certifikat i pisane upute za pranje.</span></li>
     </ol>
+    <div class="why" id="why" style="margin-top:3rem"></div>
   </div>
 </section>
 
@@ -1106,7 +1115,7 @@ h2{line-height:1.04}
       <p class="kicker">FAQ</p>
       <h2>Česta pitanja</h2>
       <p class="muted" style="margin:1.2rem 0 1.6rem">Niste našli odgovor? Pošaljite fotografije i pitanje, odgovaramo isti dan.</p>
-      <a href="#rezervacija" class="btn btn-accent">Pošalji upit <span class="arr" aria-hidden="true">→</span></a>
+      <a href="#rezervacija" class="btn btn-accent">Pošalji upit</a>
     </div>
     <div id="faqList"></div>
   </div>
@@ -1158,7 +1167,7 @@ h2{line-height:1.04}
         <p class="muted small">Termin je potvrđen kada prihvatite našu pisanu ponudu. Otkazivanje do 24 sata prije termina je besplatno.</p>
         <p class="err" id="fErr" role="alert"></p>
         <p class="muted small need" id="fNeed">Ispunite sva polja i označite privolu da biste poslali upit.</p>
-        <button class="btn btn-accent" type="submit" id="fSend" disabled>Pošalji upit <span class="arr" aria-hidden="true">→</span></button>
+        <button class="btn btn-accent" type="submit" id="fSend" disabled>Pošalji upit</button>
       </form>
       <div class="done" id="done" role="status">
         <h3>Upit je spreman</h3>
@@ -1434,7 +1443,7 @@ function renderCards() {
       <p>${c.desc}</p>
       <div class="svc-meta"><b><small>od </small>${eur(cardFrom(c))}</b><span>${c.time}</span></div>
       <span class="anchor">${anchor(cardFrom(c))}</span>
-      <a href="#rezervacija" data-service="${c.svc}">Zatraži ponudu →</a>
+      <a href="#rezervacija" data-service="${c.svc}">Zatraži ponudu</a>
     </article>`).join("") + `
     <article class="svc svc-cta" data-cat="*">
       <span class="q-lbl">Ne znate što odabrati?</span>
@@ -1547,7 +1556,7 @@ function updateCalc() {
     : '<li><span style="color:#777">Odaberite barem jednu uslugu</span></li>';
   const rt = $("#rTotal"); const nt = eur(total);
   if (rt.textContent !== nt) { rt.textContent = nt; rt.classList.remove("tick"); void rt.offsetWidth; rt.classList.add("tick"); }
-  const link = p => `<br><a href="#rezervacija" class="tip-link" data-service="Paket ${p.name}">Odaberi paket ${p.name} →</a>`;
+  const link = p => `<br><a href="#rezervacija" class="tip-link" data-service="Paket ${p.name}">Odaberi paket ${p.name}</a>`;
   const list = a => a.slice(0, 3).join(", ").toLowerCase() + (a.length > 3 ? " i još " + (a.length - 3) : "");
   const up = upsell(st); let html = "";
   if (!chosen.size) { const h = DATA.packages.find(p => p.hot); html = `<b>Najčešći izbor: paket ${h.name}, ${eur(h.p[size])}</b><br>${h.lvl}, sve u jednom.${link(h)}`; }
@@ -1826,6 +1835,7 @@ addEventListener("hashchange", routeHash); routeHash();
 /* scroll lift (elements are visible at rest; only a small lift) */
 let io;
 function observe() {
+  return; /* bez animacija pri skrolanju */
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
   io = io || new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.remove("pre"); io.unobserve(en.target); } }), { threshold: .1 });
   $$(".sec-head, .steps li, .prod, .rv, .box, .honest > div, .meter").forEach(el => el.classList.add("lift"));
