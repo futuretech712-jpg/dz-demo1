@@ -751,6 +751,13 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .f .chk span a{color:var(--white)!important;text-decoration:underline}
 .btn[disabled]{opacity:.38;cursor:not-allowed;box-shadow:none;filter:grayscale(.4)}
 .need{margin:0}
+.svc-cta{display:flex;flex-direction:column;justify-content:flex-end;gap:.7rem;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
+.svc-cta h3{font-family:var(--display);font-size:2rem;font-weight:900;text-transform:uppercase;line-height:.95}
+.svc-cta .btn{align-self:flex-start;margin-top:.4rem;color:var(--accent-ink)!important;text-decoration:none!important}
+.svc-cta::after{display:none}
+.svc-grid.filtered{display:flex;flex-wrap:wrap}
+.svc-grid.filtered .svc{flex:1 1 300px}
+.svc-grid.filtered .svc.hide{display:none}
 </style>
 </head>
 <body>
@@ -1360,7 +1367,13 @@ function renderCards() {
       <div class="svc-meta"><b><small>od </small>${eur(cardFrom(c))}</b><span>${c.time}</span></div>
       <span class="anchor">${anchor(cardFrom(c))}</span>
       <a href="#rezervacija" data-service="${c.svc}">Zatraži ponudu →</a>
-    </article>`).join("");
+    </article>`).join("") + `
+    <article class="svc svc-cta" data-cat="*">
+      <span class="q-lbl">Ne znate što odabrati?</span>
+      <h3>Besplatna procjena u studiju</h3>
+      <p>Izmjerimo lak, pogledamo auto pod LED svjetlom i predložimo najpovoljnije rješenje. Bez obveze.</p>
+      <a href="#rezervacija" class="btn btn-accent btn-sm" data-service="Besplatna procjena u studiju">Dogovori procjenu</a>
+    </article>`;
 }
 
 /* packages */
@@ -1507,7 +1520,8 @@ let svcCat = "Sve";
 function renderChips() {
   const cats = ["Sve", ...new Set(DATA.cards.map(c => c.cat))];
   $("#svcChips").innerHTML = cats.map(c => `<button type="button" data-cat="${c}" aria-pressed="${c === svcCat}">${c}</button>`).join("");
-  $$("#svcGrid .svc").forEach(el => el.classList.toggle("hide", svcCat !== "Sve" && el.dataset.cat !== svcCat));
+  $$("#svcGrid .svc").forEach(el => el.classList.toggle("hide", svcCat !== "Sve" && el.dataset.cat !== svcCat && el.dataset.cat !== "*"));
+  $("#svcGrid").classList.toggle("filtered", svcCat !== "Sve");
 }
 document.addEventListener("click", e => { const b = e.target.closest("#svcChips [data-cat]"); if (b) { svcCat = b.dataset.cat; renderChips(); } });
 function renderRec() {
