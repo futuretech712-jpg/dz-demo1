@@ -738,6 +738,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .q-err{color:#ff8b8b;font-size:.85rem;min-height:1em}
 .q-done pre{white-space:pre-wrap;font:inherit;font-size:.88rem;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:.9rem;margin:.8rem 0;color:#c9ced8}
 #quick .chk{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
+#quick .tip .btn,.receipt .tip .btn{display:inline-flex;margin-top:.6rem;width:auto}
 #quick .chk input{width:20px;height:20px;min-height:20px;accent-color:#e9ebef;margin-top:2px;flex:none}
 </style>
 </head>
@@ -900,7 +901,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
     <div>
       <p class="kicker">Kalkulator</p>
       <h2>Izračunajte cijenu u 20 sekundi</h2>
-      <p class="muted" style="max-width:52ch;margin-top:1rem">Okvirna cijena odmah. Kad odaberete veću uslugu, manja koja je u njoj sadržana isključi se sama. Fiksnu cijenu potvrđujemo pisano nakon fotografija.</p>
+      <p class="muted" style="max-width:52ch;margin-top:1rem">Okvirna cijena odmah, fiksnu potvrđujemo nakon fotografija.</p>
       <span class="lbl">Veličina vozila <span class="muted" id="sizeHint" style="font-weight:500"></span></span>
       <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
       <span class="lbl">Usluge</span>
@@ -1156,6 +1157,7 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
   <div class="lg-body">
     <div class="q-sum"><div><span class="q-lbl">Odabrali ste</span><b id="qSvc"></b><small id="qLines"></small></div><div class="q-price"><b id="qPrice"></b><small id="qFor"></small></div></div>
     <form class="f" id="qForm" novalidate>
+      <label for="qSvcSel">Usluga ili paket *<select id="qSvcSel" required></select></label>
       <div class="two">
         <label for="qName">Ime *<input id="qName" name="ime" autocomplete="name" required></label>
         <label for="qTel">Telefon *<input id="qTel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></label>
@@ -1395,16 +1397,21 @@ function calcState() {
   DATA.extras.forEach(x => { if (chosenX.has(x.id)) { total += x.p; lines.push([x.name, x.p]); } });
   return { base, total, lines };
 }
+const shortName = id => DATA.services.find(x => x.id === id).name.replace(/ \(.*?\)| · preporuka/g, "");
 function bestPackage(base) {
-  let best = null;
+  if (!chosen.size) return { p: DATA.packages.find(p => p.hot), save: 0, extra: 0, add: [], start: true };
+  let cheaper = null, fit = null;
   DATA.packages.forEach(p => {
     const items = PKG_ITEMS[p.id]; if (!items) return;
     const cov = items.filter(has).length;
     const rest = [...chosen].filter(c => !pkgCovers(items, c)).reduce((a, c) => a + svcP(c), 0);
-    const withPkg = p.p[size] + rest, save = base - withPkg;
-    if (cov >= 2 && save > 0 && (!best || save > best.save)) best = { p, save, rest, full: cov === items.length };
+    const diff = base - (p.p[size] + rest);
+    const add = items.filter(id => !has(id)).map(shortName);
+    if (diff > 0 && (!cheaper || diff > cheaper.save)) cheaper = { p, save: diff, rest, add };
+    const ratio = cov / items.length;
+    if (cov > 0 && (!fit || ratio > fit.ratio || (ratio === fit.ratio && -diff < fit.extra))) fit = { p, ratio, extra: -diff, add, rest };
   });
-  return best;
+  return cheaper || (fit && { ...fit, save: 0 });
 }
 function updateCalc() {
   const { base, total, lines } = calcState();
@@ -1412,7 +1419,13 @@ function updateCalc() {
   const rt = $("#rTotal"); const nt = eur(total);
   if (rt.textContent !== nt) { rt.textContent = nt; rt.classList.remove("tick"); void rt.offsetWidth; rt.classList.add("tick"); }
   const b = bestPackage(base);
-  $("#rTip").innerHTML = b ? `<div class="tip"><b>Paket ${b.p.name} je jeftiniji za ${eur(b.save)}</b><br>${b.full ? "Pokriva sve što ste odabrali iz paketa" : "Uključuje većinu odabranog, i više"}${b.rest ? `, a ostale usluge doplaćujete posebno` : ""}.<br><a href="#rezervacija" class="btn btn-accent btn-sm" data-service="Paket ${b.p.name}">Odaberi paket ${b.p.name}</a></div>` : "";
+  const btn = b ? `<a href="#rezervacija" class="btn btn-accent btn-sm" data-service="Paket ${b.p.name}">Odaberi paket ${b.p.name}</a>` : "";
+  const more = b && b.add && b.add.length ? `<br>Dobivate i: ${b.add.slice(0, 3).join(", ")}${b.add.length > 3 ? " i još " + (b.add.length - 3) : ""}.` : "";
+  $("#rTip").innerHTML = !b ? "" : b.start
+    ? `<div class="tip"><b>Najčešći izbor: paket ${b.p.name}, ${eur(b.p.p[size])}</b><br>${b.p.lvl}, sve u jednom.${btn}</div>`
+    : b.save > 0
+      ? `<div class="tip"><b>Paket ${b.p.name} je jeftiniji za ${eur(b.save)}</b>${more}${btn}</div>`
+      : `<div class="tip"><b>Paket ${b.p.name} za ${eur(b.extra)} više</b>${more}${btn}</div>`;
 }
 document.addEventListener("change", e => {
   const t = e.target;
@@ -1708,26 +1721,31 @@ function priceFor(svc, sz) {
 }
 function renderQuick() {
   const sz = +$("#qSize").value;
-  $("#qSvc").textContent = qState.svc;
+  $("#qSvc").textContent = qState.svc || "Odaberite uslugu ili paket";
   let price = qState.total !== null ? qState.total : priceFor(qState.svc, sz);
   if (qState.total !== null && sz !== size) { const st = (() => { const k = size; size = sz; const r = calcState(); size = k; return r; })(); price = st.total; }
   $("#qLines").textContent = qState.lines.length ? qState.lines.join(" · ") : "";
   $("#qPrice").textContent = price !== null && price !== undefined ? eur(price) : "";
   $("#qFor").textContent = price ? (qState.total !== null ? "okvirno, " : "") + DATA.sizes[sz].toLowerCase() + " · PDV nije obračunat" : "cijena prema ponudi";
 }
-function openQuick(svc, lines, total) {
-  qState.svc = svc; qState.lines = lines || []; qState.total = total ?? null;
+function openQuick(svc, lines, total, note) {
+  $("#qSvcSel").innerHTML = $("#fSvc").innerHTML;
+  const has = [...$("#qSvcSel").options].some(o => o.text === svc);
+  $("#qSvcSel").value = has ? svc : "";
+  qState.svc = has ? svc : ""; qState.lines = lines || []; qState.total = total ?? null;
+  $("#qNote").value = note || "";
   $("#qSize").value = size; $("#qForm").hidden = false; $("#qDone").hidden = true; $("#qErr").textContent = "";
-  renderQuick(); $("#quick").showModal(); setTimeout(() => $("#qName").focus(), 50);
+  renderQuick(); $("#quick").showModal(); setTimeout(() => (qState.svc ? $("#qName") : $("#qSvcSel")).focus(), 50);
 }
 $("#qSize").innerHTML = DATA.sizes.map((z, i) => `<option value="${i}">${z}</option>`).join("");
 $("#qSize").addEventListener("change", renderQuick);
+$("#qSvcSel").addEventListener("change", e => { qState.svc = e.target.value; if (qState.svc !== "Kombinacija iz kalkulatora") { qState.lines = []; qState.total = null; } renderQuick(); });
 $("#qClose").addEventListener("click", () => $("#quick").close());
 $("#quick").addEventListener("click", e => { if (e.target === $("#quick")) $("#quick").close(); });
 document.addEventListener("click", e => {
-  const a = e.target.closest('a[data-service][href="#rezervacija"]'); if (!a) return;
+  const a = e.target.closest('a[href="#rezervacija"]'); if (!a || a.closest(".mnav-links") || a.id === "rBook" || a.id === "cartOrder") return;
   e.preventDefault(); e.stopImmediatePropagation();
-  openQuick(a.dataset.service);
+  openQuick(a.dataset.service || "", null, null, a.dataset.note || "");
 }, true);
 $("#rBook").addEventListener("click", e => {
   const { total, lines } = calcState(); if (!lines.length) return;
