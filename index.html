@@ -650,7 +650,7 @@ h2{font-size:clamp(3rem,8.4vw,6.6rem);line-height:.88}
 .hero .hero-sub,.sec-head p,.honest>div>p{font-weight:300;font-size:clamp(1.05rem,1.5vw,1.22rem);color:#c8ccd4}
 .kicker{font:500 .72rem/1 var(--mono);letter-spacing:.14em;color:var(--muted)}
 .kicker::before{background:var(--white);width:28px;height:1px}
-.trust span,.receipt li,.receipt .note,.receipt .rh span:last-child,.pr,.plist td,.plist th,.calc-grp,.plist tr.grp td,.mnav-links a small,.svc .t,.pk-lvl,.cmp .pk-lvl,.pk-price small,.rec-row span,.mrow,.tip{font-family:var(--mono)}
+.calc-grp,.plist tr.grp td,.mnav-links a small,.pk-lvl,.cmp .pk-lvl{font-family:var(--mono)}
 .calc-grp,.plist tr.grp td{color:var(--muted);font-weight:500}
 /* cijene: veće i narančaste */
 .cmp .pk-price,.pk-card .pk-price{font-size:clamp(3rem,4.6vw,4rem);color:var(--accent)}
@@ -719,6 +719,10 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .svc-meta b small{font-size:.8rem;margin-right:.15rem}
 [hidden]{display:none!important}
 .nav-links a{white-space:nowrap}
+.plist td,.plist th,.receipt,.receipt li,.tip,.mrow,.rec-row span,.trust span,.pk-price small{font-family:var(--body);font-variant-numeric:tabular-nums lining-nums}
+.plist td:first-child{font-weight:500;color:var(--text)}
+.plist td small,.plm-p small{display:block;white-space:nowrap;font-size:.74rem;color:var(--muted);font-weight:400}
+.plist td:not(:first-child){font-weight:600}
 </style>
 </head>
 <body>
@@ -1452,14 +1456,14 @@ function renderRec() {
 }
 function renderPriceList() {
   let g = "", rows = "";
-  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`).join("");
+  rows += `<tr class="grp"><td colspan="6">Paketi</td></tr>` + DATA.packages.map(pk => `<tr><td>Paket ${pk.name} (${pk.lvl})</td><td class="t">–</td>${pk.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena ${eur(v)}</small></td>`).join("")}</tr>`).join("");
   DATA.services.forEach(sv => {
     if (sv.g !== g) { g = sv.g; rows += `<tr class="grp"><td colspan="6">${g}</td></tr>`; }
-    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small></td>`).join("")}</tr>`;
+    rows += `<tr><td>${sv.name}</td><td class="t">${sv.t}</td>${sv.p.map((v, i) => `<td class="${i === size ? "on" : ""}">${eur(v)}<small>sidrena ${eur(v)}</small></td>`).join("")}</tr>`;
   });
   rows += `<tr class="grp"><td colspan="6">Na upit</td></tr>` + DATA.onRequest.map(r => `<tr><td>${r[0]}</td><td class="t">–</td><td colspan="4">${r[1]}</td></tr>`).join("");
   rows += `<tr class="grp"><td colspan="6">Doplate</td></tr>` + DATA.extras.map(x => `<tr><td>${x.name}</td><td class="t">–</td><td colspan="4">+${eur(x.p)}${x.freeAbove ? ` <small style="display:inline">(besplatno uz narudžbu iznad ${eur(x.freeAbove)})</small>` : ""}</td></tr>`).join("");
-  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>sidrena (${DATA.anchorDate}): ${eur(v)}</small>` : v}</div></div>`;
+  const item = (name, t, v) => `<div class="plm-row"><div><b>${name}</b>${t ? `<span>${t}</span>` : ""}</div><div class="plm-p">${typeof v === "number" ? eur(v) + `<small>sidrena ${eur(v)}</small>` : v}</div></div>`;
   const groups = [...new Set(DATA.services.map(x => x.g))];
   $("#plm").innerHTML = `<p class="plm-for">Cijene za: <b>${sizeLabel(size)}</b></p>` +
     `<details class="plm-g" open><summary>Paketi<em>${DATA.packages.length}</em></summary>${DATA.packages.map(pk => item("Paket " + pk.name, pk.lvl, pk.p[size])).join("")}</details>` +
