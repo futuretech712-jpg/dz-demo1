@@ -805,6 +805,32 @@ h2{line-height:1.04}
 .size-mini select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:.55rem 2.2rem .55rem 1rem;font:inherit;font-weight:600;min-height:44px;appearance:none;cursor:pointer;
   background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
 .size-mini select:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+
+/* kalkulator po koracima */
+.steps-calc{display:grid;gap:1rem;margin-top:1.4rem}
+.step{border:1px solid var(--line);border-radius:14px;padding:1rem;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;background:var(--ink-2);min-width:0}
+.step legend{display:flex;align-items:center;gap:.6rem;padding:0 .4rem;font-weight:700;font-size:.95rem}
+.step legend span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--text);color:var(--ink);font-size:.75rem;font-weight:800}
+.step .opt{min-width:0}
+.step .opt .l{min-width:0}
+.opt.on{border-color:var(--muted);background:rgba(255,255,255,.05)}
+.opt input[type=radio]{accent-color:#ECEEF2;width:18px;height:18px;flex:none}
+.step.locked{grid-template-columns:1fr;opacity:.8}
+.step-note{margin:0;color:var(--muted);font-size:.9rem}
+.receipt li.disc{color:var(--accent-2);font-weight:700}
+@media(max-width:640px){.step{grid-template-columns:1fr}}
+/* brzi upit na uskim ekranima */
+#quick{width:min(620px,calc(100vw - 20px));max-width:none}
+#quick .lg-body{overflow-x:hidden;padding:1rem}
+#quick .lg-body>*,#quick .f>*,#quick .two>*{min-width:0}
+.q-sum>div{min-width:0}
+@media(max-width:560px){
+  .q-sum{flex-direction:column;gap:.6rem}
+  .q-price{text-align:left;white-space:normal}
+  .q-price small{white-space:normal}
+  #quick .two{grid-template-columns:1fr}
+  #quick .lg-head{padding:.9rem 1rem}
+}
 </style>
 </head>
 <body>
@@ -965,9 +991,8 @@ h2{line-height:1.04}
       <p class="muted" style="max-width:52ch;margin-top:1rem">Okvirna cijena odmah, fiksnu potvrđujemo nakon fotografija.</p>
       <div class="size-mini" data-sizes="mini"></div>
       <span class="muted small" id="sizeHint" style="display:block;margin-top:.35rem"></span>
-      <span class="lbl">Usluge</span>
-      <div class="opts" id="calcSvc"></div>
-      <span class="lbl">Dodaci</span>
+      <div class="steps-calc" id="calcSvc"></div>
+      <span class="lbl">Doplate</span>
       <div class="opts" id="calcExt"></div>
       <p class="muted small" style="margin-top:1rem" id="anchorNote"></p>
     </div>
@@ -1381,8 +1406,6 @@ const store = { get(k) { try { return localStorage.getItem(k) } catch (e) { retu
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2400); }
 
 let size = 1;
-const chosen = new Set(["wash"]);
-const chosenX = new Set();
 const cart = new Map();
 
 /* size switches */
@@ -1441,89 +1464,108 @@ function renderPackages() {
 }
 
 /* calculator: veća usluga uključuje manju; paket se nudi kad je jeftiniji */
-const INCL = { pol2: ["pol1"], cer3: ["pol1"], cer5: ["cer3", "pol2", "pol1"], ideep: ["deep"] };
-const SHORT = { pol2: "korekciju STG 2+", cer3: "keramiku 3 god.", cer5: "keramiku 5+ god.", ideep: "premium detailing interijera" };
+/* KALKULATOR v3: po koracima. Svaki korak ima jedan izbor, pa nema kontradikcija
+   (npr. keramika 3 i 5 god. ili poliranje uz keramiku koja ga već uključuje). */
+const STEPS = [
+  { key: "wash", t: "Pranje", opts: [[], ["wash"], ["wash", "deco"]], names: ["Bez pranja", "Premium ručno pranje", "Pranje i dekontaminacija laka"] },
+  { key: "int", t: "Interijer", opts: [[], ["deep"], ["ideep"]], names: ["Bez interijera", "Detailing interijera", "Premium interijer s keramikom"] },
+  { key: "prot", t: "Zaštita laka", opts: [[], ["cer3"], ["cer5"]], names: ["Bez keramike", "Keramika 3 god. (s poliranjem)", "Keramika 5+ god. (s korekcijom STG 2+)"] },
+  { key: "pol", t: "Samo poliranje", opts: [[], ["pol1"], ["pol2"]], names: ["Bez poliranja", "Poliranje u 1 koraku (STG 1)", "Višeslojna korekcija (STG 2+)"] }
+];
+const ADDONS = ["head", "glas", "rims", "leat", "ppfh", "ppfs", "ppfp", "ppff", "ppfi"];
+const pick = { wash: 1, int: 0, prot: 0, pol: 0 };
+const addons = new Set();
+const chosen = new Set();
+const INCL = { cer3: ["pol1"], cer5: ["cer3", "pol2", "pol1"], ideep: ["deep"], ppff: ["ppfp"] };
+const SHORT = { cer3: "keramiku 3 god.", cer5: "keramiku 5+ god.", ppff: "cijeli prednji kraj" };
 const PKG_ITEMS = { premium: ["wash", "deco", "pol1", "deep"], shield: ["wash", "deco", "pol1", "cer3", "glas", "rims", "deep"], ultimate: ["wash", "deco", "pol2", "cer5", "glas", "rims", "ideep", "leat"] };
-const svcP = id => DATA.services.find(x => x.id === id).p[size];
-const coveredBy = id => [...chosen].find(c => (INCL[c] || []).includes(id));
-const has = id => chosen.has(id) || !!coveredBy(id);
+const svc = id => DATA.services.find(x => x.id === id);
+const svcP = id => svc(id).p[size];
 const pkgCovers = (items, id) => items.includes(id) || items.some(i => (INCL[i] || []).includes(id));
+function syncChosen() {
+  if (pick.prot) pick.pol = 0;                       // keramika već uključuje poliranje
+  if (addons.has("ppff")) addons.delete("ppfp");     // cijeli prednji kraj uključuje djelomični
+  chosen.clear();
+  STEPS.forEach(st => st.opts[pick[st.key]].forEach(id => chosen.add(id)));
+  addons.forEach(id => chosen.add(id));
+}
+const has = id => chosen.has(id) || [...chosen].some(c => (INCL[c] || []).includes(id));
+const shortName = id => svc(id).name.replace(/ \(.*?\)| · preporuka/g, "");
 function renderCalc() {
-  let lastG = "";
-  $("#calcSvc").innerHTML = DATA.services.map(s => {
-    const by = coveredBy(s.id);
-    return (s.g !== lastG ? `<div class="calc-grp">${lastG = s.g}</div>` : "") + (by
-      ? `<label class="opt incl" for="s_${s.id}"><span class="l"><input type="checkbox" id="s_${s.id}" checked disabled>${s.name}</span><span class="pr"><small>uključeno u ${SHORT[by]}</small></span></label>`
-      : `<label class="opt" for="s_${s.id}"><span class="l"><input type="checkbox" id="s_${s.id}" data-svc="${s.id}" ${chosen.has(s.id) ? "checked" : ""}>${s.name}</span><span class="pr">${eur(s.p[size])}</span></label>`);
-  }).join("");
+  syncChosen();
+  $("#calcSvc").innerHTML = STEPS.map((st, si) => {
+    const locked = st.key === "pol" && pick.prot;
+    return `<fieldset class="step${locked ? " locked" : ""}"><legend><span>${si + 1}</span>${st.t}</legend>` +
+      (locked ? `<p class="step-note">Uključeno u ${SHORT[STEPS[2].opts[pick.prot][0]]}: ${pick.prot === 2 ? "korekcija STG 2+" : "poliranje u 1 koraku"}.</p>` :
+      st.names.map((n, k) => {
+        const price = st.opts[k].reduce((a, id) => a + svcP(id), 0);
+        return `<label class="opt${pick[st.key] === k ? " on" : ""}"><span class="l"><input type="radio" name="st_${st.key}" value="${k}" data-step="${st.key}" ${pick[st.key] === k ? "checked" : ""}>${n}</span><span class="pr">${k ? eur(price) : ""}</span></label>`;
+      }).join("")) + `</fieldset>`;
+  }).join("") +
+  `<fieldset class="step"><legend><span>5</span>Dodatno</legend>` + ADDONS.map(id => {
+    const by = id === "ppfp" && addons.has("ppff");
+    return by ? `<label class="opt incl"><span class="l"><input type="checkbox" checked disabled>${svc(id).name}</span><span class="pr"><small>uključeno</small></span></label>`
+      : `<label class="opt${addons.has(id) ? " on" : ""}"><span class="l"><input type="checkbox" data-addon="${id}" ${addons.has(id) ? "checked" : ""}>${svc(id).name}</span><span class="pr">${eur(svcP(id))}</span></label>`;
+  }).join("") + `</fieldset>`;
   $("#calcExt").innerHTML = DATA.extras.map(x => `
-    <label class="opt" for="x_${x.id}"><span class="l"><input type="checkbox" id="x_${x.id}" data-ext="${x.id}" ${chosenX.has(x.id) ? "checked" : ""}>${x.name}</span><span class="pr">+${eur(x.p)}</span></label>`).join("");
+    <label class="opt${chosenX.has(x.id) ? " on" : ""}"><span class="l"><input type="checkbox" data-ext="${x.id}" ${chosenX.has(x.id) ? "checked" : ""}>${x.name}</span><span class="pr">+${eur(x.p)}</span></label>`).join("");
   $("#anchorNote").textContent = `Bazna cijena je cijena na referentni dan ${DATA.anchorDate}`;
   updateCalc();
 }
-/* odabir se sam slaže u najpovoljniji paket; ostalo ide kao dodatak */
+const chosenX = new Set();
 function pkgCost(p) {
   const items = PKG_ITEMS[p.id];
-  const inside = [...chosen].filter(c => pkgCovers(items, c)), outside = [...chosen].filter(c => !pkgCovers(items, c));
-  return { p, items, inside, outside, cost: p.p[size] + outside.reduce((a, c) => a + svcP(c), 0) };
+  const outside = [...chosen].filter(c => !pkgCovers(items, c));
+  return { p, items, outside, inside: [...chosen].filter(c => pkgCovers(items, c)), cost: p.p[size] + outside.reduce((a, c) => a + svcP(c), 0) };
 }
 function calcState() {
   const base = [...chosen].reduce((a, c) => a + svcP(c), 0);
   let best = null;
-  DATA.packages.forEach(p => { if (!PKG_ITEMS[p.id]) return; const o = pkgCost(p); if (o.inside.length && o.cost < base && (!best || o.cost < best.cost)) best = o; });
-  const lines = [];
-  if (best) {
-    lines.push(["Paket " + best.p.name, best.p.p[size], "pkg"]);
-    best.items.forEach(id => lines.push([shortName(id), 0, "in"]));
-    best.outside.forEach(c => lines.push([DATA.services.find(x => x.id === c).name, svcP(c), "item"]));
-  } else DATA.services.forEach(x => { if (chosen.has(x.id)) lines.push([x.name, x.p[size], "item"]); });
+  DATA.packages.forEach(p => { const o = pkgCost(p); if (o.inside.length >= 2 && o.cost < base && (!best || o.cost < best.cost)) best = o; });
+  const lines = [...chosen].map(id => [svc(id).name.replace(" · preporuka", ""), svcP(id), "item"]);
   let total = best ? best.cost : base;
+  if (best) lines.push([`Popust: paket ${best.p.name}`, -(base - best.cost), "disc"]);
   DATA.extras.forEach(x => { if (chosenX.has(x.id)) { total += x.p; lines.push([x.name, x.p, "item"]); } });
-  return { base, total, lines, pkg: best, save: best ? base - best.cost : 0 };
+  const bonus = best ? best.items.filter(id => !has(id)).map(shortName) : [];
+  return { base, total, lines, pkg: best, save: best ? base - best.cost : 0, bonus };
 }
-const shortName = id => DATA.services.find(x => x.id === id).name.replace(/ \(.*?\)| · preporuka/g, "");
 function upsell(st) {
   if (!chosen.size) return null;
   const now = st.pkg ? st.pkg.cost : st.base; let up = null;
-  DATA.packages.forEach(p => {
-    if (!PKG_ITEMS[p.id] || (st.pkg && st.pkg.p.id === p.id)) return;
-    const o = pkgCost(p), extra = o.cost - now, cur0 = st.pkg ? st.pkg.items : [], add = o.items.filter(id => !has(id) && !pkgCovers(cur0, id)).map(shortName);
-    const tier = DATA.packages.indexOf(p), cur = st.pkg ? DATA.packages.indexOf(st.pkg.p) : -1;
-    if (extra > 0 && add.length && tier > cur && (!up || extra < up.extra)) up = { p, extra, add };
+  DATA.packages.forEach((p, tier) => {
+    const cur = st.pkg ? DATA.packages.indexOf(st.pkg.p) : -1; if (tier <= cur) return;
+    const o = pkgCost(p), extra = o.cost - now, add = o.items.filter(id => !has(id) && !(st.pkg && pkgCovers(st.pkg.items, id))).map(shortName);
+    if (extra > 0 && add.length && extra <= Math.max(150, now * .5) && (!up || extra < up.extra)) up = { p, extra, add };
   });
   return up;
 }
 function updateCalc() {
   const st = calcState(), { total, lines } = st;
-  $("#rLines").innerHTML = lines.length ? lines.map(l => l[2] === "in"
-      ? `<li class="in"><span>✓ ${l[0]}</span><span>uključeno</span></li>`
-      : `<li class="${l[2] === "pkg" ? "pkg" : ""}"><span>${l[0]}</span><span>${eur(l[1])}</span></li>`).join("")
+  $("#rLines").innerHTML = lines.length ? lines.map(l => l[2] === "disc"
+      ? `<li class="disc"><span>${l[0]}</span><span>−${eur(-l[1])}</span></li>`
+      : `<li><span>${l[0]}</span><span>${eur(l[1])}</span></li>`).join("")
     : '<li><span style="color:#777">Odaberite barem jednu uslugu</span></li>';
   const rt = $("#rTotal"); const nt = eur(total);
   if (rt.textContent !== nt) { rt.textContent = nt; rt.classList.remove("tick"); void rt.offsetWidth; rt.classList.add("tick"); }
-  const btn = p => `<br><a href="#rezervacija" class="tip-link" data-service="Paket ${p.name}">Odaberi paket ${p.name} →</a>`;
-  const up = upsell(st);
-  const upTxt = up ? `<br>Za još ${eur(up.extra)} paket ${up.p.name}: ${up.add.slice(0, 3).join(", ").toLowerCase()}${up.add.length > 3 ? " i još " + (up.add.length - 3) : ""}.` : "";
-  let html = "";
-  if (!chosen.size) { const h = DATA.packages.find(p => p.hot); html = `<b>Najčešći izbor: paket ${h.name}, ${eur(h.p[size])}</b><br>${h.lvl}, sve u jednom.${btn(h)}`; }
-  else if (st.pkg) html = `<b>Složili smo to u paket ${st.pkg.p.name} i uštedjeli ${eur(st.save)}</b>${upTxt}${btn(up ? up.p : st.pkg.p)}`;
-  else if (up) html = `<b>Paket ${up.p.name} za ${eur(up.extra)} više</b><br>Dobivate i: ${up.add.slice(0, 3).join(", ").toLowerCase()}${up.add.length > 3 ? " i još " + (up.add.length - 3) : ""}.${btn(up.p)}`;
+  const link = p => `<br><a href="#rezervacija" class="tip-link" data-service="Paket ${p.name}">Odaberi paket ${p.name} →</a>`;
+  const list = a => a.slice(0, 3).join(", ").toLowerCase() + (a.length > 3 ? " i još " + (a.length - 3) : "");
+  const up = upsell(st); let html = "";
+  if (!chosen.size) { const h = DATA.packages.find(p => p.hot); html = `<b>Najčešći izbor: paket ${h.name}, ${eur(h.p[size])}</b><br>${h.lvl}, sve u jednom.${link(h)}`; }
+  else if (st.pkg) html = `<b>Obračunali smo kao paket ${st.pkg.p.name}: ušteda ${eur(st.save)}</b>` + (st.bonus.length ? `<br>U paketu dobivate i: ${list(st.bonus)}.` : "") + (up ? `<br>Za još ${eur(up.extra)}: paket ${up.p.name} (${list(up.add)}).${link(up.p)}` : link(st.pkg.p));
+  else if (up) html = `<b>Paket ${up.p.name} za ${eur(up.extra)} više</b><br>Dobivate i: ${list(up.add)}.${link(up.p)}`;
   $("#rTip").innerHTML = html ? `<div class="tip">${html}</div>` : "";
 }
 document.addEventListener("change", e => {
   const t = e.target;
-  if (t.dataset.svc) {
-    const id = t.dataset.svc;
-    if (t.checked) { chosen.add(id); (INCL[id] || []).forEach(x => chosen.delete(x)); } else chosen.delete(id);
-    renderCalc(); const el = document.getElementById("s_" + id); if (el) el.focus();
-  }
-  if (t.dataset.ext) { t.checked ? chosenX.add(t.dataset.ext) : chosenX.delete(t.dataset.ext); updateCalc(); }
+  if (t.dataset.step) { pick[t.dataset.step] = +t.value; renderCalc(); document.querySelector(`input[name="st_${t.dataset.step}"][value="${t.value}"]`)?.focus(); }
+  if (t.dataset.addon) { t.checked ? addons.add(t.dataset.addon) : addons.delete(t.dataset.addon); renderCalc(); document.querySelector(`[data-addon="${t.dataset.addon}"]`)?.focus(); }
+  if (t.dataset.ext) { t.checked ? chosenX.add(t.dataset.ext) : chosenX.delete(t.dataset.ext); renderCalc(); }
 });
 $("#rBook").addEventListener("click", () => {
   const { total, lines } = calcState();
   if (!lines.length) return;
   $("#fSvc").value = "Kombinacija iz kalkulatora";
-  $("#fNote").value = `Kalkulator (${DATA.sizes[size]}): ${lines.filter(l => l[2] !== "in").map(l => l[0]).join(", ")}. Okvirno ${eur(total)}.`;
+  $("#fNote").value = `Kalkulator (${DATA.sizes[size]}): ${lines.filter(l => l[2] === "item").map(l => l[0]).join(", ")}. Okvirno ${eur(total)}.`;
 });
 
 /* traka s uslugama: sama se pomiče, a može se povući prstom ili mišem */
@@ -1834,7 +1876,7 @@ document.addEventListener("click", e => {
 $("#rBook").addEventListener("click", e => {
   const { total, lines } = calcState(); if (!lines.length) return;
   e.preventDefault(); e.stopImmediatePropagation();
-  openQuick("Kombinacija iz kalkulatora", lines.filter(l => l[2] !== "in").map(l => l[0]), total);
+  openQuick("Kombinacija iz kalkulatora", lines.filter(l => l[2] === "item").map(l => l[0]).concat(calcState().pkg ? ["obračun kao paket " + calcState().pkg.p.name] : []), total);
 }, true);
 $("#qForm").addEventListener("submit", e => {
   e.preventDefault(); let ok = true;
