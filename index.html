@@ -761,6 +761,50 @@ summary::after,.plm-g summary::after,.allprices>summary::after{color:var(--white
 .svc-grid.filtered .svc.hide{display:none}
 .plist td small,.plm-p small{font-size:.68rem}
 html,body{overflow-x:clip}
+
+/* ===== Paleta v4: grafit + čeljust. 9 boja, svaka s jednom ulogom ===== */
+:root{--ink:#0B0C0F;--ink-2:#14161B;--panel:#1C1F26;--line:#2E333D;--muted:#A3A9B5;--text:#ECEEF2;--white:#ECEEF2;
+  --accent:#FF6A1A;--accent-2:#D9530B;--paper:#F2EFE8;--ok:var(--text)}
+/* sitni sivi tonovi svedeni na paletu */
+.pk-card.hot,.rec-box,.why div,.rv:hover,.prod:hover,.pk-table,.pk-table::before,.cmp tbody td,.q-sum{border-color:var(--line)}
+.opt:has(input:checked),.f input:focus,.f select:focus,.f textarea:focus,.contact-cards a:hover,.car-nav button:hover,.sub:hover,.btn-line:hover{border-color:var(--muted)}
+.steps li::before{-webkit-text-stroke-color:var(--muted)}
+.mbar i{background:linear-gradient(90deg,var(--line),var(--text))}
+.cmp tbody td:first-child::before{color:var(--muted)}
+/* odjeljci se jasno izmjenjuju */
+.sec.alt{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* narančasta samo za glavni gumb i cijene paketa */
+.promo{background:var(--ink-2);color:var(--text);border-bottom:1px solid var(--line)}
+.promo a{color:var(--accent)}
+.promo-tag{background:var(--accent);color:#1a0c03}
+.promo-x{color:var(--muted);background:transparent}.promo-x:hover{background:var(--panel)}
+.opt .pr,.svc .p,.svc .price,.svc-meta b{color:var(--text)}
+.receipt{background:var(--paper)}
+.receipt .tot b{color:var(--accent-2)}
+.btn-accent:hover{background:var(--accent-2)}
+.receipt .tip{background:transparent;border:0;border-top:1px dashed #c9c4b8;border-radius:0;padding:.8rem 0 0;margin-top:.9rem;font-size:.82rem}
+.tip-link{display:inline-block;margin-top:.35rem;color:var(--accent-2);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* naslovi: zrak za Č, Ć, Ž, Š i dvije veličine */
+h1,h2{line-height:.98}
+h2{font-size:clamp(2.3rem,4.6vw,3.9rem);max-width:22ch}
+#paketi .sec-head h2{font-size:clamp(2.8rem,6.4vw,5.4rem)}
+#rezervacija h2{max-width:16ch}
+h2{line-height:1.04}
+.hero h1{line-height:.94}
+.kicker{margin-bottom:.9rem}
+.honest>div:first-child h2{max-width:14ch}
+.honest{align-items:start}
+/* neaktivni gumb izgleda namjerno, ne pokvareno */
+.btn[disabled]{opacity:1;filter:none;background:var(--panel);color:var(--muted);border:1px dashed var(--line);box-shadow:none}
+/* forma: polja svjetlija od podloge */
+.f{background:var(--ink-2)}
+.f input,.f select,.f textarea{background:var(--panel);border-color:var(--line)}
+.file{background:transparent}
+/* kompaktni izbor veličine */
+.size-mini label{display:inline-flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--muted)}
+.size-mini select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:.55rem 2.2rem .55rem 1rem;font:inherit;font-weight:600;min-height:44px;appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.size-mini select:focus-visible{outline:2px solid var(--text);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -832,13 +876,8 @@ html,body{overflow-x:clip}
     <source media="(max-width: 640px)" srcset="img/h4m.jpg">
     <img src="img/h4.jpg" alt="Dubinsko čišćenje sjedala" loading="lazy" width="1920" height="1280">
   </picture>
-  <span class="placeholder-tag hero-credit" id="heroCredit" style="left:auto;right:12px;bottom:auto;top:12px">Foto: Fine Automotive Detailing / Unsplash</span>
+  <span class="placeholder-tag hero-credit" id="heroCredit" hidden>Foto: Fine Automotive Detailing / Unsplash</span>
   <div class="dots" id="heroDots" role="tablist" aria-label="Naslovne fotografije"><button type="button" aria-label="Fotografija 1" aria-selected="true"></button><button type="button" aria-label="Fotografija 2" aria-selected="false"></button><button type="button" aria-label="Fotografija 3" aria-selected="false"></button><button type="button" aria-label="Fotografija 4" aria-selected="false"></button></div>
-  <div class="callouts" aria-hidden="true">
-    <div class="callout"><b>2 h</b><span><strong>Fiksna ponuda</strong>nakon vaših fotografija</span></div>
-    <div class="callout"><b><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M12 16l4-5"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/></svg></b><span><strong>Mjerimo lak</strong>prije svakog poliranja</span></div>
-    <div class="callout"><b>7</b><span><strong>Dana jamstva</strong>na popravak nedostataka</span></div>
-  </div>
   <div class="wrap hero-in">
     <h1>Opet kao iz salona.</h1>
     <p class="hero-sub">Sjećate se kako je vaš auto mirisao i blistao prvog dana? Vraćamo mu taj sjaj. Dubinsko čišćenje, poliranje i keramička zaštita u Zagrebu, uz fiksnu cijenu unaprijed i primopredaju pod LED svjetlom.</p>
@@ -884,7 +923,7 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="sec-head">
       <div><p class="kicker">Paketi</p><h2>Tri paketa zaštite, bez sitnih slova</h2></div>
-      <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+      <div class="size-mini" data-sizes="mini"></div>
     </div>
     <div class="cmp-wrap pk-table"><table class="cmp" id="cmp"></table></div>
     <div class="pk-cards" id="pkCards"></div>
@@ -910,8 +949,8 @@ html,body{overflow-x:clip}
       <div class="mrow"><span>Sealant</span><b>~6 mjeseci</b><div class="mbar"><i style="width:12%"></i></div></div>
       <div class="mrow"><span>Keramika „2 godine” · realno</span><b>18–24 mj.</b><div class="mbar"><i style="width:40%"></i></div></div>
       <div class="mrow rec"><span>Keramika „3 godine” · realno <em>Preporuka</em></span><b>30–36 mj.</b><div class="mbar"><i style="width:62%"></i></div></div>
-      <div class="mrow"><span>Obavezno održavanje kod nas</span><b style="color:var(--ok)">Ne</b></div>
-      <div class="mrow"><span>Pisani certifikat</span><b style="color:var(--ok)">Da</b></div>
+      <div class="mrow"><span>Obavezno održavanje kod nas</span><b>Ne</b></div>
+      <div class="mrow"><span>Pisani certifikat</span><b>Da</b></div>
     </div>
   </div>
   </div>
@@ -924,8 +963,8 @@ html,body{overflow-x:clip}
       <p class="kicker">Kalkulator</p>
       <h2>Izračunajte cijenu u 20 sekundi</h2>
       <p class="muted" style="max-width:52ch;margin-top:1rem">Okvirna cijena odmah, fiksnu potvrđujemo nakon fotografija.</p>
-      <span class="lbl">Veličina vozila <span class="muted" id="sizeHint" style="font-weight:500"></span></span>
-      <div class="sizes" data-sizes role="group" aria-label="Veličina vozila"></div>
+      <div class="size-mini" data-sizes="mini"></div>
+      <span class="muted small" id="sizeHint" style="display:block;margin-top:.35rem"></span>
       <span class="lbl">Usluge</span>
       <div class="opts" id="calcSvc"></div>
       <span class="lbl">Dodaci</span>
@@ -1350,11 +1389,13 @@ const cart = new Map();
 const anchor = v => `Bazna cijena (${DATA.anchorDate}): ${eur(v)}`;
 const sizeLabel = i => i < 2 ? DATA.sizes[i].toLowerCase() + " auto" : DATA.sizes[i];
 function drawSizes() {
-  $$("[data-sizes]").forEach(g => g.innerHTML = `<span class="sizes-lbl">Veličina vašeg vozila</span>` + DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}"><b>${z}${i < 2 ? " auto" : ""}</b><small>${DATA.sizeShort[i]}</small></button>`).join(""));
-  $("#sizeHint").textContent = "· " + DATA.sizeHints[size];
+  $$('[data-sizes="mini"]').forEach(g => g.innerHTML = `<label>Cijene za<select data-size-sel aria-label="Veličina vozila">${DATA.sizes.map((z, i) => `<option value="${i}" ${i === size ? "selected" : ""}>${z}${i < 2 ? " auto" : ""}</option>`).join("")}</select></label>`);
+  $$('[data-sizes]:not([data-sizes="mini"])').forEach(g => g.innerHTML = `<span class="sizes-lbl">Veličina vašeg vozila</span>` + DATA.sizes.map((z, i) => `<button type="button" data-size="${i}" aria-pressed="${i === size}"><b>${z}${i < 2 ? " auto" : ""}</b><small>${DATA.sizeShort[i]}</small></button>`).join(""));
+  $("#sizeHint").textContent = "Npr. " + DATA.sizeHints[size].replace(/^npr\.\s*/i, "");
   $("#rSize").textContent = DATA.sizes[size];
   $("#fSize").value = size;
 }
+document.addEventListener("change", e => { if (e.target.matches("[data-size-sel]")) { size = +e.target.value; renderPriced(); } });
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-size]");
   if (b) { size = +b.dataset.size; renderPriced(); }
@@ -1460,7 +1501,7 @@ function updateCalc() {
     : '<li><span style="color:#777">Odaberite barem jednu uslugu</span></li>';
   const rt = $("#rTotal"); const nt = eur(total);
   if (rt.textContent !== nt) { rt.textContent = nt; rt.classList.remove("tick"); void rt.offsetWidth; rt.classList.add("tick"); }
-  const btn = p => `<a href="#rezervacija" class="btn btn-accent btn-sm" data-service="Paket ${p.name}">Odaberi paket ${p.name}</a>`;
+  const btn = p => `<br><a href="#rezervacija" class="tip-link" data-service="Paket ${p.name}">Odaberi paket ${p.name} →</a>`;
   const up = upsell(st);
   const upTxt = up ? `<br>Za još ${eur(up.extra)} paket ${up.p.name}: ${up.add.slice(0, 3).join(", ").toLowerCase()}${up.add.length > 3 ? " i još " + (up.add.length - 3) : ""}.` : "";
   let html = "";
