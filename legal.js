@@ -81,7 +81,7 @@ window.LEGAL_TEXTS = (function () {
 <h4>1. Cijene i ponuda</h4>
 <ul>
   <li>Sve cijene na stranici iskazane su u eurima i konačne su. Obrt nije u sustavu PDV-a, pa PDV nije obračunat (čl. 90. st. 1. Zakona o PDV-u).</li>
-  <li>Cijene ovise o veličini vozila. Uz svaku cijenu navedena je i bazna cijena (Pravilnik o isticanju bazne cijene proizvoda, NN 132/2026): cijena po kojoj je usluga prvi put ponuđena.</li>
+  <li>Cijene ovise o veličini vozila. Uz svaku cijenu navedena je i bazna cijena (Pravilnik o isticanju bazne cijene proizvoda, NN 132/2026), odnosno cijena na referentni dan 10. rujna 2026.</li>
   <li>Kalkulator na stranici daje okvirnu cijenu. Obvezujuća je pisana ponuda koju šaljemo nakon fotografija ili pregleda vozila.</li>
   <li>Ako se pri predaji vozila u studio utvrdi stanje koje nije bilo vidljivo na fotografijama (npr. jaka zaprljanost, dlake ljubimaca), dodatni rad obavljamo samo uz vašu prethodnu suglasnost.</li>
 </ul>
